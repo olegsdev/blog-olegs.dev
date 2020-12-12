@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://oleg.pw/tags/admin/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/categories/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/linux/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020-09-medium-linux-questions/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/categories/technology/</loc>
+    <lastmod>2020-09-11T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020-09-simple-linux-questions/</loc>
+    <lastmod>2020-09-11T19:48:49-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/about/</loc>
+    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/index/</loc>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/series/"
+                />
+  </url>
+  
+</urlset>

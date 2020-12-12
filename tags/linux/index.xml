@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Clarity</title>
+    <link>https://oleg.pw/tags/linux/</link>
+    <description>Recent content in linux on Clarity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2020–2021, Oleg Sarbaev and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Sep 2020 19:57:43 -0800</lastBuildDate>
+    
+	<atom:link href="https://oleg.pw/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Medium Linux Questions</title>
+      <link>https://oleg.pw/post/2020-09-medium-linux-questions/</link>
+      <pubDate>Fri, 11 Sep 2020 19:57:43 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020-09-medium-linux-questions/</guid>
+      <description>Base on: for Linux System Administrator/DevOps Interview Questions
+What do the following commands do and how would you use them?
+1tee - read from standard input and write to standard output and files 2awk - pattern scanning and processing language (awk &amp;#39;{print $1}&amp;#39; myfile) 3tr - translate or delete characters 4cut - remove sections from each line of files 5tac - concatenate and print files in reverse 6curl - transfer a URL 7wget - The non-interactive network downloader 8watch - execute a program periodically, showing output fullscreen 9head - output the first part of files 10tail - output the last part of files 11less - opposite of more (more - file perusal filter for crt viewing) 12cat - concatenate files and print on the standard output 13touch - change file timestamps 14sar - Collect, report, or save system activity information.</description>
+    </item>
+    
+    <item>
+      <title>Simple Linux Questions</title>
+      <link>https://oleg.pw/post/2020-09-simple-linux-questions/</link>
+      <pubDate>Fri, 11 Sep 2020 19:48:49 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020-09-simple-linux-questions/</guid>
+      <description>Base on: for Linux System Administrator/DevOps Interview Questions
+Simple Linux Questions What is the name and the UID of the administrator user?
+ root
+  UID (user identifier) is a number assigned by Linux to each user on the system. This number is used to identify the user to the system and to determine which system resources the user can access. UIDs are stored in the /etc/passwd file Groups in Linux are defined by GIDs (group IDs)</description>
+    </item>
+    
+  </channel>
+</rss>

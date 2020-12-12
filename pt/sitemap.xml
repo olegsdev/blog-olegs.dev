@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://oleg.pw/pt/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/pt/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/pt/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/pt/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://oleg.pw/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://oleg.pw/pt/tags/"
+                />
+  </url>
+  
+</urlset>

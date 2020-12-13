@@ -6,10 +6,19 @@
     <description>Recent content in linux on Clarity</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020–2021, Oleg Sarbaev and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 11 Sep 2020 19:57:43 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 15:52:25 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Networking Questions</title>
+      <link>https://oleg.pw/post/2020-09-networking-questions/</link>
+      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020-09-networking-questions/</guid>
+      <description>What is localhost and why would ping localhost fail?  1localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware. 2 3ping localhost fail?: 4- not proper configuration lo interface 5- firewall rules  What is the similarity between &amp;quot;ping&amp;quot; &amp;amp; &amp;quot;traceroute&amp;quot; ?</description>
+    </item>
     
     <item>
       <title>Medium Linux Questions</title>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Clarity</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020–2021, Oleg Sarbaev and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 11 Sep 2020 19:57:43 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 15:52:25 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>admin</title>
       <link>https://oleg.pw/tags/admin/</link>
-      <pubDate>Fri, 11 Sep 2020 19:57:43 -0800</pubDate>
+      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/admin/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>linux</title>
       <link>https://oleg.pw/tags/linux/</link>
-      <pubDate>Fri, 11 Sep 2020 19:57:43 -0800</pubDate>
+      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/linux/</guid>
       <description></description>
@@ -32,9 +32,18 @@
     <item>
       <title>linux-questions</title>
       <link>https://oleg.pw/tags/linux-questions/</link>
-      <pubDate>Fri, 11 Sep 2020 19:57:43 -0800</pubDate>
+      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/linux-questions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://oleg.pw/tags/networking/</link>
+      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/networking/</guid>
       <description></description>
     </item>
     

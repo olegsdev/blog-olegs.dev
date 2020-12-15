@@ -156,72 +156,64 @@
 </div>
 
     
-    <ul>
-<li>What is localhost and why would ping localhost fail?</li>
+    <h3 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h3>
+<p><strong>localhost</strong> is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.</p>
+<p>ping localhost fail?:</p>
+<ul>
+<li>not proper configuration lo interface</li>
+<li>firewall rules</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware. 
-<span class="ln">2</span>
-<span class="ln">3</span>ping localhost fail?:
-<span class="ln">4</span>- not proper configuration lo interface
-<span class="ln">5</span>- firewall rules
-</code></pre></div><ul>
-<li>What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</li>
+<h3 id="what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</h3>
+<ul>
+<li>
+<p><strong>ping</strong> - check if the destination server is online and estimates how long it takes to send and receive data to the destination
+traceroute - the exact route you take to reach the server from your computer(ISP) and how long each hop takes.</p>
+</li>
+<li>
+<p><strong>traceroute</strong> works by sending the packets of data with low survival time (TTL) which specifies how many steps (hops) can the packet survive before it is returned. When a packet can’t reach the final destination and expires at an intermediate step, that node returns the packet and identifies itself. So, by increasing the TTL gradually, Traceroute is able to identify the intermediate hosts</p>
+</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span> ping - check if the destination server is online and estimates how long it takes to send and receive data to the destination
-<span class="ln">2</span> traceroute - the exact route you take to reach the server from your computer(ISP) and how long each hop takes.
-<span class="ln">3</span>
-<span class="ln">4</span>Traceroute works by sending the packets of data with low survival time (TTL) which specifies how many steps (hops) can the packet survive before it is returned. When a packet can’t reach the final destination and expires at an intermediate step, that node returns the packet and identifies itself. So, by increasing the TTL gradually, Traceroute is able to identify the intermediate hosts
-</code></pre></div><ul>
-<li>What is the command used to show all open ports and/or socket connections on a machine?</li>
-</ul>
+<h3 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h3>
+<p><a href="https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/">https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>netstat -lntu 
 <span class="ln">2</span>netstat -tulpn | grep LISTEN
 <span class="ln">3</span>ss -tulpn
 <span class="ln">4</span>lsof -i -P -n | grep LISTEN
-<span class="ln">5</span>https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/
-</code></pre></div><ul>
-<li>Is 300.168.0.123 a valid IPv4 address?</li>
+</code></pre></div><h3 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h3>
+<p>No, octet can't be more than 255</p>
+<h3 id="which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</h3>
+<ul>
+<li>10.0.0.0/8 IP addresses: 10.0.0.0 – 10.255.255.255</li>
+<li>172.16.0.0/12 IP addresses: 172.16.0.0 – 172.31.255.255</li>
+<li>192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>No, octet can&#39;t be more than 255
-</code></pre></div><ul>
-<li>Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</li>
+<h3 id="what-is-a-vlan">What is a VLAN?</h3>
+<p>A logical subnetwork that groups a collection of devices from different physical LANs.
+<a href="https://www.lifewire.com/virtual-local-area-network-817357">https://www.lifewire.com/virtual-local-area-network-817357</a></p>
+<h3 id="what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</h3>
+<p>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>  arp -a
+</code></pre></div><h3 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h3>
+<ul>
+<li>TCP is reliable as it guarantees delivery of data to the destination router.(slower)</li>
+<li>The delivery of data to the destination cannot be guaranteed in UDP.(faster)</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>- 10.0.0.0/8 IP addresses: 10.0.0.0 – 10.255.255.255
-<span class="ln">2</span>- 172.16.0.0/12 IP addresses: 172.16.0.0 – 172.31.255.255
-<span class="ln">3</span>- 192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255
-</code></pre></div><ul>
-<li>What is a VLAN?</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>a logical subnetwork that groups a collection of devices from different physical LANs.
-<span class="ln">2</span> https://www.lifewire.com/virtual-local-area-network-817357
-</code></pre></div><ul>
-<li>What is ARP and what is it used for?</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address
-<span class="ln">2</span>    arp -a
-</code></pre></div><ul>
-<li>What is the difference between TCP and UDP?</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>TCP is reliable as it guarantees delivery of data to the destination router.(slower)
-<span class="ln">2</span>The delivery of data to the destination cannot be guaranteed in UDP.(faster)
-</code></pre></div><ul>
-<li>What is the purpose of a default gateway?</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>A default gateway is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.
-</code></pre></div><ul>
-<li>What is command used to show the routing table on a Linux box?</li>
-</ul>
+<h3 id="what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</h3>
+<p>A default gateway is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
+<h3 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>ip route (ip r)
 <span class="ln">2</span>netstat -r
 <span class="ln">3</span>route -n
-</code></pre></div><ul>
-<li>A TCP connection on a network can be uniquely defined by 4 things. What are those things?</li>
+</code></pre></div><h3 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h3>
+<blockquote>
+<ul>
+<li>remote-ip-address</li>
+<li>remote-port</li>
+<li>source-ip-address</li>
+<li>source-port</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>remote-ip-address
-<span class="ln">2</span>remote-port
-<span class="ln">3</span>source-ip-address
-<span class="ln">4</span>source-port
-</code></pre></div><ul>
+</blockquote>
+<ul>
 <li>When a client running a web browser connects to a web server, what is the source port and what is the destination port of the connection?</li>
 <li>How do you add an IPv6 address to a specific interface?</li>
 <li>You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?</li>

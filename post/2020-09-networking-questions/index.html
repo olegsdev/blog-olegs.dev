@@ -156,13 +156,33 @@
 </div>
 
     
-    <h3 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h3>
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</a></li>
+        <li><a href="#what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</a></li>
+        <li><a href="#what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</a></li>
+        <li><a href="#is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</a></li>
+        <li><a href="#which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</a></li>
+        <li><a href="#what-is-a-vlan">What is a VLAN?</a></li>
+        <li><a href="#what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</a></li>
+        <li><a href="#what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</a></li>
+        <li><a href="#what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</a></li>
+        <li><a href="#what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</a></li>
+        <li><a href="#a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <p><strong>Base on:</strong> <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></p>
+<h3 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h3>
 <p><strong>localhost</strong> is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.</p>
 <p>ping localhost fail?:</p>
-<ul>
-<li>not proper configuration lo interface</li>
-<li>firewall rules</li>
-</ul>
+<p>not proper configuration lo interface</p>
+<p>firewall rules</p>
 <h3 id="what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</h3>
 <ul>
 <li>
@@ -179,7 +199,8 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <span class="ln">2</span>netstat -tulpn | grep LISTEN
 <span class="ln">3</span>ss -tulpn
 <span class="ln">4</span>lsof -i -P -n | grep LISTEN
-</code></pre></div><h3 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h3>
+</code></pre></div><br>
+<h3 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h3>
 <p>No, octet can't be more than 255</p>
 <h3 id="which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</h3>
 <ul>
@@ -193,7 +214,8 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <h3 id="what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</h3>
 <p>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>  arp -a
-</code></pre></div><h3 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h3>
+</code></pre></div><br>
+<h3 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h3>
 <ul>
 <li>TCP is reliable as it guarantees delivery of data to the destination router.(slower)</li>
 <li>The delivery of data to the destination cannot be guaranteed in UDP.(faster)</li>

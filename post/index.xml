@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Clarity</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020–2021, Oleg Sarbaev and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 13 Sep 2020 15:52:25 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2020 19:57:43 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Medium Linux Questions</title>
+      <link>https://oleg.pw/post/2020-09-medium-linux-questions/</link>
+      <pubDate>Tue, 15 Sep 2020 19:57:43 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020-09-medium-linux-questions/</guid>
+      <description>Base on: Linux System Administrator/DevOps Interview Questions
+What do the following commands do and how would you use them?   tee - read from standard input and write to standard output and files awk - pattern scanning and processing language tr - translate or delete characters cut - remove sections from each line of files tac - concatenate and print files in reverse curl - transfer a URL wget - The non-interactive network downloader watch - execute a program periodically, showing output fullscreen head - output the first part of files tail - output the last part of files less - opposite of more (more - file perusal filter for crt viewing) cat - concatenate files and print on the standard output touch - change file timestamps sar - Collect, report, or save system activity information.</description>
+    </item>
     
     <item>
       <title>Networking Questions</title>
@@ -17,20 +27,12 @@
       <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/post/2020-09-networking-questions/</guid>
-      <description>What is localhost and why would ping localhost fail? localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.
+      <description>Base on: Linux System Administrator/DevOps Interview Questions
+What is localhost and why would ping localhost fail? localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.
 ping localhost fail?:
- not proper configuration lo interface firewall rules  What is the similarity between &amp;quot;ping&amp;quot; &amp;amp; &amp;quot;traceroute&amp;quot; ?</description>
-    </item>
-    
-    <item>
-      <title>Medium Linux Questions</title>
-      <link>https://oleg.pw/post/2020-09-medium-linux-questions/</link>
-      <pubDate>Fri, 11 Sep 2020 19:57:43 -0800</pubDate>
-      
-      <guid>https://oleg.pw/post/2020-09-medium-linux-questions/</guid>
-      <description>Base on: for Linux System Administrator/DevOps Interview Questions
-What do the following commands do and how would you use them?
-1tee - read from standard input and write to standard output and files 2awk - pattern scanning and processing language (awk &amp;#39;{print $1}&amp;#39; myfile) 3tr - translate or delete characters 4cut - remove sections from each line of files 5tac - concatenate and print files in reverse 6curl - transfer a URL 7wget - The non-interactive network downloader 8watch - execute a program periodically, showing output fullscreen 9head - output the first part of files 10tail - output the last part of files 11less - opposite of more (more - file perusal filter for crt viewing) 12cat - concatenate files and print on the standard output 13touch - change file timestamps 14sar - Collect, report, or save system activity information.</description>
+not proper configuration lo interface
+firewall rules
+What is the similarity between &amp;quot;ping&amp;quot; &amp;amp; &amp;quot;traceroute&amp;quot; ?</description>
     </item>
     
     <item>
@@ -39,10 +41,9 @@ What do the following commands do and how would you use them?
       <pubDate>Fri, 11 Sep 2020 19:48:49 -0800</pubDate>
       
       <guid>https://oleg.pw/post/2020-09-simple-linux-questions/</guid>
-      <description>Base on: for Linux System Administrator/DevOps Interview Questions
-Simple Linux Questions What is the name and the UID of the administrator user?
- root
-  UID (user identifier) is a number assigned by Linux to each user on the system. This number is used to identify the user to the system and to determine which system resources the user can access. UIDs are stored in the /etc/passwd file Groups in Linux are defined by GIDs (group IDs)</description>
+      <description>Base on: Linux System Administrator/DevOps Interview Questions
+What is the name and the UID of the administrator user?  root
+UID (user identifier) is a number assigned by Linux to each user on the system. This number is used to identify the user to the system and to determine which system resources the user can access. UIDs are stored in the /etc/passwd file Groups in Linux are defined by GIDs (group IDs)</description>
     </item>
     
   </channel>

@@ -119,7 +119,7 @@
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Sep 11, 2020</span>
+    Sep 15, 2020</span>
     <a href='https://oleg.pw/tags/linux' class="post_tag button button_translucent">linux
     </a>
     <a href='https://oleg.pw/tags/admin' class="post_tag button button_translucent">admin
@@ -154,41 +154,90 @@
 </div>
 
     
-    <p><strong>Base on:</strong> for <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></p>
-<p><strong>What do the following commands do and how would you use them?</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>tee - read from standard input and write to standard output and files
-<span class="ln"> 2</span>awk - pattern scanning and processing language (awk &#39;{print $1}&#39; myfile)
-<span class="ln"> 3</span>tr - translate or delete characters
-<span class="ln"> 4</span>cut - remove sections from each line of files
-<span class="ln"> 5</span>tac - concatenate and print files in reverse
-<span class="ln"> 6</span>curl - transfer a URL
-<span class="ln"> 7</span>wget - The non-interactive network downloader
-<span class="ln"> 8</span>watch - execute a program periodically, showing output fullscreen
-<span class="ln"> 9</span>head - output the first part of files
-<span class="ln">10</span>tail - output the last part of files
-<span class="ln">11</span>less - opposite of more (more - file perusal filter for crt viewing)
-<span class="ln">12</span>cat - concatenate files and print on the standard output
-<span class="ln">13</span>touch - change file timestamps
-<span class="ln">14</span>sar - Collect, report, or save system activity information.
-<span class="ln">15</span>netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
-<span class="ln">16</span>tcpdump - dump traffic on a network
-<span class="ln">17</span>lsof - list open files
-</code></pre></div><p><strong>What does an <strong>&amp;</strong> after a command do?</strong></p>
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-do-the-following-commands-do-and-how-would-you-use-them">What do the following commands do and how would you use them?</a></li>
+        <li><a href="#what-does-an--after-a-command-do">What does an <strong>&amp;</strong> after a command do?</a></li>
+        <li><a href="#what-does--disown-after-a-command-do">What does <strong>&amp; disown</strong> after a command do?</a></li>
+        <li><a href="#what-is-a-packet-filter-and-how-does-it-work">What is a packet filter and how does it work?</a></li>
+        <li><a href="#what-is-virtual-memory">What is Virtual Memory?</a></li>
+        <li><a href="#what-is-swap-and-what-is-it-used-for">What is swap and what is it used for?</a></li>
+        <li><a href="#what-is-an-a-record-an-ns-record-a-ptr-record-a-cname-record-an-mx-record">What is an A record, an NS record, a PTR record, a CNAME record, an MX record?</a></li>
+        <li><a href="#are-there-any-other-rrs-and-what-are-they-used-for">Are there any other RRs and what are they used for?</a></li>
+        <li><a href="#what-is-a-split-horizon-dns">What is a Split-Horizon DNS?</a></li>
+        <li><a href="#what-is-the-sticky-bit">What is the sticky bit?</a></li>
+        <li><a href="#what-does-the-immutable-bit-do-to-a-file">What does the immutable bit do to a file?</a></li>
+        <li><a href="#what-is-the-difference-between-hardlinks-and-symlinks-what-happens-when-you-remove-the-source-to-a-symlinkhardlink">What is the difference between hardlinks and symlinks? What happens when you remove the source to a symlink/hardlink?</a></li>
+        <li><a href="#what-is-an-inode-and-what-fields-are-stored-in-an-inode">What is an inode and what fields are stored in an inode?</a></li>
+        <li><a href="#how-to-forcetrigger-a-file-system-check-on-next-reboot">How to force/trigger a file system check on next reboot?</a></li>
+        <li><a href="#what-is-snmp-and-what-is-it-used-for">What is SNMP and what is it used for?</a></li>
+        <li><a href="#what-is-a-runlevel-and-how-to-get-the-current-runlevel">What is a runlevel and how to get the current runlevel?</a></li>
+        <li><a href="#what-is-ssh-port-forwarding">What is SSH port forwarding?</a></li>
+        <li><a href="#what-is-the-difference-between-local-and-remote-port-forwarding">What is the difference between local and remote port forwarding?</a></li>
+        <li><a href="#what-are-the-steps-to-add-a-user-to-a-system-without-using-useraddadduser">What are the steps to add a user to a system without using useradd/adduser?</a></li>
+        <li><a href="#what-is-major-and-minor-numbers-of-special-files">What is MAJOR and MINOR numbers of special files?</a></li>
+        <li><a href="#describe-the-mknod-command-and-when-youd-use-it">Describe the mknod command and when you'd use it.</a></li>
+        <li><a href="#describe-a-scenario-when-you-get-a-filesystem-is-full-error-but-df-shows-there-is-free-space">Describe a scenario when you get a &quot;filesystem is full&quot; error, but 'df' shows there is free space.</a></li>
+        <li><a href="#describe-a-scenario-when-deleting-a-file-but-df-not-showing-the-space-being-freed">Describe a scenario when deleting a file, but 'df' not showing the space being freed.</a></li>
+        <li><a href="#describe-how-ps-works">Describe how 'ps' works.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <p><strong>Base on:</strong> <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></p>
+<h3 id="what-do-the-following-commands-do-and-how-would-you-use-them">What do the following commands do and how would you use them?</h3>
+<blockquote>
+<ul>
+<li>tee - read from standard input and write to standard output and files</li>
+<li>awk - pattern scanning and processing language</li>
+<li>tr - translate or delete characters</li>
+<li>cut - remove sections from each line of files</li>
+<li>tac - concatenate and print files in reverse</li>
+<li>curl - transfer a URL</li>
+<li>wget - The non-interactive network downloader</li>
+<li>watch - execute a program periodically, showing output fullscreen</li>
+<li>head - output the first part of files</li>
+<li>tail - output the last part of files</li>
+<li>less - opposite of more (more - file perusal filter for crt viewing)</li>
+<li>cat - concatenate files and print on the standard output</li>
+<li>touch - change file timestamps</li>
+<li>sar - Collect, report, or save system activity information.</li>
+<li>netstat - Print network connections, routing tables, interface statistics, masquerade connections, and  multicast memberships</li>
+<li>tcpdump - dump traffic on a network</li>
+<li>lsof - list open files</li>
+</ul>
+</blockquote>
+<h3 id="what-does-an--after-a-command-do">What does an <strong>&amp;</strong> after a command do?</h3>
+<blockquote>
 <p>With &amp; the process starts in the background, so you can continue to use the shell.</p>
-<p><strong>What does <strong>&amp; disown</strong> after a command do?</strong></p>
-<p>Removes the process from the shell's job control, but it still leaves it connected to the terminal.</p>
-<p><a href="https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and">https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and</a></p>
-<p><strong>What is a packet filter and how does it work?</strong></p>
+</blockquote>
+<h3 id="what-does--disown-after-a-command-do">What does <strong>&amp; disown</strong> after a command do?</h3>
+<blockquote>
+<p>Removes the process from the shell's job control, but it still leaves it connected to the terminal.
+<a href="https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and">https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and</a></p>
+</blockquote>
+<h3 id="what-is-a-packet-filter-and-how-does-it-work">What is a packet filter and how does it work?</h3>
+<blockquote>
 <p>A packet filter is a piece of software which looks at the header of packets as they pass through, and decides the fate of the entire packet. It might decide to DROP the packet (i.e., discard the packet as if it had never received it), ACCEPT the packet (i.e., let the packet go through), or something more complicated.</p>
-<p>Under Linux, packet filtering is built into the kernel (as a kernel module, or built right in), and there are a few trickier things we can do with packets, but the general principle of looking at the headers and deciding the fate of the packet is still there.</p>
-<p><a href="https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO-3.html">https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO-3.html</a></p>
-<p><strong>What is Virtual Memory?</strong></p>
-<p>Virtual memory is a layer of abstraction provided to each process. The computer has, say, 2GB of physical RAM, addressed from 0 to 2G. A process might see an address space of 4GB, which it has entirely to itself. The mapping from virtual addresses to physical addresses is handled by a memory management unit, which is managed by the operating system. Typically this is done in 4KB &quot;pages&quot;.</p>
-<p><a href="https://superuser.com/questions/42854/what-is-virtual-memory">https://superuser.com/questions/42854/what-is-virtual-memory</a></p>
-<p><strong>What is swap and what is it used for?</strong></p>
-<p>Simply put, virtual memory is a combination of RAM and disk space that running processes can use. Swap space is the portion of virtual memory that is on the hard disk, used when RAM is full.</p>
-<p><a href="https://stackoverflow.com/questions/4970421/whats-the-difference-between-virtual-memory-and-swap-space">https://stackoverflow.com/questions/4970421/whats-the-difference-between-virtual-memory-and-swap-space</a></p>
-<p><strong>What is an A record, an NS record, a PTR record, a CNAME record, an MX record?</strong></p>
+<p>Under Linux, packet filtering is built into the kernel (as a kernel module, or built right in), and there are a few trickier things we can do with packets, but the general principle of looking at the headers and deciding the fate of the packet is still there.
+<a href="https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO-3.html">https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO-3.html</a></p>
+</blockquote>
+<h3 id="what-is-virtual-memory">What is Virtual Memory?</h3>
+<blockquote>
+<p>Virtual memory is a layer of abstraction provided to each process. The computer has, say, 2GB of physical RAM, addressed from 0 to 2G. A process might see an address space of 4GB, which it has entirely to itself. The mapping from virtual addresses to physical addresses is handled by a memory management unit, which is managed by the operating system. Typically this is done in 4KB &quot;pages&quot;.
+<a href="https://superuser.com/questions/42854/what-is-virtual-memory">https://superuser.com/questions/42854/what-is-virtual-memory</a></p>
+</blockquote>
+<h3 id="what-is-swap-and-what-is-it-used-for">What is swap and what is it used for?</h3>
+<blockquote>
+<p>Simply put, virtual memory is a combination of RAM and disk space that running processes can use. Swap space is the portion of virtual memory that is on the hard disk, used when RAM is full.
+<a href="https://stackoverflow.com/questions/4970421/whats-the-difference-between-virtual-memory-and-swap-space">https://stackoverflow.com/questions/4970421/whats-the-difference-between-virtual-memory-and-swap-space</a></p>
+</blockquote>
+<h3 id="what-is-an-a-record-an-ns-record-a-ptr-record-a-cname-record-an-mx-record">What is an A record, an NS record, a PTR record, a CNAME record, an MX record?</h3>
+<blockquote>
 <ul>
 <li>Address Mapping record (<strong>A Record</strong>)—also known as a DNS host record, stores a hostname and its corresponding IPv4 address.</li>
 <li>Name Server records (<strong>NS Record</strong>)—specifies that a DNS Zone, such as “example.com” is delegated to a specific Authoritative Name Server, and provides the address of the name server.</li>
@@ -196,7 +245,9 @@
 <li>Canonical Name record (<strong>CNAME Record</strong>)—can be used to alias a hostname to another hostname. When a DNS client requests a record that contains a CNAME, which points to another hostname, the DNS resolution process is repeated with the new hostname.</li>
 <li>Mail exchanger record (<strong>MX Record</strong>)—specifies an SMTP email server for the domain, used to route outgoing emails to an email server.</li>
 </ul>
-<p><strong>Are there any other RRs and what are they used for?</strong></p>
+</blockquote>
+<h3 id="are-there-any-other-rrs-and-what-are-they-used-for">Are there any other RRs and what are they used for?</h3>
+<blockquote>
 <ul>
 <li>IP Version 6 Address record (<strong>AAAA Record</strong>)—stores a hostname and its corresponding IPv6 address.</li>
 <li>Text Record (<strong>TXT Record</strong>)—typically carries machine-readable data such as opportunistic encryption, sender policy framework, DKIM, DMARC, etc.</li>
@@ -205,13 +256,19 @@
 <li><strong>SRV record</strong> - the ‘service’ record specifies a host and port for specific services such as Voice Over IP (VOIP), instant messaging, etc.</li>
 <li>etc...</li>
 </ul>
-<p><strong>What is a Split-Horizon DNS?</strong></p>
-<p>When two zones for the same domain are created, one to be used by the internal network, the other used by the external network (Internet).</p>
-<p>p.s. In the field of Networking, (Split Horizon) is used for a method that prevents the forming of loops in routing advertisement.</p>
-<p><strong>What is the sticky bit?</strong></p>
+</blockquote>
+<h3 id="what-is-a-split-horizon-dns">What is a Split-Horizon DNS?</h3>
+<blockquote>
+<p>When two zones for the same domain are created, one to be used by the internal network, the other used by the external network (Internet).
+p.s. In the field of Networking, (Split Horizon) is used for a method that prevents the forming of loops in routing advertisement.</p>
+</blockquote>
+<h3 id="what-is-the-sticky-bit">What is the sticky bit?</h3>
+<blockquote>
 <p>The sticky bit is a user ownership access right flag that can be assigned to files and directories on Unix-like systems</p>
 <p>When a directory's sticky bit is set, the filesystem treats the files in such directories in a special way so only the file's owner, the directory's owner, or root user can rename or delete the file. Without the sticky bit set, any user with write and execute permissions for the directory can rename or delete contained files, regardless of the file's owner. Typically this is set on the /tmp directory to prevent ordinary users from deleting or moving other users' files.</p>
-<p><strong>What does the immutable bit do to a file?</strong></p>
+</blockquote>
+<h3 id="what-does-the-immutable-bit-do-to-a-file">What does the immutable bit do to a file?</h3>
+<blockquote>
 <p>make a file immutable, a file can not be:</p>
 <ul>
 <li>Modified</li>
@@ -219,16 +276,20 @@
 <li>Renamed</li>
 <li>No soft or hard link created by anyone including root user.</li>
 </ul>
-<p>Only the root or a process possessing the CAP_LINUX_IMMUTABLE capability can set or clear this attribute. Use the lsattr command to list file attributes.
-chattr +i file</p>
-<p><strong>What is the difference between hardlinks and symlinks? What happens when you remove the source to a symlink/hardlink?</strong></p>
+<p>Only the root or a process possessing the <em><strong>CAP_LINUX_IMMUTABLE</strong></em> capability can set or clear this attribute. Use the <strong>lsattr</strong> command to list file attributes.</p>
+<p><em><strong>chattr +i file</strong></em></p>
+</blockquote>
+<h3 id="what-is-the-difference-between-hardlinks-and-symlinks-what-happens-when-you-remove-the-source-to-a-symlinkhardlink">What is the difference between hardlinks and symlinks? What happens when you remove the source to a symlink/hardlink?</h3>
+<blockquote>
 <p>A file in the file system is basically a link to an inode. A hard link, then, just creates another file with a link to the same underlying inode.</p>
 <p>When you delete a file, it removes one link to the underlying inode.  The inode is only deleted (or deletable/over-writable) when all links to  the inode have been deleted.</p>
 <p>A symbolic link is a link to another name in the file system.</p>
 <p>Once a hard link has been made the link is to the inode. Deleting,  renaming, or moving the original file will not affect the hard link as  it links to the underlying inode. Any changes to the data on the inode  is reflected in all files that refer to that inode.</p>
 <p>Note: Hard links are only valid within the same File System. Symbolic  links can span file systems as they are simply the name of another  file.</p>
 <p><a href="https://stackoverflow.com/questions/185899/what-is-the-difference-between-a-symbolic-link-and-a-hard-link">https://stackoverflow.com/questions/185899/what-is-the-difference-between-a-symbolic-link-and-a-hard-link</a></p>
-<p><strong>What is an inode and what fields are stored in an inode?</strong></p>
+</blockquote>
+<h3 id="what-is-an-inode-and-what-fields-are-stored-in-an-inode">What is an inode and what fields are stored in an inode?</h3>
+<blockquote>
 <p>A Unix file is &quot;stored&quot; in two different parts of the disk - the data blocks and the inodes. (I won't get into superblocks and other esoteric information.) The data blocks contain the &quot;contents&quot; of the file. The information about the file is stored elsewhere - in the inode. Both the inodes and data blocks are stored in a &quot;filesystem&quot; which is how a disk partition is organized. The inode contains the following pieces of information</p>
 <ul>
 <li>Mode/permission (protection)</li>
@@ -241,13 +302,17 @@ chattr +i file</p>
 <li>Time inode last modified</li>
 </ul>
 <p><a href="https://www.grymoire.com/Unix/Inodes.html">https://www.grymoire.com/Unix/Inodes.html</a></p>
-<p><strong>How to force/trigger a file system check on next reboot?</strong></p>
+</blockquote>
+<h3 id="how-to-forcetrigger-a-file-system-check-on-next-reboot">How to force/trigger a file system check on next reboot?</h3>
+<blockquote>
 <ul>
-<li>sysVinit: touch /forcefsck  or shutdown -rF (deprecated)</li>
-<li>systemd-fsck:  Kernel Command: fsck.mode= [ &quot;auto&quot;, &quot;force&quot;, &quot;skip&quot;]  or fsck.repair= [&quot;preen&quot;, &quot;yes&quot;, &quot;no&quot;]</li>
-<li>tune2fs -c 1 /dev/sda - (file system check will run after each reboot before the loading the OS)</li>
+<li><strong>sysVinit</strong>: touch /forcefsck  or shutdown -rF (deprecated)</li>
+<li><strong>systemd-fsck</strong>:  Kernel Command: fsck.mode= [ &quot;auto&quot;, &quot;force&quot;, &quot;skip&quot;]  or fsck.repair= [&quot;preen&quot;, &quot;yes&quot;, &quot;no&quot;]</li>
+<li><strong>tune2fs</strong>: tune2fs -c 1 /dev/sda - (file system check will run after each reboot before the loading the OS)</li>
 </ul>
-<p><strong>What is SNMP and what is it used for?</strong></p>
+</blockquote>
+<h3 id="what-is-snmp-and-what-is-it-used-for">What is SNMP and what is it used for?</h3>
+<blockquote>
 <p>SNMP stands for Simple Network Management Protocol.  It is a standard way of monitoring hardware and software from nearly any manufacturer, from Juniper, to Cisco, to Microsoft, Unix, and everything in between. SNMP requires only a couple of basic components to work: a management station, and an agent.</p>
 <p>SNMP is very simple, yet powerful.  It has the ability to help you manage your network by:</p>
 <ul>
@@ -260,7 +325,9 @@ chattr +i file</p>
 <li>Can perform active polling, i.e. Monitoring station asks devices for status every few minutes.</li>
 <li>Passive SNMP – devices can send alerts to a monitoring station on error conditions.</li>
 </ul>
-<p><strong>What is a runlevel and how to get the current runlevel?</strong></p>
+</blockquote>
+<h3 id="what-is-a-runlevel-and-how-to-get-the-current-runlevel">What is a runlevel and how to get the current runlevel?</h3>
+<blockquote>
 <p>A runlevel is a preset operating state on a sysVinit-like operating system. A system can be booted into any of several runlevels. Each runlevel designates a different system configuration and allows access to a different combination of processes</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>    0 – System halt i.e the system can be safely powered off with no activity.
 <span class="ln">2</span>    1 – Single user mode.
@@ -269,12 +336,16 @@ chattr +i file</p>
 <span class="ln">5</span>    4 – User-definable.
 <span class="ln">6</span>    5 – Multiple user mode under GUI (graphical user interface) 
 <span class="ln">7</span>    6 – Reboot which is used to restart the system.
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>runlevel - Print previous and current SysV runlevel
-</code></pre></div><p><strong>What is SSH port forwarding?</strong></p>
+</code></pre></div><p>command: <strong>runlevel</strong> - Print previous and current SysV runlevel</p>
+</blockquote>
+<h3 id="what-is-ssh-port-forwarding">What is SSH port forwarding?</h3>
+<blockquote>
 <p><code>ssh -L 80:intra.example.com:80 gw.example.com</code></p>
 <p>SSH port forwarding is a mechanism in SSH for tunneling application ports from the client machine to the server machine, or vice versa. It can be used for adding encryption to legacy applications, going through firewalls, and some system administrators and IT professionals use it for opening backdoors into the internal network from their home machines. It can also be abused by hackers and malware to open access from the Internet to the internal network.
 <a href="https://www.ssh.com/ssh/tunneling/example">https://www.ssh.com/ssh/tunneling/example</a></p>
-<p><strong>What is the difference between local and remote port forwarding?</strong></p>
+</blockquote>
+<h3 id="what-is-the-difference-between-local-and-remote-port-forwarding">What is the difference between local and remote port forwarding?</h3>
+<blockquote>
 <p>Local forwarding is used to forward a port from the client machine to the server machine. Basically, the SSH client listens for connections on a configured port, and when it receives a connection, it tunnels the connection to an SSH server. The server connects to a configurated destination port, possibly on a different machine than the SSH server.</p>
 <p>Typical uses for local port forwarding include:</p>
 <ul>
@@ -286,7 +357,9 @@ chattr +i file</p>
 <p><code>ssh -R 8080:localhost:80 public.example.com</code></p>
 <p>This allows anyone on the remote server to connect to TCP port 8080 on the remote server. The connection will then be tunneled back to the client host, and the client then makes a TCP connection to port 80 on localhost. Any other host name or IP address could be used instead of localhost to specify the host to connect to.</p>
 <p>This particular example would be useful for giving someone on the outside access to an internal web server.</p>
-<p><strong>What are the steps to add a user to a system without using useradd/adduser?</strong></p>
+</blockquote>
+<h3 id="what-are-the-steps-to-add-a-user-to-a-system-without-using-useraddadduser">What are the steps to add a user to a system without using useradd/adduser?</h3>
+<blockquote>
 <ul>
 <li>Edit /etc/passwd with vipw and add a new line for the new account.</li>
 <li>edit /etc/group with vigr</li>
@@ -296,25 +369,40 @@ chattr +i file</p>
 <li>Set the password with passwd .</li>
 </ul>
 <p><a href="https://unix.stackexchange.com/questions/153225/what-steps-to-add-a-user-to-a-system-without-using-useradd-adduser">https://unix.stackexchange.com/questions/153225/what-steps-to-add-a-user-to-a-system-without-using-useradd-adduser</a></p>
-<p><strong>What is MAJOR and MINOR numbers of special files?</strong></p>
+</blockquote>
+<h3 id="what-is-major-and-minor-numbers-of-special-files">What is MAJOR and MINOR numbers of special files?</h3>
+<blockquote>
 <p>The Linux kernel represents character and block devices as pairs of numbers <strong>major:minor</strong></p>
 <p>Some major numbers are reserved for particular device drivers. Other major numbers are dynamically assigned to a device driver when Linux boots. For example, major number 94 is always the major number for DASD devices while the device driver for channel-attached tape devices has no fixed major number. A major number can also be shared by multiple device drivers. See /proc/devices to find out how major numbers are assigned on a running Linux instance.</p>
 <p>The device driver uses the minor number <minor> to distinguish individual physical or logical devices. For example, the DASD device driver assigns four minor numbers to each DASD: one to the DASD as a whole and the other three for up to three partitions.</p>
 <p>Device drivers assign device names to their devices, according to a device driver-specific naming scheme. Each device name is associated with a minor number.</p>
 <p><a href="https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lgdd/lgdd_c_udev.html">https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lgdd/lgdd_c_udev.html</a></p>
-<p><strong>Describe the mknod command and when you'd use it.</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>mknod - make block or character special files, Create the special file NAME of the given TYPE.
-<span class="ln">2</span>https://unix.stackexchange.com/questions/10723/what-is-the-mknod-command-used-for
-</code></pre></div><p><strong>Describe a scenario when you get a &quot;filesystem is full&quot; error, but 'df' shows there is free space.</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>- may be out of i-nodes (df -i)
-<span class="ln">2</span>- may be space taken up by files that have been deleted, but are still open (lsof -nP | grep &#39;(deleted)&#39;)
-</code></pre></div><p><strong>Describe a scenario when deleting a file, but 'df' not showing the space being freed.</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>file still open
-<span class="ln">2</span>lsof /tmp | grep deleted | sort -n -k7 -r
-<span class="ln">3</span>lsof -nP | grep &#39;(deleted)&#39;
-</code></pre></div><p><strong>Describe how 'ps' works.</strong></p>
-<p>ps command works by reading files in the proc filesystem. The directory /proc/PID contains various files that provide information about process PID. The content of these files is generated on the fly by the kernel when a process reads them.</p>
+</blockquote>
+<h3 id="describe-the-mknod-command-and-when-youd-use-it">Describe the mknod command and when you'd use it.</h3>
+<blockquote>
+<p>mknod - make block or character special files, Create the special file NAME of the given TYPE.
+<a href="https://unix.stackexchange.com/questions/10723/what-is-the-mknod-command-used-for">https://unix.stackexchange.com/questions/10723/what-is-the-mknod-command-used-for</a></p>
+</blockquote>
+<h3 id="describe-a-scenario-when-you-get-a-filesystem-is-full-error-but-df-shows-there-is-free-space">Describe a scenario when you get a &quot;filesystem is full&quot; error, but 'df' shows there is free space.</h3>
+<blockquote>
+<ul>
+<li>may be out of i-nodes (df -i)</li>
+<li>may be space taken up by files that have been deleted, but are still open (lsof -nP | grep '(deleted)')</li>
+</ul>
+</blockquote>
+<h3 id="describe-a-scenario-when-deleting-a-file-but-df-not-showing-the-space-being-freed">Describe a scenario when deleting a file, but 'df' not showing the space being freed.</h3>
+<blockquote>
+<p>files still open:</p>
+<ul>
+<li>lsof /tmp | grep deleted | sort -n -k7 -r</li>
+<li>lsof -nP | grep '(deleted)'</li>
+</ul>
+</blockquote>
+<h3 id="describe-how-ps-works">Describe how 'ps' works.</h3>
+<blockquote>
+<p><strong>ps</strong> command works by reading files in the proc filesystem. The directory /proc/PID contains various files that provide information about process PID. The content of these files is generated on the fly by the kernel when a process reads them.</p>
 <p><a href="https://unix.stackexchange.com/questions/262177/how-does-the-ps-command-work">https://unix.stackexchange.com/questions/262177/how-does-the-ps-command-work</a></p>
+</blockquote>
 
     
       

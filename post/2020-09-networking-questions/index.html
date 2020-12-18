@@ -49,7 +49,7 @@
 <header class="nav_header" >
   <nav class="nav">
     <a href='https://oleg.pw/' class="nav_brand nav_item">
-      <img src="https://oleg.pw/logos/logo.png" class="logo">
+      <img src="https://oleg.pw/logos/logo2.png" class="logo">
       <div class="nav_close">
         <div>
           <svg class="icon">
@@ -160,30 +160,29 @@
     <h2>Overview</h2>
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</a></li>
-        <li><a href="#what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</a></li>
-        <li><a href="#what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</a></li>
-        <li><a href="#is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</a></li>
-        <li><a href="#which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</a></li>
-        <li><a href="#what-is-a-vlan">What is a VLAN?</a></li>
-        <li><a href="#what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</a></li>
-        <li><a href="#what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</a></li>
-        <li><a href="#what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</a></li>
-        <li><a href="#what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</a></li>
-        <li><a href="#a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</a></li>
+    <li><a href="#what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</a></li>
+    <li><a href="#what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</a></li>
+    <li><a href="#is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</a></li>
+    <li><a href="#which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</a></li>
+    <li><a href="#what-is-a-vlan">What is a VLAN?</a></li>
+    <li><a href="#what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</a></li>
+    <li><a href="#what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</a></li>
+    <li><a href="#what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</a></li>
+    <li><a href="#what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</a></li>
+    <li><a href="#a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</a></li>
   </ul>
 </nav>
-    <p><strong>Base on:</strong> <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></p>
-<h3 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h3>
+    <blockquote>
+<p><strong>Base on: <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></strong></p>
+<p>This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.</p>
+</blockquote>
+<h2 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h2>
 <p><strong>localhost</strong> is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.</p>
-<p>ping localhost fail?:</p>
-<p>not proper configuration lo interface</p>
-<p>firewall rules</p>
-<h3 id="what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</h3>
+<p>ping localhost fail?:<br>
+not proper configuration lo interface<br>
+firewall rules</p>
+<h2 id="what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</h2>
 <ul>
 <li>
 <p><strong>ping</strong> - check if the destination server is online and estimates how long it takes to send and receive data to the destination
@@ -193,40 +192,40 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <p><strong>traceroute</strong> works by sending the packets of data with low survival time (TTL) which specifies how many steps (hops) can the packet survive before it is returned. When a packet can’t reach the final destination and expires at an intermediate step, that node returns the packet and identifies itself. So, by increasing the TTL gradually, Traceroute is able to identify the intermediate hosts</p>
 </li>
 </ul>
-<h3 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h3>
+<h2 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h2>
 <p><a href="https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/">https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>netstat -lntu 
 <span class="ln">2</span>netstat -tulpn | grep LISTEN
 <span class="ln">3</span>ss -tulpn
 <span class="ln">4</span>lsof -i -P -n | grep LISTEN
 </code></pre></div><br>
-<h3 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h3>
+<h2 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h2>
 <p>No, octet can't be more than 255</p>
-<h3 id="which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</h3>
+<h2 id="which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</h2>
 <ul>
 <li>10.0.0.0/8 IP addresses: 10.0.0.0 – 10.255.255.255</li>
 <li>172.16.0.0/12 IP addresses: 172.16.0.0 – 172.31.255.255</li>
 <li>192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255</li>
 </ul>
-<h3 id="what-is-a-vlan">What is a VLAN?</h3>
+<h2 id="what-is-a-vlan">What is a VLAN?</h2>
 <p>A logical subnetwork that groups a collection of devices from different physical LANs.
 <a href="https://www.lifewire.com/virtual-local-area-network-817357">https://www.lifewire.com/virtual-local-area-network-817357</a></p>
-<h3 id="what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</h3>
+<h2 id="what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</h2>
 <p>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>  arp -a
 </code></pre></div><br>
-<h3 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h3>
+<h2 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h2>
 <ul>
 <li>TCP is reliable as it guarantees delivery of data to the destination router.(slower)</li>
 <li>The delivery of data to the destination cannot be guaranteed in UDP.(faster)</li>
 </ul>
-<h3 id="what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</h3>
+<h2 id="what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</h2>
 <p>A default gateway is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
-<h3 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h3>
+<h2 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h2>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>ip route (ip r)
 <span class="ln">2</span>netstat -r
 <span class="ln">3</span>route -n
-</code></pre></div><h3 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h3>
+</code></pre></div><h2 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h2>
 <blockquote>
 <ul>
 <li>remote-ip-address</li>
@@ -253,9 +252,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
   </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
-    <h2>Oleg S.</h2>
+    <h2>Oleg Sarbaev</h2>
     <div>
-      Linux, System Administration, Web development, DevOps.
+      Personal blog about Linux, System Administration, Web development, DevOps.
     </div>
     <a href='https://oleg.pw/about/' class="button mt-1" role="button">Read More</a>
     <h2 class="mt-4">Featured Posts</h2>

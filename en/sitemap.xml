@@ -4,12 +4,12 @@
   
   <url>
     <loc>https://oleg.pw/tags/admin/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://oleg.pw/categories/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -24,27 +24,32 @@
   
   <url>
     <loc>https://oleg.pw/tags/linux/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://oleg.pw/tags/linux-questions/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2020-09-medium-linux-questions/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <loc>https://oleg.pw/tags/mysql/</loc>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020-09-mysql-questions/</loc>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://oleg.pw/post/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://oleg.pw/tags/</loc>
-    <lastmod>2020-09-15T19:57:43-08:00</lastmod>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -59,6 +64,11 @@
   
   <url>
     <loc>https://oleg.pw/categories/technology/</loc>
+    <lastmod>2020-09-19T15:24:18-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020-09-medium-linux-questions/</loc>
     <lastmod>2020-09-15T19:57:43-08:00</lastmod>
   </url>
   

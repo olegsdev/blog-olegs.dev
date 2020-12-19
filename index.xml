@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Mysql Questions</title>
+      <link>https://oleg.pw/post/2020-09-mysql-questions/</link>
+      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020-09-mysql-questions/</guid>
+      <description>Base on: Linux System Administrator/DevOps Interview Questions
+This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
+ How do you create a user? 1CREATE USER &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; How do you provide privileges to a user? 1GRANT ALL PRIVILEGES ON db_name.* to &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39;; What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join? The LEFT JOIN allows you to query data from two or more tables.</description>
+    </item>
+    
+    <item>
       <title>Medium Linux Questions</title>
       <link>https://oleg.pw/post/2020-09-medium-linux-questions/</link>
       <pubDate>Tue, 15 Sep 2020 19:57:43 -0800</pubDate>

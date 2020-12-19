@@ -178,17 +178,25 @@
     <li><a href="#what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</a></li>
     <li><a href="#what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</a></li>
     <li><a href="#a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</a></li>
+    <li><a href="#when-a-client-running-a-web-browser-connects-to-a-web-server-what-is-the-source-port-and-what-is-the-destination-port-of-the-connection">When a client running a web browser connects to a web server, what is the source port and what is the destination port of the connection?</a></li>
+    <li><a href="#how-do-you-add-an-ipv6-address-to-a-specific-interface">How do you add an IPv6 address to a specific interface?</a></li>
+    <li><a href="#sendmsg-operation-not-permitted-what-could-be-wrong">sendmsg: operation not permitted. what could be wrong?</a></li>
+    <li><a href="#what-is-snat-and-when-should-it-be-used">What is SNAT and when should it be used?</a></li>
+    <li><a href="#explain-how-could-you-ssh-login-into-a-linux-system-that-drops-all-new-incoming-packets-using-a-ssh-tunnel">Explain how could you ssh login into a Linux system that DROPs all new incoming packets using a SSH tunnel.</a></li>
+    <li><a href="#how-do-you-stop-a-ddos-attack">How do you stop a DDoS attack?</a></li>
+    <li><a href="#how-can-you-see-content-of-an-ip-packet">How can you see content of an ip packet?</a></li>
+    <li><a href="#what-is-ipoac-rfc-1149">What is IPoAC (RFC 1149)?</a></li>
+    <li><a href="#what-will-happen-when-you-bind-port-0">What will happen when you bind port 0?</a></li>
   </ul>
 </nav>
     <blockquote>
-<p><strong>Base on: <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></strong></p>
-<p>This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.</p>
+<p><strong>Base on: <a href="https://github.com/chassing/linux-sysadmin-interview-questions">Linux System Administrator/DevOps Interview Questions</a></strong><br>
+This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.</p>
 </blockquote>
 <h2 id="what-is-localhost-and-why-would-ping-localhost-fail">What is localhost and why would ping localhost fail?</h2>
 <p><strong>localhost</strong> is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.</p>
-<p>ping localhost fail?:<br>
-not proper configuration lo interface<br>
-firewall rules</p>
+<p><strong>ping localhost fail?</strong>:<br>
+not proper configuration lo interface, or  firewall rules</p>
 <h2 id="what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops">What is the similarity between &quot;ping&quot; &amp; &quot;traceroute&quot; ? How is traceroute able to find the hops.</h2>
 <ul>
 <li>
@@ -200,13 +208,12 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 </li>
 </ul>
 <h2 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h2>
-<p><a href="https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/">https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>netstat -lntu 
 <span class="ln">2</span>netstat -tulpn | grep LISTEN
 <span class="ln">3</span>ss -tulpn
 <span class="ln">4</span>lsof -i -P -n | grep LISTEN
-</code></pre></div><br>
-<h2 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h2>
+<span class="ln">5</span>https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/
+</code></pre></div><h2 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h2>
 <p>No, octet can't be more than 255</p>
 <h2 id="which-ip-rangessubnets-are-private-or-non-routable-rfc-1918">Which IP ranges/subnets are &quot;private&quot; or &quot;non-routable&quot; (RFC 1918)?</h2>
 <ul>
@@ -215,43 +222,69 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <li>192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255</li>
 </ul>
 <h2 id="what-is-a-vlan">What is a VLAN?</h2>
-<p>A logical subnetwork that groups a collection of devices from different physical LANs.
+<p>A logical subnetwork that groups a collection of devices from different physical LANs.<br>
 <a href="https://www.lifewire.com/virtual-local-area-network-817357">https://www.lifewire.com/virtual-local-area-network-817357</a></p>
 <h2 id="what-is-arp-and-what-is-it-used-for">What is ARP and what is it used for?</h2>
-<p>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>  arp -a
-</code></pre></div><br>
+<p>ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address.<br>
+<code> arp -a</code> 	# print the current content of the ARP  table</p>
 <h2 id="what-is-the-difference-between-tcp-and-udp">What is the difference between TCP and UDP?</h2>
 <ul>
 <li>TCP is reliable as it guarantees delivery of data to the destination router.(slower)</li>
 <li>The delivery of data to the destination cannot be guaranteed in UDP.(faster)</li>
 </ul>
 <h2 id="what-is-the-purpose-of-a-default-gateway">What is the purpose of a default gateway?</h2>
-<p>A default gateway is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
+<p>A <strong>default gateway</strong> is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
 <h2 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h2>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>ip route (ip r)
 <span class="ln">2</span>netstat -r
 <span class="ln">3</span>route -n
 </code></pre></div><h2 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h2>
-<blockquote>
 <ul>
 <li>remote-ip-address</li>
 <li>remote-port</li>
 <li>source-ip-address</li>
 <li>source-port</li>
 </ul>
-</blockquote>
+<h2 id="when-a-client-running-a-web-browser-connects-to-a-web-server-what-is-the-source-port-and-what-is-the-destination-port-of-the-connection">When a client running a web browser connects to a web server, what is the source port and what is the destination port of the connection?</h2>
 <ul>
-<li>When a client running a web browser connects to a web server, what is the source port and what is the destination port of the connection?</li>
-<li>How do you add an IPv6 address to a specific interface?</li>
-<li>You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?</li>
-<li>What is SNAT and when should it be used?</li>
-<li>Explain how could you ssh login into a Linux system that DROPs all new incoming packets using a SSH tunnel.</li>
-<li>How do you stop a DDoS attack?</li>
-<li>How can you see content of an ip packet?</li>
-<li>What is IPoAC (RFC 1149)?</li>
-<li>What will happen when you bind port 0?</li>
+<li>source port - depends on browser</li>
+<li>destination port 80 or 443<br>
+<a href="https://stackoverflow.com/a/2957847">https://stackoverflow.com/a/2957847</a></li>
 </ul>
+<h2 id="how-do-you-add-an-ipv6-address-to-a-specific-interface">How do you add an IPv6 address to a specific interface?</h2>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>Same commands as for ipv4:
+<span class="ln">2</span>ip -6 addr add &lt;ipv6address&gt;/&lt;prefixlength&gt; dev &lt;interface&gt;
+<span class="ln">3</span>ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+<span class="ln">4</span>ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+</code></pre></div><h2 id="sendmsg-operation-not-permitted-what-could-be-wrong">sendmsg: operation not permitted. what could be wrong?</h2>
+<p><strong>You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?</strong></p>
+<blockquote>
+<p>firewall blocks traffic ipv6</p>
+</blockquote>
+<h2 id="what-is-snat-and-when-should-it-be-used">What is SNAT and when should it be used?</h2>
+<p><strong>SNAT</strong> changes the private IP address of the source host to public IP address. It may also change the source port in the TCP/UDP headers. SNAT is typically used by internal users to access the Internet.<br>
+<a href="https://unix.stackexchange.com/a/21968">https://unix.stackexchange.com/a/21968</a><br>
+<a href="https://ipwithease.com/snat-vs-dnat/">https://ipwithease.com/snat-vs-dnat/</a><br>
+<a href="https://worldtechit.com/what-is-snat-in-f5-load-balancing-snat-vs-inline-what-is-nat/">https://worldtechit.com/what-is-snat-in-f5-load-balancing-snat-vs-inline-what-is-nat/</a></p>
+<h2 id="explain-how-could-you-ssh-login-into-a-linux-system-that-drops-all-new-incoming-packets-using-a-ssh-tunnel">Explain how could you ssh login into a Linux system that DROPs all new incoming packets using a SSH tunnel.</h2>
+<blockquote>
+<p>Reverse SSH* (not sure...)</p>
+</blockquote>
+<h2 id="how-do-you-stop-a-ddos-attack">How do you stop a DDoS attack?</h2>
+<p>In Linux context we can use fail2ban, firewall, check multiple connections &amp; http headers and other.
+<a href="https://linoxide.com/firewall/how-to-ddos-in-linux/">https://linoxide.com/firewall/how-to-ddos-in-linux/</a></p>
+<h2 id="how-can-you-see-content-of-an-ip-packet">How can you see content of an ip packet?</h2>
+<ul>
+<li>tcpdump  <a href="https://danielmiessler.com/study/tcpdump/">https://danielmiessler.com/study/tcpdump/</a></li>
+<li>wireshark</li>
+</ul>
+<h2 id="what-is-ipoac-rfc-1149">What is IPoAC (RFC 1149)?</h2>
+<p>It's a joke RFC<br>
+<a href="https://en.wikipedia.org/wiki/IP_over_Avian_Carriers">https://en.wikipedia.org/wiki/IP_over_Avian_Carriers</a></p>
+<h2 id="what-will-happen-when-you-bind-port-0">What will happen when you bind port 0?</h2>
+<p>bind TCP on port 0 indicates a request to dynamically generate an unused port number<br>
+(zero - means select any available local port)<br>
+<a href="https://unix.stackexchange.com/a/180500">https://unix.stackexchange.com/a/180500</a></p>
 
     
       
@@ -267,6 +300,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     <h2 class="mt-4">Featured Posts</h2>
     <ul>
       <li>
+        <a href="https://oleg.pw/post/2020-09-mysql-questions/" class="nav-link">Mysql Questions</a>
+      </li>
+      <li>
         <a href="https://oleg.pw/post/2020-09-medium-linux-questions/" class="nav-link">Medium Linux Questions</a>
       </li>
       <li>
@@ -275,6 +311,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     </ul>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://oleg.pw/post/2020-09-mysql-questions/" class="nav-link">Mysql Questions</a>
+      </li>
       <li>
         <a href="https://oleg.pw/post/2020-09-medium-linux-questions/" class="nav-link">Medium Linux Questions</a>
       </li>
@@ -287,7 +326,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
       <nav class="tags_nav">
         <a href='https://oleg.pw/categories/technology/' class="post_tag button button_translucent">
           TECHNOLOGY
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         
@@ -298,21 +337,26 @@ traceroute - the exact route you take to reach the server from your computer(ISP
       <nav class="tags_nav">
         <a href='https://oleg.pw/tags/admin/' class="post_tag button button_translucent">
           ADMIN
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://oleg.pw/tags/linux/' class="post_tag button button_translucent">
           LINUX
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://oleg.pw/tags/linux-questions/' class="post_tag button button_translucent">
           LINUX-QUESTIONS
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://oleg.pw/tags/index/' class="post_tag button button_translucent">
           INDEX
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://oleg.pw/tags/mysql/' class="post_tag button button_translucent">
+          MYSQL
           <span class="button_tally">1</span>
         </a>
         

@@ -6,24 +6,15 @@
     <description>Recent content in Tags on Oleg Sarbaev</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020–2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Sep 2020 15:24:18 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>admin</title>
-      <link>https://oleg.pw/tags/admin/</link>
-      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
-      
-      <guid>https://oleg.pw/tags/admin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>linux</title>
       <link>https://oleg.pw/tags/linux/</link>
-      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
+      <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/linux/</guid>
       <description></description>
@@ -32,36 +23,36 @@
     <item>
       <title>linux-questions</title>
       <link>https://oleg.pw/tags/linux-questions/</link>
-      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
+      <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/linux-questions/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>mysql</title>
-      <link>https://oleg.pw/tags/mysql/</link>
-      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
-      
-      <guid>https://oleg.pw/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>networking</title>
       <link>https://oleg.pw/tags/networking/</link>
-      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
+      <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/networking/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>index</title>
-      <link>https://oleg.pw/tags/index/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>sysadmin</title>
+      <link>https://oleg.pw/tags/sysadmin/</link>
+      <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://oleg.pw/tags/index/</guid>
+      <guid>https://oleg.pw/tags/sysadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://oleg.pw/tags/mysql/</link>
+      <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/mysql/</guid>
       <description></description>
     </item>
     

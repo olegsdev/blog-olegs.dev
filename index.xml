@@ -12,44 +12,44 @@
     
     
     <item>
-      <title>Mysql Questions</title>
-      <link>https://oleg.pw/post/2020-09-mysql-questions/</link>
-      <pubDate>Sat, 19 Sep 2020 15:24:18 -0800</pubDate>
+      <title>Networking Questions</title>
+      <link>https://oleg.pw/post/2020/networking-questions/</link>
+      <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2020-09-mysql-questions/</guid>
+      <guid>https://oleg.pw/post/2020/networking-questions/</guid>
       <description>Base on: Linux System Administrator/DevOps Interview Questions
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
- How do you create a user? 1CREATE USER &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; How do you provide privileges to a user? 1GRANT ALL PRIVILEGES ON db_name.* to &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39;; What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join? The LEFT JOIN allows you to query data from two or more tables.</description>
+ What is localhost and why would ping localhost fail?  localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface.</description>
+    </item>
+    
+    <item>
+      <title>Mysql Questions</title>
+      <link>https://oleg.pw/post/2020/mysql-questions/</link>
+      <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2020/mysql-questions/</guid>
+      <description>Base on: Linux System Administrator/DevOps Interview Questions
+This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
+ How do you create a user? 1CREATE USER &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; How do you provide privileges to a user? 1GRANT ALL PRIVILEGES ON db_name.* to &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39;; What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?  The LEFT JOIN allows you to query data from two or more tables.</description>
     </item>
     
     <item>
       <title>Medium Linux Questions</title>
-      <link>https://oleg.pw/post/2020-09-medium-linux-questions/</link>
-      <pubDate>Tue, 15 Sep 2020 19:57:43 -0800</pubDate>
+      <link>https://oleg.pw/post/2020/medium-linux-questions/</link>
+      <pubDate>Sun, 15 Nov 2020 19:57:43 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2020-09-medium-linux-questions/</guid>
+      <guid>https://oleg.pw/post/2020/medium-linux-questions/</guid>
       <description>Base on: Linux System Administrator/DevOps Interview Questions
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
  What do the following commands do and how would you use them?  tee - read from standard input and write to standard output and files awk - pattern scanning and processing language tr - translate or delete characters cut - remove sections from each line of files tac - concatenate and print files in reverse curl - transfer a URL wget - The non-interactive network downloader watch - execute a program periodically, showing output fullscreen head - output the first part of files tail - output the last part of files less - opposite of more (more - file perusal filter for crt viewing) cat - concatenate files and print on the standard output touch - change file timestamps sar - Collect, report, or save system activity information.</description>
     </item>
     
     <item>
-      <title>Networking Questions</title>
-      <link>https://oleg.pw/post/2020-09-networking-questions/</link>
-      <pubDate>Sun, 13 Sep 2020 15:52:25 -0800</pubDate>
-      
-      <guid>https://oleg.pw/post/2020-09-networking-questions/</guid>
-      <description>Base on: Linux System Administrator/DevOps Interview Questions
-This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
- What is localhost and why would ping localhost fail? localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface.</description>
-    </item>
-    
-    <item>
       <title>Simple Linux Questions</title>
-      <link>https://oleg.pw/post/2020-09-simple-linux-questions/</link>
-      <pubDate>Fri, 11 Sep 2020 19:48:49 -0800</pubDate>
+      <link>https://oleg.pw/post/2020/simple-linux-questions/</link>
+      <pubDate>Wed, 11 Nov 2020 19:48:49 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2020-09-simple-linux-questions/</guid>
+      <guid>https://oleg.pw/post/2020/simple-linux-questions/</guid>
       <description>Base on: Linux System Administrator/DevOps Interview Questions
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
  What is the name and the UID of the administrator user?  root

@@ -6,7 +6,7 @@
     <description>Recent content on Oleg Sarbaev</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/index.xml" rel="self" type="application/rss+xml" />
     
@@ -54,15 +54,6 @@ This page contains ideas on how to answer questions. The answers are not absolut
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
  What is the name and the UID of the administrator user?  root
 UID (user identifier) is a number assigned by Linux to each user on the system. This number is used to identify the user to the system and to determine which system resources the user can access.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://oleg.pw/archives/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://oleg.pw/archives/</guid>
-      <description></description>
     </item>
     
     <item>

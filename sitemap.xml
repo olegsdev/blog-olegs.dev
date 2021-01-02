@@ -1,16 +1,79 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://oleg.pw/en/sitemap.xml</loc>
-		
-	   	<lastmod>2020-11-30T15:52:25-08:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://oleg.pw/pt/sitemap.xml</loc>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://oleg.pw/tags/2020/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/linux/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/linux-questions/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/networking/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020/networking-questions/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/sysadmin/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/</loc>
+    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/mysql/</loc>
+    <lastmod>2020-11-19T15:24:18-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020/mysql-questions/</loc>
+    <lastmod>2020-11-19T15:24:18-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020/medium-linux-questions/</loc>
+    <lastmod>2020-11-15T19:57:43-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2020/simple-linux-questions/</loc>
+    <lastmod>2020-11-11T19:48:49-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/</loc>
+    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/about/</loc>
+    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/series/</loc>
+  </url>
+  
+</urlset>

@@ -3,18 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://oleg.pw/categories/</loc>
+    <loc>https://oleg.pw/tags/2020/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://oleg.pw/pt/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://oleg.pw/categories/"
-                />
   </url>
   
   <url>
@@ -60,11 +50,6 @@
                 hreflang="en"
                 href="https://oleg.pw/tags/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/categories/technology/</loc>
-    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   
   <url>

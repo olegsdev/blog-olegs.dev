@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://oleg.pw/tags/2021/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/kvm/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/lxd/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2021/my-home-lab/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/ubuntu/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/vagrant/</loc>
+    <lastmod>2021-01-24T17:56:11-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://oleg.pw/tags/2020/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
@@ -28,17 +68,7 @@
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/</loc>
-    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://oleg.pw/tags/sysadmin/</loc>
-    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/tags/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021 on OS blog</title>
+    <link>https://oleg.pw/tags/2021/</link>
+    <description>Recent content in 2021 on OS blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
+    <lastBuildDate>Sun, 24 Jan 2021 17:56:11 -0800</lastBuildDate>
+    
+	<atom:link href="https://oleg.pw/tags/2021/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Home Lab (v2)</title>
+      <link>https://oleg.pw/post/2021/my-home-lab/</link>
+      <pubDate>Sun, 24 Jan 2021 17:56:11 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2021/my-home-lab/</guid>
+      <description>At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed NextCloud server.
+Then I needed a Virtualization Server where I could quickly deploy vm to test various software.
+For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.</description>
+    </item>
+    
+  </channel>
+</rss>

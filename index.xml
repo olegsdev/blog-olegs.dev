@@ -73,7 +73,8 @@ UID (user identifier) is a number assigned by Linux to each user on the system. 
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://oleg.pw/about/</guid>
-      <description>This website is powered by Hugo framework.</description>
+      <description>Hi there, my name is Oleg and welcome to my blog. Here I write about things that interest me, such as Linux, System Administration, DevOps, Web development.
+This website is not unique and doesn&#39;t make any special contribution to human civilization. The main idea of this blog is to leave notes about the experience made by the author in the process of study various tools. I would be glad if these materials are useful for others.</description>
     </item>
     
   </channel>

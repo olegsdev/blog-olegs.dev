@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="en" data-figures="">
+<html lang="en" data-figures="true" class="page">
   <head>
-<title>Series | OS blog</title>
+<title>LXD quick start (linux containers) | OS blog</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="LXD quick start. LXD cheatsheet. Linux containers.">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
-<meta name="twitter:title" content="Series" />
-<meta property="og:url" content="https://oleg.pw/series/" />
-<meta property="og:title" content="Series" />
-<meta property="og:description" content="" />
-<meta property="og:image" content="https://oleg.pw/images/thumbnail.png" />
+<meta name="twitter:title" content="LXD quick start (linux containers)" />
+<meta property="og:url" content="https://oleg.pw/post/2021/lxd/" />
+<meta property="og:title" content="LXD quick start (linux containers)" />
+<meta property="og:description" content="LXD quick start. LXD cheatsheet. Linux containers." />
+<meta property="og:image" content="https://oleg.pw/images/path/share.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://oleg.pw/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://oleg.pw/icons/favicon-32x32.png'>
 <link rel="manifest" href='https://oleg.pw/icons/site.webmanifest'>
@@ -32,8 +32,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://oleg.pw/series/">
-<link rel="alternate" type="application/rss+xml" href="https://oleg.pw/series/index.xml" title="OS blog" />
+<link rel="canonical" href="https://oleg.pw/post/2021/lxd/">
 
     
 
@@ -50,8 +49,9 @@
   
   
     
+    
   
-  <body data-code="7" data-lines="false" id="documentTop">
+  <body data-code="100" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
   <nav class="nav">
@@ -106,14 +106,228 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-    <li>
+  <article class="post_content">
+    <h1 class="post_title">LXD quick start (linux containers)</h1><div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Feb 3, 2021</span>
+    <a href='https://oleg.pw/tags/linux' class="post_tag button button_translucent">linux
+    </a>
+    <a href='https://oleg.pw/tags/2021' class="post_tag button button_translucent">2021
+    </a>
+    <a href='https://oleg.pw/tags/lxd' class="post_tag button button_translucent">lxd
+    </a>
+    <a href='https://oleg.pw/tags/containers' class="post_tag button button_translucent">containers
+    </a>
+</div>
 
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=LXD%20quick%20start%20%28linux%20containers%29&url=https%3a%2f%2foleg.pw%2fpost%2f2021%2flxd%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2foleg.pw%2fpost%2f2021%2flxd%2f&t=LXD%20quick%20start%20%28linux%20containers%29" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+  </a>
+  <a href="https://oleg.pw/post/2021/lxd/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+  </a>
+</div>
 
-    </li>
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#get-info">Get Info:</a></li>
+    <li><a href="#launch-new-container">Launch new container</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#run-commands-within-container">Run commands within container</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#snapshots">Snapshots</a></li>
+    <li><a href="#files">Files</a></li>
+    <li><a href="#storage">Storage</a></li>
+    <li><a href="#export--importor-backups-publish">Export &amp; import(or backups), publish</a></li>
+    <li><a href="#privileges">Privileges</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
+    <li><a href="#gui">Gui</a></li>
+    <li><a href="#source">Source</a></li>
   </ul>
+</nav>
+    <p><strong>Linux containers</strong> often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.<br>
+<strong>LXD</strong> is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.</p>
+<p>Before start, use <code>lxd init</code> to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.</p>
+<h2 id="get-info">Get Info:</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc profile show default
+<span class="ln"> 2</span>lxc info container_name
+<span class="ln"> 3</span>lxc config show ansible-test1 -e  <span class="c1">#all configurations</span>
+<span class="ln"> 4</span>lxc storage list
+<span class="ln"> 5</span>
+<span class="ln"> 6</span>lxc ls <span class="c1">#List instances</span>
+<span class="ln"> 7</span>lxc list -c ns4mDSb
+<span class="ln"> 8</span>
+<span class="ln"> 9</span>All available column options:
+<span class="ln">10</span>    <span class="m">4</span> - IPv4 address
+<span class="ln">11</span>    <span class="m">6</span> - IPv6 address
+<span class="ln">12</span>    a - Architecture
+<span class="ln">13</span>    b - Storage pool
+<span class="ln">14</span>    c - Creation date
+<span class="ln">15</span>    d - Description
+<span class="ln">16</span>    D - disk usage
+<span class="ln">17</span>    l - Last used date
+<span class="ln">18</span>    m - Memory usage
+<span class="ln">19</span>    M - Memory usage <span class="o">(</span>%<span class="o">)</span>
+<span class="ln">20</span>    n - Name
+<span class="ln">21</span>    N - Number of Processes
+<span class="ln">22</span>    p - PID of the instances init process
+<span class="ln">23</span>    P - Profiles
+<span class="ln">24</span>    s - State
+<span class="ln">25</span>    S - Number of snapshots
+<span class="ln">26</span>    t - Type <span class="o">(</span>persistent or ephemeral<span class="o">)</span>
+<span class="ln">27</span>    u - CPU usage <span class="o">(</span>in seconds<span class="o">)</span>
+<span class="ln">28</span>    L - Location of the instance <span class="o">(</span>e.g. its cluster member<span class="o">)</span>
+<span class="ln">29</span>    f - Base Image Fingerprint <span class="o">(</span>short<span class="o">)</span>
+<span class="ln">30</span>    F - Base Image Fingerprint <span class="o">(</span>long<span class="o">)</span>
+<span class="ln">31</span>
+</code></pre></div><h2 id="launch-new-container">Launch new container</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc launch images:centos/7/amd64 container_name
+<span class="ln">2</span>lxc launch ubuntu:20.04 container_name
+<span class="ln">3</span>lxc launch -p profile_name ubuntu:20.04 container_name   <span class="c1">#-p for applying a profile</span>
+</code></pre></div><h2 id="configuration">Configuration</h2>
+<p>Apply specific settings to a container:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc config <span class="nb">set</span> container_name limits.memory 512MB
+<span class="ln">2</span>lxc config <span class="nb">set</span> container_name limits.cpu <span class="m">2</span>
+<span class="ln">3</span>lxc config device <span class="nb">set</span> container_name root size 10GB
+<span class="ln">4</span>lxc config device <span class="nb">set</span> container_name eth0 limits.ingress 1Mbit
+</code></pre></div><h2 id="run-commands-within-container">Run commands within container</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc <span class="nb">exec</span> container_name -- /bin/bash <span class="c1">#Get a shell inside a container as a root</span>
+<span class="ln">2</span>lxc <span class="nb">exec</span> container_name bash
+<span class="ln">3</span>lxc <span class="nb">exec</span> container_name -- su --login username
+<span class="ln">4</span>lxc console container_name  <span class="c1"># terminal inside container, use ```ctrl+a-q``` for detach.</span>
+</code></pre></div><h2 id="profile">Profile</h2>
+<p>Profile helps create container preconfiguration. Can be apply in launch moment. Uses <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> initialization.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc profile create profilename
+<span class="ln"> 2</span>lxc profile edit profilename
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c1"># example</span>
+<span class="ln"> 5</span>oleg@t600:~$ lxc profile show dev1 
+<span class="ln"> 6</span>config:
+<span class="ln"> 7</span>  limits.cpu: <span class="s2">&#34;1&#34;</span>
+<span class="ln"> 8</span>  limits.memory: 1024MB
+<span class="ln"> 9</span>  user.user-data: <span class="p">|</span>
+<span class="ln">10</span>    <span class="c1">#cloud-config</span>
+<span class="ln">11</span>    package_upgrade: <span class="nb">true</span>
+<span class="ln">12</span>    timezone: America/Los_Angeles
+<span class="ln">13</span>    <span class="c1"># User setup</span>
+<span class="ln">14</span>    users:
+<span class="ln">15</span>     - name: oleg
+<span class="ln">16</span>       ssh-authorized-keys:
+<span class="ln">17</span>         - ssh-rsa AAAA......<span class="o">==</span> oleg@t800
+<span class="ln">18</span>       sudo: <span class="o">[</span><span class="s1">&#39;ALL=(ALL) NOPASSWD:ALL&#39;</span><span class="o">]</span>
+<span class="ln">19</span>       groups: sudo
+<span class="ln">20</span>       shell: /bin/bash
+<span class="ln">21</span>description: dev environment <span class="k">for</span> tests
+<span class="ln">22</span>devices:
+<span class="ln">23</span>  eth0:
+<span class="ln">24</span>    nictype: bridged
+<span class="ln">25</span>    parent: br0
+<span class="ln">26</span>    type: nic
+<span class="ln">27</span>  root:
+<span class="ln">28</span>    path: /
+<span class="ln">29</span>    pool: zfs-pool
+<span class="ln">30</span>    type: disk
+<span class="ln">31</span>name: dev1
+<span class="ln">32</span>used_by:
+<span class="ln">33</span>- /1.0/instances/nodejs
+<span class="ln">34</span>...
+<span class="ln">35</span>
+</code></pre></div><h2 id="network">Network</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#Create bridge:</span>
+<span class="ln"> 2</span>lxc network create testbr0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>none
+<span class="ln"> 3</span>lxc network create dev1br0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>172.20.5.10/24 ipv4.nat<span class="o">=</span><span class="nb">true</span>
+<span class="ln"> 4</span>
+<span class="ln"> 5</span><span class="c1">#containers get IP from your LAN using a bridge. Profile:</span>
+<span class="ln"> 6</span>devices:
+<span class="ln"> 7</span>  eth0:
+<span class="ln"> 8</span>    nictype: bridged
+<span class="ln"> 9</span>    parent: br0
+<span class="ln">10</span>    type: nic
+<span class="ln">11</span>https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
+<span class="ln">12</span>
+<span class="ln">13</span><span class="c1">#containers get IP from your LAN using macvlan</span>
+<span class="ln">14</span>lxc profile device add dev1 eth0 nic <span class="nv">nictype</span><span class="o">=</span>macvlan <span class="nv">parent</span><span class="o">=</span>br0
+<span class="ln">15</span>https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
+<span class="ln">16</span>
+<span class="ln">17</span><span class="c1">#Set static ip (stop container before):</span>
+<span class="ln">18</span>lxc network attach lxdbr0 container_name eth0 eth0
+<span class="ln">19</span>lxc config device <span class="nb">set</span> container_name eth0 ipv4.address 192.168.10.5
+<span class="ln">20</span>
+</code></pre></div><h2 id="snapshots">Snapshots</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc snapshot container_name snapshot_name <span class="c1"># reate the snapshot</span>
+<span class="ln">2</span>lxc restore container_name snapshot_name <span class="c1"># restore the snapshot</span>
+<span class="ln">3</span>lxc delete container_name/snapshot_name  <span class="c1"># delete a snapshot</span>
+</code></pre></div><h2 id="files">Files</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc file pull container_name/path-in-container path-on-host  <span class="c1">#from an instance to host</span>
+<span class="ln">2</span>lxc file pull -r container_name/path-in-container path-on-host  <span class="c1"># Pull a folder</span>
+<span class="ln">3</span>lxc file push path-on-host container_name/path-in-container   <span class="c1">#  from host to instance</span>
+<span class="ln">4</span>lxc file push -r path-on-host container_name/path-in-container  <span class="c1"># folder</span>
+</code></pre></div><h2 id="storage">Storage</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc storage create NAME <span class="nb">type</span> <span class="nv">source</span><span class="o">=</span>/some/empty/directory
+<span class="ln">2</span>lxc storage create zfs-pool zfs <span class="nv">source</span><span class="o">=</span>/dev/mapper/vg_lxd-lv_lxd_zfs
+<span class="ln">3</span>lxc storage list  
+<span class="ln">4</span>lxc storage show zfs-pool
+<span class="ln">5</span>https://linuxcontainers.org/lxd/docs/master/storage
+</code></pre></div><h2 id="export--importor-backups-publish">Export &amp; import(or backups), publish</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc <span class="nb">export</span> container_name /tmp/container_name_date.tar.gz
+<span class="ln"> 2</span>lxc import container_name_date.tar.gz 
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c1">#Publish - turns a container or snapshot into an image in the local LXD image store</span>
+<span class="ln"> 5</span>lxc publish container_name/snapshot --alias new_local_image
+<span class="ln"> 6</span>lxc publish container_name --alias image_name
+<span class="ln"> 7</span>
+<span class="ln"> 8</span>lxc image import container_name.tar.gz  --alias custom-imagename
+<span class="ln"> 9</span>lxc image <span class="nb">export</span> imagename <span class="o">[</span>target folder<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+<span class="ln">10</span>
+<span class="ln">11</span><span class="c1">#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463</span>
+</code></pre></div><h2 id="privileges">Privileges</h2>
+<p>Set special privileges for container, this example is for NFS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc config <span class="nb">set</span> container_name security.privileged <span class="nb">true</span>
+<span class="ln">2</span>lxc config <span class="nb">set</span> container_name raw.apparmor <span class="s2">&#34;mount fstype=nfs,&#34;</span>
+</code></pre></div><h2 id="recommendations">Recommendations</h2>
+<p>Use this alias to prevent accidental deletion of an container.<br>
+<code>lxc alias add delete &quot;delete -i&quot;</code></p>
+<h2 id="gui">Gui</h2>
+<ul>
+<li>LXDUI - <a href="https://github.com/AdaptiveScale/lxdui">https://github.com/AdaptiveScale/lxdui</a></li>
+<li>LXD Mosaic - <a href="https://github.com/turtle0x1/LxdMosaic">https://github.com/turtle0x1/LxdMosaic</a></li>
+</ul>
+<h2 id="source">Source</h2>
+<ul>
+<li><a href="https://linuxcontainers.org/lxd/advanced-guide/">https://linuxcontainers.org/lxd/advanced-guide/</a></li>
+<li><a href="https://linuxcontainers.org/lxd/docs/master/index">https://linuxcontainers.org/lxd/docs/master/index</a></li>
+</ul>
+
+    
+      
+    
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>Oleg S.</h2>
@@ -124,17 +338,11 @@
     <h2 class="mt-4">Featured Posts</h2>
     <ul>
       <li>
-        <a href="https://oleg.pw/post/2021/lxd/" class="nav-link">LXD quick start (linux containers)</a>
-      </li>
-      <li>
         <a href="https://oleg.pw/post/2021/my-home-lab/" class="nav-link">My Home Lab (v2)</a>
       </li>
     </ul>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
-      <li>
-        <a href="https://oleg.pw/post/2021/lxd/" class="nav-link">LXD quick start (linux containers)</a>
-      </li>
       <li>
         <a href="https://oleg.pw/post/2021/my-home-lab/" class="nav-link">My Home Lab (v2)</a>
       </li>
@@ -221,8 +429,6 @@
 </aside>
 
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>

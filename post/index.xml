@@ -6,10 +6,21 @@
     <description>Recent content in Posts on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 24 Jan 2021 17:56:11 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Feb 2021 10:17:06 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LXD quick start (linux containers)</title>
+      <link>https://oleg.pw/post/2021/lxd/</link>
+      <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2021/lxd/</guid>
+      <description>Linux containers often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.
+LXD is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.
+Before start, use lxd init to configure LXD settings such as network, storage, clustering and other.</description>
+    </item>
     
     <item>
       <title>My Home Lab (v2)</title>

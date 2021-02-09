@@ -153,7 +153,18 @@
 </div>
 
     
-    <p>At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed <a href="https://nextcloud.com/">NextCloud server</a>.</p>
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#idea">Idea</a></li>
+    <li><a href="#hardware">Hardware:</a></li>
+    <li><a href="#network">Network:</a></li>
+    <li><a href="#instalation">Instalation:</a></li>
+  </ul>
+</nav>
+    <h2 id="idea">Idea</h2>
+<p>At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed <a href="https://nextcloud.com/">NextCloud server</a>.</p>
 <p><img src="/images/2021/RaspberryPi4.jpg" alt="Raspberry Pi + SSD"></p>
 <p>Then I needed a Virtualization Server where I could quickly deploy vm to test various software.<br>
 For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.<br>
@@ -161,13 +172,14 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 <a href="https://www.vagrantup.com/">Vagrant</a> to manage virtual machines.</p>
 <p><a href="https://www.linux-kvm.org/page/Main_Page">KVM</a> (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). Using KVM, one can run multiple virtual machines running unmodified Linux or Windows images. Each virtual machine has private virtualized hardware: a network card, disk, graphics adapter, etc.</p>
 <p>Canonical call LXD the <a href="https://ubuntu.com/server/docs/containers-lxd">&quot;lightervisor&quot;</a>. It offers a user experience similar to virtual machines but using Linux containers instead. LXD uses LXC through liblxc and its Go binding to create and manage the containers. It's basically an alternative to LXC's tools and distribution template system with the added features that come from being controllable over the network.</p>
-<p>Hardware:</p>
-<p>I was planning to use an hp , but due to a lot of noise and since I didn’t need too much resources, I chose a simple old desktop Dell Optiplex 9020. (Intel Core I5-4570 3.20 GHz, 16Gb RAM)</p>
-<p>Network:</p>
+<h2 id="hardware">Hardware:</h2>
+<p>I was planning to use HP ProLiant DL165 G7, but due to a lot of noise and since I didn’t need too much resources, I chose a simple old desktop Dell Optiplex 9020. (Intel Core I5-4570 3.20 GHz, 16Gb RAM)
+<img src="/images/2021/dell_home_lab.jpg" alt="Dell Optiplex 9020"></p>
+<h2 id="network">Network:</h2>
 <p>All traffic go through <a href="https://www.dlink.ru/mn/products/5/1608.html">D-Link DIR-835</a> with installed <a href="https://openwrt.org/">OpenWrt</a>.<br>
 OpenWrt provides many capabilities found only in high-end devices and offers good secure level by default. Thanks to additional packages, you can configure monitoring and traffic analysis, and much more.
 <img src="/images/2021/openwrt-logo.png" alt="D-Link DIR-835 + OpenWrt"></p>
-<p>Instalation:</p>
+<h2 id="instalation">Instalation:</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#KVM</span>
 <span class="ln"> 2</span>sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 <span class="ln"> 3</span>sudo usermod -aG libvirt <span class="nv">$USER</span>
@@ -210,8 +222,7 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
 <span class="ln">40</span>sudo netplan apply
 <span class="ln">41</span>
 <span class="ln">42</span>sudo timedatectl set-timezone America/Los_Angeles
-</code></pre></div><p><img src="/images/2021/dell_home_lab.jpg" alt="Dell Optiplex 9020"></p>
-
+</code></pre></div>
     
       
     

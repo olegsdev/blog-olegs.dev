@@ -28,7 +28,7 @@ Before start, use lxd init to configure LXD settings such as network, storage, c
       <pubDate>Sun, 24 Jan 2021 17:56:11 -0800</pubDate>
       
       <guid>https://oleg.pw/post/2021/my-home-lab/</guid>
-      <description>At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed NextCloud server.
+      <description>Idea At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed NextCloud server.
 Then I needed a Virtualization Server where I could quickly deploy vm to test various software.
 For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.</description>
     </item>
@@ -85,7 +85,7 @@ UID (user identifier) is a number assigned by Linux to each user on the system. 
       
       <guid>https://oleg.pw/about/</guid>
       <description>Hi there, my name is Oleg and welcome to my blog. Here I write about things that interest me, such as Linux, System Administration, DevOps, Web development.
-This website is not unique and doesn&#39;t make any special contribution to human civilization. The main idea of this blog is to leave notes about the experience made by the author in the process of study various tools. I would be glad if these materials are useful for others.</description>
+This website is not unique and doesn&#39;t make any special contribution to human civilization. The main idea of this blog is to leave notes about the experience made by the author in the process of study various tools. It also helps me memorize materials better.</description>
     </item>
     
   </channel>

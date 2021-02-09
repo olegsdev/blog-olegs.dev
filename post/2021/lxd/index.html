@@ -177,7 +177,7 @@
 <h2 id="get-info">Get Info:</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc profile show default
 <span class="ln"> 2</span>lxc info container_name
-<span class="ln"> 3</span>lxc config show ansible-test1 -e  <span class="c1">#all configurations</span>
+<span class="ln"> 3</span>lxc config show container_name -e  <span class="c1">#all configurations</span>
 <span class="ln"> 4</span>lxc storage list
 <span class="ln"> 5</span>
 <span class="ln"> 6</span>lxc ls <span class="c1">#List instances</span>
@@ -255,9 +255,8 @@
 <span class="ln">30</span>    type: disk
 <span class="ln">31</span>name: dev1
 <span class="ln">32</span>used_by:
-<span class="ln">33</span>- /1.0/instances/nodejs
-<span class="ln">34</span>...
-<span class="ln">35</span>
+<span class="ln">33</span>...
+<span class="ln">34</span>
 </code></pre></div><h2 id="network">Network</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#Create bridge:</span>
 <span class="ln"> 2</span>lxc network create testbr0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>none

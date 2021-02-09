@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>netflow on OS blog</title>
+    <link>https://oleg.pw/tags/netflow/</link>
+    <description>Recent content in netflow on OS blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate>
+    
+	<atom:link href="https://oleg.pw/tags/netflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</title>
+      <link>https://oleg.pw/post/2021/elastiflow/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/post/2021/elastiflow/</guid>
+      <description>Setup NetFlow on OpenWRT NetFlow is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install softflowd package.
+softflowd - is a software implementation of a flow-based network traffic monitor. softflowd reads network traffic and gathers information about active traffic flows.</description>
+    </item>
+    
+  </channel>
+</rss>

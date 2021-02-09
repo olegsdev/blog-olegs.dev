@@ -4,16 +4,56 @@
   
   <url>
     <loc>https://oleg.pw/tags/2021/</loc>
-    <lastmod>2021-02-03T10:17:06-08:00</lastmod>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/containers/</loc>
-    <lastmod>2021-02-03T10:17:06-08:00</lastmod>
+    <loc>https://oleg.pw/tags/elastiflow/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/2021/elastiflow/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/elk-stack/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://oleg.pw/tags/linux/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/monitoring/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/netflow/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/openwrt/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/post/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/</loc>
+    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://oleg.pw/tags/containers/</loc>
     <lastmod>2021-02-03T10:17:06-08:00</lastmod>
   </url>
   
@@ -24,16 +64,6 @@
   
   <url>
     <loc>https://oleg.pw/post/2021/lxd/</loc>
-    <lastmod>2021-02-03T10:17:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/post/</loc>
-    <lastmod>2021-02-03T10:17:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/tags/</loc>
     <lastmod>2021-02-03T10:17:06-08:00</lastmod>
   </url>
   

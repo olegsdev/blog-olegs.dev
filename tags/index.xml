@@ -6,7 +6,7 @@
     <description>Recent content in Tags on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Feb 2021 10:17:06 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate>
     
 	<atom:link href="https://oleg.pw/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,63 @@
     <item>
       <title>2021</title>
       <link>https://oleg.pw/tags/2021/</link>
-      <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elastiflow</title>
+      <link>https://oleg.pw/tags/elastiflow/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/elastiflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ELK Stack</title>
+      <link>https://oleg.pw/tags/elk-stack/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/elk-stack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://oleg.pw/tags/linux/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://oleg.pw/tags/monitoring/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netflow</title>
+      <link>https://oleg.pw/tags/netflow/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/netflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openWRT</title>
+      <link>https://oleg.pw/tags/openwrt/</link>
+      <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
+      
+      <guid>https://oleg.pw/tags/openwrt/</guid>
       <description></description>
     </item>
     
@@ -26,15 +80,6 @@
       <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
       
       <guid>https://oleg.pw/tags/containers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://oleg.pw/tags/linux/</link>
-      <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
-      
-      <guid>https://oleg.pw/tags/linux/</guid>
       <description></description>
     </item>
     

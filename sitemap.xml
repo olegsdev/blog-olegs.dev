@@ -3,147 +3,137 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://oleg.pw/tags/2021/</loc>
+    <loc>https://olegtech.com/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/elastiflow/</loc>
+    <loc>https://olegtech.com/tags/elastiflow/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2021/elastiflow/</loc>
+    <loc>https://olegtech.com/post/elastiflow/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/elk-stack/</loc>
+    <loc>https://olegtech.com/tags/elk-stack/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/linux/</loc>
+    <loc>https://olegtech.com/tags/linux/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/monitoring/</loc>
+    <loc>https://olegtech.com/tags/monitoring/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/netflow/</loc>
+    <loc>https://olegtech.com/tags/netflow/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/openwrt/</loc>
+    <loc>https://olegtech.com/tags/openwrt/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/</loc>
+    <loc>https://olegtech.com/post/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/</loc>
+    <loc>https://olegtech.com/tags/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/containers/</loc>
+    <loc>https://olegtech.com/tags/containers/</loc>
     <lastmod>2021-02-03T10:17:06-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/lxd/</loc>
+    <loc>https://olegtech.com/tags/lxd/</loc>
     <lastmod>2021-02-03T10:17:06-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2021/lxd/</loc>
+    <loc>https://olegtech.com/post/lxd/</loc>
     <lastmod>2021-02-03T10:17:06-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/kvm/</loc>
+    <loc>https://olegtech.com/tags/kvm/</loc>
     <lastmod>2021-01-24T17:56:11-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2021/my-home-lab/</loc>
+    <loc>https://olegtech.com/post/my-home-lab/</loc>
     <lastmod>2021-01-24T17:56:11-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/ubuntu/</loc>
+    <loc>https://olegtech.com/tags/ubuntu/</loc>
     <lastmod>2021-01-24T17:56:11-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/vagrant/</loc>
+    <loc>https://olegtech.com/tags/vagrant/</loc>
     <lastmod>2021-01-24T17:56:11-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/2020/</loc>
+    <loc>https://olegtech.com/tags/linux-questions/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/linux-questions/</loc>
+    <loc>https://olegtech.com/tags/networking/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/networking/</loc>
+    <loc>https://olegtech.com/post/networking-questions/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2020/networking-questions/</loc>
+    <loc>https://olegtech.com/tags/sysadmin/</loc>
     <lastmod>2020-11-30T15:52:25-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/tags/sysadmin/</loc>
-    <lastmod>2020-11-30T15:52:25-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/tags/mysql/</loc>
+    <loc>https://olegtech.com/tags/mysql/</loc>
     <lastmod>2020-11-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2020/mysql-questions/</loc>
+    <loc>https://olegtech.com/post/mysql-questions/</loc>
     <lastmod>2020-11-19T15:24:18-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2020/medium-linux-questions/</loc>
+    <loc>https://olegtech.com/post/medium-linux-questions/</loc>
     <lastmod>2020-11-15T19:57:43-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/post/2020/simple-linux-questions/</loc>
+    <loc>https://olegtech.com/post/simple-linux-questions/</loc>
     <lastmod>2020-11-11T19:48:49-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/</loc>
+    <loc>https://olegtech.com/about/</loc>
     <lastmod>2020-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://oleg.pw/about/</loc>
-    <lastmod>2020-10-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://oleg.pw/series/</loc>
+    <loc>https://olegtech.com/series/</loc>
   </url>
   
 </urlset>

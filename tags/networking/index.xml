@@ -2,24 +2,144 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>networking on OS blog</title>
-    <link>https://oleg.pw/tags/networking/</link>
+    <link>https://olegtech.com/tags/networking/</link>
     <description>Recent content in networking on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate>
-    
-	<atom:link href="https://oleg.pw/tags/networking/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Networking Questions</title>
-      <link>https://oleg.pw/post/2020/networking-questions/</link>
+      <link>https://olegtech.com/post/networking-questions/</link>
       <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2020/networking-questions/</guid>
-      <description>Base on: Linux System Administrator/DevOps Interview Questions
-This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
- What is localhost and why would ping localhost fail?  localhost is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface.</description>
+      <guid>https://olegtech.com/post/networking-questions/</guid>
+      <description>
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Base on: &lt;a href=&#34;https://github.com/chassing/linux-sysadmin-interview-questions&#34;&gt;Linux System Administrator/DevOps Interview Questions&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-localhost-and-why-would-ping-localhost-fail&#34;&gt;What is localhost and why would ping localhost fail?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;localhost&lt;/strong&gt; is a hostname that refers to the current computer used to access it. It is used to access the network services that are running on the host via the loopback network interface. Using the loopback interface bypasses any local network interface hardware.
+&lt;strong&gt;ping localhost fail?&lt;/strong&gt;:&lt;br&gt;
+not proper configuration lo interface, or  firewall rules&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-the-similarity-between-ping--traceroute--how-is-traceroute-able-to-find-the-hops&#34;&gt;What is the similarity between &amp;quot;ping&amp;quot; &amp;amp; &amp;quot;traceroute&amp;quot; ? How is traceroute able to find the hops.&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ping&lt;/strong&gt; - check if the destination server is online and estimates how long it takes to send and receive data to the destination
+traceroute - the exact route you take to reach the server from your computer(ISP) and how long each hop takes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;traceroute&lt;/strong&gt; works by sending the packets of data with low survival time (TTL) which specifies how many steps (hops) can the packet survive before it is returned. When a packet can’t reach the final destination and expires at an intermediate step, that node returns the packet and identifies itself. So, by increasing the TTL gradually, Traceroute is able to identify the intermediate hosts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine&#34;&gt;What is the command used to show all open ports and/or socket connections on a machine?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ss -tulpn
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No, octet can&#39;t be more than 255&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;which-ip-rangessubnets-are-private-or-non-routable-rfc-1918&#34;&gt;Which IP ranges/subnets are &amp;quot;private&amp;quot; or &amp;quot;non-routable&amp;quot; (RFC 1918)?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;10.0.0.0/8 IP addresses: 10.0.0.0 – 10.255.255.255&lt;/li&gt;
+&lt;li&gt;172.16.0.0/12 IP addresses: 172.16.0.0 – 172.31.255.255&lt;/li&gt;
+&lt;li&gt;192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-a-vlan&#34;&gt;What is a VLAN?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A logical subnetwork that groups a collection of devices from different physical LANs.&lt;br&gt;
+&lt;a href=&#34;https://www.lifewire.com/virtual-local-area-network-817357&#34;&gt;https://www.lifewire.com/virtual-local-area-network-817357&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-arp-and-what-is-it-used-for&#34;&gt;What is ARP and what is it used for?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address.&lt;br&gt;
+&lt;code&gt; arp -a&lt;/code&gt; 	# print the current content of the ARP  table&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-the-difference-between-tcp-and-udp&#34;&gt;What is the difference between TCP and UDP?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP is reliable as it guarantees delivery of data to the destination router.(slower)&lt;/li&gt;
+&lt;li&gt;The delivery of data to the destination cannot be guaranteed in UDP.(faster)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-the-purpose-of-a-default-gateway&#34;&gt;What is the purpose of a default gateway?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;strong&gt;default gateway&lt;/strong&gt; is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-command-used-to-show-the-routing-table-on-a-linux-box&#34;&gt;What is command used to show the routing table on a Linux box?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -r
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;route -n
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;remote-ip-address&lt;/li&gt;
+&lt;li&gt;remote-port&lt;/li&gt;
+&lt;li&gt;source-ip-address&lt;/li&gt;
+&lt;li&gt;source-port&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;when-a-client-running-a-web-browser-connects-to-a-web-server-what-is-the-source-port-and-what-is-the-destination-port-of-the-connection&#34;&gt;When a client running a web browser connects to a web server, what is the source port and what is the destination port of the connection?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;source port - depends on browser&lt;/li&gt;
+&lt;li&gt;destination port 80 or 443&lt;br&gt;
+&lt;a href=&#34;https://stackoverflow.com/a/2957847&#34;&gt;https://stackoverflow.com/a/2957847&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-do-you-add-an-ipv6-address-to-a-specific-interface&#34;&gt;How do you add an IPv6 address to a specific interface?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;firewall blocks traffic ipv6&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-snat-and-when-should-it-be-used&#34;&gt;What is SNAT and when should it be used?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;SNAT&lt;/strong&gt; changes the private IP address of the source host to public IP address. It may also change the source port in the TCP/UDP headers. SNAT is typically used by internal users to access the Internet.&lt;br&gt;
+&lt;a href=&#34;https://unix.stackexchange.com/a/21968&#34;&gt;https://unix.stackexchange.com/a/21968&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ipwithease.com/snat-vs-dnat/&#34;&gt;https://ipwithease.com/snat-vs-dnat/&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://worldtechit.com/what-is-snat-in-f5-load-balancing-snat-vs-inline-what-is-nat/&#34;&gt;https://worldtechit.com/what-is-snat-in-f5-load-balancing-snat-vs-inline-what-is-nat/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;explain-how-could-you-ssh-login-into-a-linux-system-that-drops-all-new-incoming-packets-using-a-ssh-tunnel&#34;&gt;Explain how could you ssh login into a Linux system that DROPs all new incoming packets using a SSH tunnel.&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Reverse SSH* (not sure...)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-do-you-stop-a-ddos-attack&#34;&gt;How do you stop a DDoS attack?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Linux context we can use fail2ban, firewall, check multiple connections &amp;amp; http headers and other.
+&lt;a href=&#34;https://linoxide.com/firewall/how-to-ddos-in-linux/&#34;&gt;https://linoxide.com/firewall/how-to-ddos-in-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-can-you-see-content-of-an-ip-packet&#34;&gt;How can you see content of an ip packet?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;tcpdump  &lt;a href=&#34;https://danielmiessler.com/study/tcpdump/&#34;&gt;https://danielmiessler.com/study/tcpdump/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;wireshark&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-ipoac-rfc-1149&#34;&gt;What is IPoAC (RFC 1149)?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It&#39;s a joke RFC&lt;br&gt;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/IP_over_Avian_Carriers&#34;&gt;https://en.wikipedia.org/wiki/IP_over_Avian_Carriers&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-will-happen-when-you-bind-port-0&#34;&gt;What will happen when you bind port 0?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Bind TCP on port 0 indicates a request to dynamically generate an unused port number&lt;br&gt;
+(zero - means select any available local port)&lt;br&gt;
+&lt;a href=&#34;https://unix.stackexchange.com/a/180500&#34;&gt;https://unix.stackexchange.com/a/180500&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        
+      </description>
     </item>
     
   </channel>

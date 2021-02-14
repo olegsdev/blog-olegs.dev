@@ -2,24 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on OS blog</title>
-    <link>https://oleg.pw/tags/mysql/</link>
+    <link>https://olegtech.com/tags/mysql/</link>
     <description>Recent content in mysql on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Nov 2020 15:24:18 -0800</lastBuildDate>
-    
-	<atom:link href="https://oleg.pw/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 19 Nov 2020 15:24:18 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mysql Questions</title>
-      <link>https://oleg.pw/post/2020/mysql-questions/</link>
+      <link>https://olegtech.com/post/mysql-questions/</link>
       <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2020/mysql-questions/</guid>
-      <description>Base on: Linux System Administrator/DevOps Interview Questions
-This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.
- How do you create a user? 1CREATE USER &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; How do you provide privileges to a user? 1GRANT ALL PRIVILEGES ON db_name.* to &amp;#39;user_name&amp;#39;@&amp;#39;localhost&amp;#39;; What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?  The LEFT JOIN allows you to query data from two or more tables.</description>
+      <guid>https://olegtech.com/post/mysql-questions/</guid>
+      <description>
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Base on: &lt;a href=&#34;https://github.com/chassing/linux-sysadmin-interview-questions&#34;&gt;Linux System Administrator/DevOps Interview Questions&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-do-you-create-a-user&#34;&gt;How do you create a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The LEFT JOIN allows you to query data from two or more tables. Similar to the INNER JOIN clause, the LEFT JOIN is an optional clause of the SELECT statement, which appears immediately after the FROM clause.&lt;br&gt;
+RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tables is reversed.&lt;br&gt;
+&lt;a href=&#34;https://www.guru99.com/joins.html&#34;&gt;https://www.guru99.com/joins.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;explain-briefly-the-differences-between-innodb-and-myisam&#34;&gt;Explain briefly the differences between InnoDB and MyISAM.&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dba.stackexchange.com/q/1&#34;&gt;https://dba.stackexchange.com/q/1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/q/12614541/3153640&#34;&gt;https://stackoverflow.com/q/12614541/3153640&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;describe-briefly-the-steps-you-need-to-follow-in-order-to-create-a-simple-masterslave-cluster&#34;&gt;Describe briefly the steps you need to follow in order to create a simple master/slave cluster.&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;...in progress&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;why-should-you-run-mysql_secure_installation-after-installing-mysql&#34;&gt;Why should you run &amp;quot;mysql_secure_installation&amp;quot; after installing MySQL?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To improve the security of your DB installation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can set a password for root accounts.&lt;/li&gt;
+&lt;li&gt;You can remove root accounts that are accessible from outside the local host.&lt;/li&gt;
+&lt;li&gt;You can remove anonymous-user accounts.&lt;/li&gt;
+&lt;li&gt;You can remove the test database, which by default can be accessed by anonymous users.&lt;br&gt;
+&lt;a href=&#34;https://mariadb.com/kb/en/mysql_secure_installation/&#34;&gt;https://mariadb.com/kb/en/mysql_secure_installation/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;how-do-you-check-which-jobs-are-running&#34;&gt;How do you check which jobs are running?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
     </item>
     
   </channel>

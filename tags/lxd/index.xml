@@ -2,35 +2,245 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lxd on OS blog</title>
-    <link>https://oleg.pw/tags/lxd/</link>
+    <link>https://olegtech.com/tags/lxd/</link>
     <description>Recent content in lxd on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Feb 2021 10:17:06 -0800</lastBuildDate>
-    
-	<atom:link href="https://oleg.pw/tags/lxd/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 03 Feb 2021 10:17:06 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/lxd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LXD quick start (linux containers)</title>
-      <link>https://oleg.pw/post/2021/lxd/</link>
+      <link>https://olegtech.com/post/lxd/</link>
       <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2021/lxd/</guid>
-      <description>Linux containers often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.
-LXD is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.
-Before start, use lxd init to configure LXD settings such as network, storage, clustering and other.</description>
+      <guid>https://olegtech.com/post/lxd/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;strong&gt;Linux containers&lt;/strong&gt; often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.&lt;br&gt;
+&lt;strong&gt;LXD&lt;/strong&gt; is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.&lt;/p&gt;
+&lt;p&gt;Before start, use &lt;code&gt;lxd init&lt;/code&gt; to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.&lt;/p&gt;
+&lt;h2 id=&#34;get-info&#34;&gt;Get Info:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc info container_name
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc config show container_name -e  &lt;span class=&#34;c1&#34;&gt;#all configurations&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;lxc storage list
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;lxc ls &lt;span class=&#34;c1&#34;&gt;#List instances&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;lxc list -c ns4mDSb
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;All available column options:
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; - IPv4 address
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; - IPv6 address
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    a - Architecture
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    b - Storage pool
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    c - Creation date
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    d - Description
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    D - disk usage
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    l - Last used date
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    m - Memory usage
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    M - Memory usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    n - Name
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    N - Number of Processes
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    p - PID of the instances init process
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    P - Profiles
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    s - State
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    S - Number of snapshots
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    t - Type &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;persistent or ephemeral&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    u - CPU usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;in seconds&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    L - Location of the instance &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g. its cluster member&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    f - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;short&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    F - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;long&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launch-new-container&#34;&gt;Launch new container&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc launch ubuntu:20.04 container_name
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc launch -p profile_name ubuntu:20.04 container_name   &lt;span class=&#34;c1&#34;&gt;#-p for applying a profile&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Apply specific settings to a container:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.cpu &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name root size 10GB
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 limits.ingress 1Mbit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-commands-within-container&#34;&gt;Run commands within container&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name bash
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- su --login username
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc console container_name  &lt;span class=&#34;c1&#34;&gt;# terminal inside container, use ```ctrl+a-q``` for detach.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;profile&#34;&gt;Profile&lt;/h2&gt;
+&lt;p&gt;Profile helps create container preconfiguration. Can be apply in launch moment. Uses &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt; initialization.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc profile edit profilename
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# example&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;oleg@t600:~$ lxc profile show dev1 
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;config:
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;  limits.cpu: &lt;span class=&#34;s2&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;  limits.memory: 1024MB
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;  user.user-data: &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;#cloud-config&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    package_upgrade: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    timezone: America/Los_Angeles
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# User setup&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    users:
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;     - name: oleg
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;       ssh-authorized-keys:
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;         - ssh-rsa AAAA......&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; oleg@t800
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;       sudo: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ALL=(ALL) NOPASSWD:ALL&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;       groups: sudo
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;       shell: /bin/bash
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;description: dev environment &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; tests
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;devices:
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;  eth0:
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    nictype: bridged
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    parent: br0
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    type: nic
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;  root:
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    path: /
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    pool: zfs-pool
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    type: disk
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;name: dev1
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;used_by:
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;...
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc network create testbr0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc network create dev1br0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.20.5.10/24 ipv4.nat&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using a bridge. Profile:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;devices:
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;  eth0:
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    nictype: bridged
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    parent: br0
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    type: nic
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using macvlan&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;lxc profile device add dev1 eth0 nic &lt;span class=&#34;nv&#34;&gt;nictype&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;macvlan &lt;span class=&#34;nv&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;br0
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Set static ip (stop container before):&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;lxc network attach lxdbr0 container_name eth0 eth0
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 ipv4.address 192.168.10.5
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;snapshots&#34;&gt;Snapshots&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc restore container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# restore the snapshot&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc delete container_name/snapshot_name  &lt;span class=&#34;c1&#34;&gt;# delete a snapshot&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc file pull -r container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;# Pull a folder&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc file push path-on-host container_name/path-in-container   &lt;span class=&#34;c1&#34;&gt;#  from host to instance&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc file push -r path-on-host container_name/path-in-container  &lt;span class=&#34;c1&#34;&gt;# folder&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc storage create zfs-pool zfs &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mapper/vg_lxd-lv_lxd_zfs
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc storage list  
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc storage show zfs-pool
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;https://linuxcontainers.org/lxd/docs/master/storage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export--importor-backups-publish&#34;&gt;Export &amp;amp; import(or backups), publish&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc import container_name_date.tar.gz 
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Publish - turns a container or snapshot into an image in the local LXD image store&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;lxc publish container_name/snapshot --alias new_local_image
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;lxc publish container_name --alias image_name
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;lxc image import container_name.tar.gz  --alias custom-imagename
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;lxc image &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; imagename &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;target folder&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;flags&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;privileges&#34;&gt;Privileges&lt;/h2&gt;
+&lt;p&gt;Set special privileges for container, this example is for NFS:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name raw.apparmor &lt;span class=&#34;s2&#34;&gt;&amp;#34;mount fstype=nfs,&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;p&gt;Use this alias to prevent accidental deletion of an container.&lt;br&gt;
+&lt;code&gt;lxc alias add delete &amp;quot;delete -i&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gui&#34;&gt;Gui&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;LXDUI - &lt;a href=&#34;https://github.com/AdaptiveScale/lxdui&#34;&gt;https://github.com/AdaptiveScale/lxdui&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;LXD Mosaic - &lt;a href=&#34;https://github.com/turtle0x1/LxdMosaic&#34;&gt;https://github.com/turtle0x1/LxdMosaic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;source&#34;&gt;Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxcontainers.org/lxd/advanced-guide/&#34;&gt;https://linuxcontainers.org/lxd/advanced-guide/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxcontainers.org/lxd/docs/master/index&#34;&gt;https://linuxcontainers.org/lxd/docs/master/index&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
     </item>
     
     <item>
       <title>My Home Lab (v2)</title>
-      <link>https://oleg.pw/post/2021/my-home-lab/</link>
+      <link>https://olegtech.com/post/my-home-lab/</link>
       <pubDate>Sun, 24 Jan 2021 17:56:11 -0800</pubDate>
       
-      <guid>https://oleg.pw/post/2021/my-home-lab/</guid>
-      <description>Idea At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed NextCloud server.
-Then I needed a Virtualization Server where I could quickly deploy vm to test various software.
-For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.</description>
+      <guid>https://olegtech.com/post/my-home-lab/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;idea&#34;&gt;Idea&lt;/h2&gt;
+&lt;p&gt;At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed &lt;a href=&#34;https://nextcloud.com/&#34;&gt;NextCloud server&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://olegtech.com/images/2021/RaspberryPi4.jpg&#34; alt=&#34;Raspberry Pi + SSD&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then I needed a Virtualization Server where I could quickly deploy vm to test various software.&lt;br&gt;
+For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.&lt;br&gt;
+&lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; as a operating system.&lt;br&gt;
+&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; to manage virtual machines.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34;&gt;KVM&lt;/a&gt; (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). Using KVM, one can run multiple virtual machines running unmodified Linux or Windows images. Each virtual machine has private virtualized hardware: a network card, disk, graphics adapter, etc.&lt;/p&gt;
+&lt;p&gt;Canonical call LXD the &lt;a href=&#34;https://ubuntu.com/server/docs/containers-lxd&#34;&gt;&amp;quot;lightervisor&amp;quot;&lt;/a&gt;. It offers a user experience similar to virtual machines but using Linux containers instead. LXD uses LXC through liblxc and its Go binding to create and manage the containers. It&#39;s basically an alternative to LXC&#39;s tools and distribution template system with the added features that come from being controllable over the network.&lt;/p&gt;
+&lt;h2 id=&#34;hardware&#34;&gt;Hardware:&lt;/h2&gt;
+&lt;p&gt;I was planning to use HP ProLiant DL165 G7, but due to a lot of noise and since I didn’t need too much resources, I chose a simple old desktop Dell Optiplex 9020. (Intel Core I5-4570 3.20 GHz, 16Gb RAM)
+&lt;img src=&#34;https://olegtech.com/images/2021/dell_home_lab.jpg&#34; alt=&#34;Dell Optiplex 9020&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;network&#34;&gt;Network:&lt;/h2&gt;
+&lt;p&gt;All traffic go through &lt;a href=&#34;https://www.dlink.ru/mn/products/5/1608.html&#34;&gt;D-Link DIR-835&lt;/a&gt; with installed &lt;a href=&#34;https://openwrt.org/&#34;&gt;OpenWrt&lt;/a&gt;.&lt;br&gt;
+OpenWrt provides many capabilities found only in high-end devices and offers good secure level by default. Thanks to additional packages, you can configure monitoring and traffic analysis, and much more.
+&lt;img src=&#34;https://olegtech.com/images/2021/openwrt-logo.png&#34; alt=&#34;D-Link DIR-835 + OpenWrt&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo usermod -aG libvirt &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo usermod -aG kvm &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#LXD is installed by default in Ubuntu as a snap package just need to run:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;lxd init
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Vagrant &lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;wget https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;sudo apt install ./vagrant_2.2.14_x86_64.deb
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;sudo apt install qemu libvirt-daemon-system libvirt-clients &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	ebtables dnsmasq-base  libxslt-dev libxml2-dev libvirt-dev &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	zlib1g-dev ruby-dev ruby-libvirt build-essential
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;vagrant plugin install vagrant-libvirt
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Network bridge&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;sudo vim /etc/netplan/00-installer-config.yaml
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;	network:
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;	  version: &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;	  &lt;span class=&#34;c1&#34;&gt;# renderer: networkd&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;	  ethernets:
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;	    eno1:
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;	      dhcp4: no
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;	      dhcp6: no
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt; 	
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;	  bridges:
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;	    br0:
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;	      interfaces: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;eno1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;	      dhcp4: no
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;	      addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.10/24&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;	      gateway4: 192.168.10.1
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;	      nameservers:
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;	        addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;sudo netplan apply
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;sudo timedatectl set-timezone America/Los_Angeles
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
     </item>
     
   </channel>

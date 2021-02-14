@@ -1,3 +1,3 @@
-# oleg.pw
+# olegtech.com
 GitHub Pages site  
-https://oleg.pw/
+https://olegtech.com/

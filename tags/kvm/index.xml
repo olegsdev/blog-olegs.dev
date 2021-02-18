@@ -27,10 +27,13 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 &lt;h2 id=&#34;hardware&#34;&gt;Hardware:&lt;/h2&gt;
 &lt;p&gt;I was planning to use HP ProLiant DL165 G7, but due to a lot of noise and since I didn’t need too much resources, I chose a simple old desktop Dell Optiplex 9020. (Intel Core I5-4570 3.20 GHz, 16Gb RAM)
 &lt;img src=&#34;https://olegtech.com/images/2021/dell_home_lab.jpg&#34; alt=&#34;Dell Optiplex 9020&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;network&#34;&gt;Network:&lt;/h2&gt;
+&lt;h2 id=&#34;network--dns&#34;&gt;Network + DNS:&lt;/h2&gt;
 &lt;p&gt;All traffic go through &lt;a href=&#34;https://www.dlink.ru/mn/products/5/1608.html&#34;&gt;D-Link DIR-835&lt;/a&gt; with installed &lt;a href=&#34;https://openwrt.org/&#34;&gt;OpenWrt&lt;/a&gt;.&lt;br&gt;
 OpenWrt provides many capabilities found only in high-end devices and offers good secure level by default. Thanks to additional packages, you can configure monitoring and traffic analysis, and much more.
-&lt;img src=&#34;https://olegtech.com/images/2021/openwrt-logo.png&#34; alt=&#34;D-Link DIR-835 + OpenWrt&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://olegtech.com/images/2021/openwrt-logo.png&#34; alt=&#34;D-Link DIR-835 + OpenWrt&#34;&gt;
+&lt;a href=&#34;https://pi-hole.net/&#34;&gt;Pi-hole&lt;/a&gt; is Network-wide ad blocking system, but I also using it as a local DNS server. In OpenWrt needs to add Pi-hole IP as a different DNS servers for all DHCP clients.&lt;br&gt;
+( LuCI: Network -&amp;gt; Interfaces -&amp;gt; LAN -&amp;gt; Edit -&amp;gt; scroll down to DHCP server -&amp;gt; Advanced settings -&amp;gt; look under DHCP-Options )&lt;br&gt;
+&lt;img src=&#34;https://olegtech.com/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
@@ -74,7 +77,10 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
 &lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;sudo netplan apply
 &lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;sudo timedatectl set-timezone America/Los_Angeles
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h2&gt;
+&lt;p&gt;For monitoring I&#39;m using &lt;a href=&#34;https://www.monitorix.org/&#34;&gt;Monitorix&lt;/a&gt;.  It is a free, open source, lightweight system monitoring tool designed to monitor as many services and system resources as possible. It has been created to be used under production Linux/UNIX servers, but due to its simplicity and small size can be used on embedded devices as well.&lt;br&gt;
+&lt;img src=&#34;https://olegtech.com/images/2021/monitorix_cpu.png&#34; alt=&#34;Monitorix CPU and memory&#34;&gt;&lt;/p&gt;
+
         
       </description>
     </item>

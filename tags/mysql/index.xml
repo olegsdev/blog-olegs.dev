@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mysql on OS blog</title>
-    <link>https://olegtech.com/tags/mysql/</link>
+    <link>https://olegs.dev/tags/mysql/</link>
     <description>Recent content in mysql on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Nov 2020 15:24:18 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Nov 2020 15:24:18 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mysql Questions</title>
-      <link>https://olegtech.com/post/mysql-questions/</link>
+      <link>https://olegs.dev/post/mysql-questions/</link>
       <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/mysql-questions/</guid>
+      <guid>https://olegs.dev/post/mysql-questions/</guid>
       <description>
         
           &lt;blockquote&gt;

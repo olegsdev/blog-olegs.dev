@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>networking on OS blog</title>
-    <link>https://olegtech.com/tags/networking/</link>
+    <link>https://olegs.dev/tags/networking/</link>
     <description>Recent content in networking on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Networking Questions</title>
-      <link>https://olegtech.com/post/networking-questions/</link>
+      <link>https://olegs.dev/post/networking-questions/</link>
       <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/networking-questions/</guid>
+      <guid>https://olegs.dev/post/networking-questions/</guid>
       <description>
         
           &lt;blockquote&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on OS blog</title>
-    <link>https://olegtech.com/post/</link>
+    <link>https://olegs.dev/post/</link>
     <description>Recent content in Posts on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegtech.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</title>
-      <link>https://olegtech.com/post/elastiflow/</link>
+      <link>https://olegs.dev/post/elastiflow/</link>
       <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/elastiflow/</guid>
+      <guid>https://olegs.dev/post/elastiflow/</guid>
       <description>
         
           &lt;h2 id=&#34;setup-netflow-on-openwrt&#34;&gt;Setup NetFlow on OpenWRT&lt;/h2&gt;
@@ -124,7 +124,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#In kibana go to &amp;#34;Management/Stack Management/Saved Objects&amp;#34; and import&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elastiflow-screenshots&#34;&gt;ElastiFlow screenshots&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://olegtech.com/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png&#34; alt=&#34;ElastiFlow screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://olegs.dev/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png&#34; alt=&#34;ElastiFlow screenshot&#34;&gt;&lt;/p&gt;
 
         
       </description>
@@ -132,10 +132,10 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     
     <item>
       <title>LXD quick start (linux containers)</title>
-      <link>https://olegtech.com/post/lxd/</link>
+      <link>https://olegs.dev/post/lxd/</link>
       <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/lxd/</guid>
+      <guid>https://olegs.dev/post/lxd/</guid>
       <description>
         
           &lt;p&gt;&lt;strong&gt;Linux containers&lt;/strong&gt; often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.&lt;br&gt;
@@ -296,15 +296,15 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     
     <item>
       <title>My Home Lab (v2)</title>
-      <link>https://olegtech.com/post/my-home-lab/</link>
+      <link>https://olegs.dev/post/my-home-lab/</link>
       <pubDate>Sun, 24 Jan 2021 17:56:11 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/my-home-lab/</guid>
+      <guid>https://olegs.dev/post/my-home-lab/</guid>
       <description>
         
           &lt;h2 id=&#34;idea&#34;&gt;Idea&lt;/h2&gt;
 &lt;p&gt;At the beginning it was just a file server on Raspberry Pi 4 + SSD with installed &lt;a href=&#34;https://nextcloud.com/&#34;&gt;NextCloud server&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://olegtech.com/images/2021/RaspberryPi4.jpg&#34; alt=&#34;Raspberry Pi + SSD&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://olegs.dev/images/2021/RaspberryPi4.jpg&#34; alt=&#34;Raspberry Pi + SSD&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Then I needed a Virtualization Server where I could quickly deploy vm to test various software.&lt;br&gt;
 For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. LXC is good for simple servers like Nginx or Mysql, KVM for more complex system like FreeIPA Server, Docker, Kubernetes and others.&lt;br&gt;
 &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; as a operating system.&lt;br&gt;
@@ -313,14 +313,14 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 &lt;p&gt;Canonical call LXD the &lt;a href=&#34;https://ubuntu.com/server/docs/containers-lxd&#34;&gt;&amp;quot;lightervisor&amp;quot;&lt;/a&gt;. It offers a user experience similar to virtual machines but using Linux containers instead. LXD uses LXC through liblxc and its Go binding to create and manage the containers. It&#39;s basically an alternative to LXC&#39;s tools and distribution template system with the added features that come from being controllable over the network.&lt;/p&gt;
 &lt;h2 id=&#34;hardware&#34;&gt;Hardware:&lt;/h2&gt;
 &lt;p&gt;I was planning to use HP ProLiant DL165 G7, but due to a lot of noise and since I didn’t need too much resources, I chose a simple old desktop Dell Optiplex 9020. (Intel Core I5-4570 3.20 GHz, 16Gb RAM)
-&lt;img src=&#34;https://olegtech.com/images/2021/dell_home_lab.jpg&#34; alt=&#34;Dell Optiplex 9020&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://olegs.dev/images/2021/dell_home_lab.jpg&#34; alt=&#34;Dell Optiplex 9020&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;network--dns&#34;&gt;Network + DNS:&lt;/h2&gt;
 &lt;p&gt;All traffic go through &lt;a href=&#34;https://www.dlink.ru/mn/products/5/1608.html&#34;&gt;D-Link DIR-835&lt;/a&gt; with installed &lt;a href=&#34;https://openwrt.org/&#34;&gt;OpenWrt&lt;/a&gt;.&lt;br&gt;
 OpenWrt provides many capabilities found only in high-end devices and offers good secure level by default. Thanks to additional packages, you can configure monitoring and traffic analysis, and much more.
-&lt;img src=&#34;https://olegtech.com/images/2021/openwrt-logo.png&#34; alt=&#34;D-Link DIR-835 + OpenWrt&#34;&gt;
+&lt;img src=&#34;https://olegs.dev/images/2021/openwrt-logo.png&#34; alt=&#34;D-Link DIR-835 + OpenWrt&#34;&gt;
 &lt;a href=&#34;https://pi-hole.net/&#34;&gt;Pi-hole&lt;/a&gt; is Network-wide ad blocking system, but I also using it as a local DNS server. In OpenWrt needs to add Pi-hole IP as a different DNS servers for all DHCP clients.&lt;br&gt;
 ( LuCI: Network -&amp;gt; Interfaces -&amp;gt; LAN -&amp;gt; Edit -&amp;gt; scroll down to DHCP server -&amp;gt; Advanced settings -&amp;gt; look under DHCP-Options )&lt;br&gt;
-&lt;img src=&#34;https://olegtech.com/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://olegs.dev/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
@@ -366,7 +366,7 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
 &lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;sudo timedatectl set-timezone America/Los_Angeles
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h2&gt;
 &lt;p&gt;For monitoring I&#39;m using &lt;a href=&#34;https://www.monitorix.org/&#34;&gt;Monitorix&lt;/a&gt;.  It is a free, open source, lightweight system monitoring tool designed to monitor as many services and system resources as possible. It has been created to be used under production Linux/UNIX servers, but due to its simplicity and small size can be used on embedded devices as well.&lt;br&gt;
-&lt;img src=&#34;https://olegtech.com/images/2021/monitorix_cpu.png&#34; alt=&#34;Monitorix CPU and memory&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://olegs.dev/images/2021/monitorix_cpu.png&#34; alt=&#34;Monitorix CPU and memory&#34;&gt;&lt;/p&gt;
 
         
       </description>
@@ -374,10 +374,10 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
     
     <item>
       <title>Networking Questions</title>
-      <link>https://olegtech.com/post/networking-questions/</link>
+      <link>https://olegs.dev/post/networking-questions/</link>
       <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/networking-questions/</guid>
+      <guid>https://olegs.dev/post/networking-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -509,10 +509,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     
     <item>
       <title>Mysql Questions</title>
-      <link>https://olegtech.com/post/mysql-questions/</link>
+      <link>https://olegs.dev/post/mysql-questions/</link>
       <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/mysql-questions/</guid>
+      <guid>https://olegs.dev/post/mysql-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -562,10 +562,10 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
     
     <item>
       <title>Medium Linux Questions</title>
-      <link>https://olegtech.com/post/medium-linux-questions/</link>
+      <link>https://olegs.dev/post/medium-linux-questions/</link>
       <pubDate>Sun, 15 Nov 2020 19:57:43 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/medium-linux-questions/</guid>
+      <guid>https://olegs.dev/post/medium-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -791,10 +791,10 @@ Some major numbers are reserved for particular device drivers. Other major numbe
     
     <item>
       <title>Simple Linux Questions</title>
-      <link>https://olegtech.com/post/simple-linux-questions/</link>
+      <link>https://olegs.dev/post/simple-linux-questions/</link>
       <pubDate>Wed, 11 Nov 2020 19:48:49 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/simple-linux-questions/</guid>
+      <guid>https://olegs.dev/post/simple-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;

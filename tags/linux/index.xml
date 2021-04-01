@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on OS blog</title>
-    <link>https://olegtech.com/tags/linux/</link>
+    <link>https://olegs.dev/tags/linux/</link>
     <description>Recent content in linux on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</title>
-      <link>https://olegtech.com/post/elastiflow/</link>
+      <link>https://olegs.dev/post/elastiflow/</link>
       <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/elastiflow/</guid>
+      <guid>https://olegs.dev/post/elastiflow/</guid>
       <description>
         
           &lt;h2 id=&#34;setup-netflow-on-openwrt&#34;&gt;Setup NetFlow on OpenWRT&lt;/h2&gt;
@@ -124,7 +124,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#In kibana go to &amp;#34;Management/Stack Management/Saved Objects&amp;#34; and import&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elastiflow-screenshots&#34;&gt;ElastiFlow screenshots&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://olegtech.com/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png&#34; alt=&#34;ElastiFlow screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://olegs.dev/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png&#34; alt=&#34;ElastiFlow screenshot&#34;&gt;&lt;/p&gt;
 
         
       </description>
@@ -132,10 +132,10 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     
     <item>
       <title>LXD quick start (linux containers)</title>
-      <link>https://olegtech.com/post/lxd/</link>
+      <link>https://olegs.dev/post/lxd/</link>
       <pubDate>Wed, 03 Feb 2021 10:17:06 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/lxd/</guid>
+      <guid>https://olegs.dev/post/lxd/</guid>
       <description>
         
           &lt;p&gt;&lt;strong&gt;Linux containers&lt;/strong&gt; often considered as something in the middle between a chroot and a full fledged virtual machine. The goal of LXC is to create an environment as close as possible to a standard Linux installation but without the need for a separate kernel.&lt;br&gt;
@@ -296,10 +296,10 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     
     <item>
       <title>Networking Questions</title>
-      <link>https://olegtech.com/post/networking-questions/</link>
+      <link>https://olegs.dev/post/networking-questions/</link>
       <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/networking-questions/</guid>
+      <guid>https://olegs.dev/post/networking-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -431,10 +431,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     
     <item>
       <title>Mysql Questions</title>
-      <link>https://olegtech.com/post/mysql-questions/</link>
+      <link>https://olegs.dev/post/mysql-questions/</link>
       <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/mysql-questions/</guid>
+      <guid>https://olegs.dev/post/mysql-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -484,10 +484,10 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
     
     <item>
       <title>Medium Linux Questions</title>
-      <link>https://olegtech.com/post/medium-linux-questions/</link>
+      <link>https://olegs.dev/post/medium-linux-questions/</link>
       <pubDate>Sun, 15 Nov 2020 19:57:43 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/medium-linux-questions/</guid>
+      <guid>https://olegs.dev/post/medium-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -713,10 +713,10 @@ Some major numbers are reserved for particular device drivers. Other major numbe
     
     <item>
       <title>Simple Linux Questions</title>
-      <link>https://olegtech.com/post/simple-linux-questions/</link>
+      <link>https://olegs.dev/post/simple-linux-questions/</link>
       <pubDate>Wed, 11 Nov 2020 19:48:49 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/simple-linux-questions/</guid>
+      <guid>https://olegs.dev/post/simple-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;

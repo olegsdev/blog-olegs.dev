@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux-questions on OS blog</title>
-    <link>https://olegtech.com/tags/linux-questions/</link>
+    <link>https://olegs.dev/tags/linux-questions/</link>
     <description>Recent content in linux-questions on OS blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegtech.com/tags/linux-questions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/linux-questions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Networking Questions</title>
-      <link>https://olegtech.com/post/networking-questions/</link>
+      <link>https://olegs.dev/post/networking-questions/</link>
       <pubDate>Mon, 30 Nov 2020 15:52:25 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/networking-questions/</guid>
+      <guid>https://olegs.dev/post/networking-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -144,10 +144,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     
     <item>
       <title>Mysql Questions</title>
-      <link>https://olegtech.com/post/mysql-questions/</link>
+      <link>https://olegs.dev/post/mysql-questions/</link>
       <pubDate>Thu, 19 Nov 2020 15:24:18 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/mysql-questions/</guid>
+      <guid>https://olegs.dev/post/mysql-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -197,10 +197,10 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
     
     <item>
       <title>Medium Linux Questions</title>
-      <link>https://olegtech.com/post/medium-linux-questions/</link>
+      <link>https://olegs.dev/post/medium-linux-questions/</link>
       <pubDate>Sun, 15 Nov 2020 19:57:43 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/medium-linux-questions/</guid>
+      <guid>https://olegs.dev/post/medium-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;
@@ -426,10 +426,10 @@ Some major numbers are reserved for particular device drivers. Other major numbe
     
     <item>
       <title>Simple Linux Questions</title>
-      <link>https://olegtech.com/post/simple-linux-questions/</link>
+      <link>https://olegs.dev/post/simple-linux-questions/</link>
       <pubDate>Wed, 11 Nov 2020 19:48:49 -0800</pubDate>
       
-      <guid>https://olegtech.com/post/simple-linux-questions/</guid>
+      <guid>https://olegs.dev/post/simple-linux-questions/</guid>
       <description>
         
           &lt;blockquote&gt;

@@ -1,3 +1,3 @@
-# olegtech.com
+# olegs.dev
 GitHub Pages site  
-https://olegtech.com/
+https://olegs.dev/

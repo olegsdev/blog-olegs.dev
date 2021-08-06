@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://olegs.dev/</loc>
-    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
+    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/tags/css/</loc>
+    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/post/css/</loc>
+    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/post/</loc>
+    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/tags/</loc>
+    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/elastiflow/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
@@ -24,12 +36,6 @@
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/openwrt/</loc>
-    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/post/</loc>
-    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/tags/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/containers/</loc>

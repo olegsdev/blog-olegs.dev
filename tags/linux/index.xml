@@ -18,11 +18,11 @@
           &lt;h2 id=&#34;setup-netflow-on-openwrt&#34;&gt;Setup NetFlow on OpenWRT&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/NetFlow&#34;&gt;NetFlow&lt;/a&gt;&lt;/strong&gt; is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install &lt;em&gt;&lt;strong&gt;softflowd package&lt;/strong&gt;&lt;/em&gt;.&lt;br&gt;
 &lt;strong&gt;softflowd&lt;/strong&gt; - is a software implementation of a flow-based network traffic monitor.  softflowd reads network traffic and gathers information about active traffic flows.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;opkg update
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;opkg update
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;opkg install softflowd
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;/etc/init.d/softflowd start &lt;span class=&#34;c1&#34;&gt;# or stop, or restart&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Config file: &lt;code&gt;/etc/config/softflowd&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# cat /etc/config/softflowd
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# cat /etc/config/softflowd
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;config softflowd
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;        option enabled        &amp;#39;1&amp;#39;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;        option interface      &amp;#39;br-lan&amp;#39;
@@ -40,7 +40,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Useful commands:&lt;br&gt;
 &lt;code&gt;softflowctl statistics&lt;/code&gt;&lt;br&gt;
 &lt;code&gt;softflowctl dump-flows&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# softflowctl statistics
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# softflowctl statistics
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;Number of active flows: 27
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;Packets processed: 16176338
@@ -70,7 +70,7 @@
 &lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;           igmp (2):           3656           89      10.80s      60.74s
 &lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;            tcp (6):     9019595755      9503208      23.06s     111.24s
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;           udp (17):     4888056323      6670438       8.06s      90.58s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;root@OpenWrt:~# softflowctl dump-flows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;root@OpenWrt:~# softflowctl dump-flows
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;softflowd[4563]: Dumping flow data:
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ACTIVE seq:59825 [192.168.10.4]:46672 &amp;lt;&amp;gt; [192.168.10.22]:443 proto:6 octets&amp;gt;:2929 packets&amp;gt;:16 octets&amp;lt;:6911 packets&amp;lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&amp;gt;:1b tcp&amp;lt;:1b flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;EXPIRY EVENT for flow 59825 now
@@ -82,7 +82,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elk-configuration&#34;&gt;ELK Configuration&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;ELK stack&lt;/strong&gt; is an acronym used to describe a stack that comprises of three popular open-source projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Instalation:&lt;/strong&gt; Here my installation example(on ubuntu 20.04 server), but I recommend to check &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt; because it changes pretty quickly.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sudo apt install apt-transport-https
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sudo apt install apt-transport-https
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo apt-key add -
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;sudo apt update
@@ -93,7 +93,7 @@
 &lt;h2 id=&#34;elastiflow-instalation&#34;&gt;ElastiFlow Instalation&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ElastiFlow™&lt;/strong&gt; - provides network flow data collection and visualization using the Elastic Stack. It supports Netflow v5/v9, sFlow and IPFIX flow types. In simple words is a set of configuration files for logstash and preconfigured kibana dashboard.&lt;br&gt;
 Full config settings and tuning ElastiFlow is out of scope this article, here an example to make it work. Please read official &lt;a href=&#34;https://github.com/robcowart/elastiflow/blob/master/INSTALL.md&#34;&gt;Installation guide&lt;/a&gt; for better understanding.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin list --installed
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
@@ -142,7 +142,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;strong&gt;LXD&lt;/strong&gt; is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.&lt;/p&gt;
 &lt;p&gt;Before start, use &lt;code&gt;lxd init&lt;/code&gt; to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.&lt;/p&gt;
 &lt;h2 id=&#34;get-info&#34;&gt;Get Info:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc info container_name
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc config show container_name -e  &lt;span class=&#34;c1&#34;&gt;#all configurations&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;lxc storage list
@@ -174,23 +174,23 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    F - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;long&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launch-new-container&#34;&gt;Launch new container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc launch ubuntu:20.04 container_name
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc launch -p profile_name ubuntu:20.04 container_name   &lt;span class=&#34;c1&#34;&gt;#-p for applying a profile&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;Apply specific settings to a container:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.cpu &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name root size 10GB
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 limits.ingress 1Mbit
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-commands-within-container&#34;&gt;Run commands within container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name bash
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- su --login username
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc console container_name  &lt;span class=&#34;c1&#34;&gt;# terminal inside container, use ```ctrl+a-q``` for detach.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;profile&#34;&gt;Profile&lt;/h2&gt;
 &lt;p&gt;Profile helps create container preconfiguration. Can be apply in launch moment. Uses &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt; initialization.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc profile edit profilename
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# example&lt;/span&gt;
@@ -225,7 +225,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;...
 &lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc network create testbr0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc network create dev1br0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.20.5.10/24 ipv4.nat&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
@@ -246,22 +246,22 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 ipv4.address 192.168.10.5
 &lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;snapshots&#34;&gt;Snapshots&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc restore container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# restore the snapshot&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc delete container_name/snapshot_name  &lt;span class=&#34;c1&#34;&gt;# delete a snapshot&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc file pull -r container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;# Pull a folder&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc file push path-on-host container_name/path-in-container   &lt;span class=&#34;c1&#34;&gt;#  from host to instance&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc file push -r path-on-host container_name/path-in-container  &lt;span class=&#34;c1&#34;&gt;# folder&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc storage create zfs-pool zfs &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mapper/vg_lxd-lv_lxd_zfs
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc storage list  
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc storage show zfs-pool
 &lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;https://linuxcontainers.org/lxd/docs/master/storage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export--importor-backups-publish&#34;&gt;Export &amp;amp; import(or backups), publish&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc import container_name_date.tar.gz 
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Publish - turns a container or snapshot into an image in the local LXD image store&lt;/span&gt;
@@ -274,7 +274,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;privileges&#34;&gt;Privileges&lt;/h2&gt;
 &lt;p&gt;Set special privileges for container, this example is for NFS:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name raw.apparmor &lt;span class=&#34;s2&#34;&gt;&amp;#34;mount fstype=nfs,&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
 &lt;p&gt;Use this alias to prevent accidental deletion of an container.&lt;br&gt;
@@ -321,7 +321,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine&#34;&gt;What is the command used to show all open ports and/or socket connections on a machine?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ss -tulpn
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
@@ -360,7 +360,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;p&gt;A &lt;strong&gt;default gateway&lt;/strong&gt; is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-command-used-to-show-the-routing-table-on-a-linux-box&#34;&gt;What is command used to show the routing table on a Linux box?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -r
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;route -n
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
@@ -381,7 +381,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-add-an-ipv6-address-to-a-specific-interface&#34;&gt;How do you add an IPv6 address to a specific interface?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
@@ -442,9 +442,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-create-a-user&#34;&gt;How do you create a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The LEFT JOIN allows you to query data from two or more tables. Similar to the INNER JOIN clause, the LEFT JOIN is an optional clause of the SELECT statement, which appears immediately after the FROM clause.&lt;br&gt;
@@ -474,9 +474,9 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-check-which-jobs-are-running&#34;&gt;How do you check which jobs are running?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         
       </description>
@@ -632,7 +632,7 @@ p.s. In the field of Networking, (Split Horizon) is used for a method that preve
 &lt;h2 id=&#34;what-is-a-runlevel-and-how-to-get-the-current-runlevel&#34;&gt;What is a runlevel and how to get the current runlevel?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;A runlevel is a preset operating state on a sysVinit-like operating system. A system can be booted into any of several runlevels. Each runlevel designates a different system configuration and allows access to a different combination of processes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;    0 – System halt i.e the system can be safely powered off with no activity.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;    0 – System halt i.e the system can be safely powered off with no activity.
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    1 – Single user mode.
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    2 – Multiple user mode with no NFS(network file system).
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    3 – Multiple user mode under the command line interface and not under the graphical user interface.
@@ -730,22 +730,22 @@ This page contains ideas on how to answer questions. The answers are not absolut
 Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-list-all-files-including-hidden-ones-in-a-directory&#34;&gt;How to list all files, including hidden ones, in a directory?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents&#34;&gt;What is the Unix/Linux command to remove a directory and its contents?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;rmdir - only empty directories
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;rmdir - only empty directories
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;rm -rf dir
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux&#34;&gt;Which command will show you free/used memory? Does free memory exist on Linux?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;free -m
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;free -m
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;Free memory does exist on linux
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively&#34;&gt;How to search for the string &amp;quot;my konfu is the best&amp;quot; in files of a directory recursively?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-connect-to-a-remote-server-or-what-is-ssh&#34;&gt;How to connect to a remote server or what is SSH?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;strong&gt;ssh user@server&lt;/strong&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Secure Shell is a software standard to support encrypted data transfer between two computers. It can be used to support secure logins, file transfers or general purpose connects.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-get-all-environment-variables-and-how-can-you-use-them&#34;&gt;How to get all environment variables and how can you use them?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;printenv - print all or part of environment
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;printenv - print all or part of environment
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h2 id=&#34;i-get-command-not-found-when-i-run-ifconfig--a-what-can-be-wrong&#34;&gt;I get &amp;quot;command not found&amp;quot; when I run ifconfig -a. What can be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -756,15 +756,15 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;the shell will automatically fill in the rest or show you the available options you can type (tab completion)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-command-will-show-the-available-disk-space-on-the-unixlinux-system&#34;&gt;What command will show the available disk space on the Unix/Linux system?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;df -h
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;df -h
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;df - report file system disk space usage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-commands-do-you-know-that-can-be-used-to-check-dns-records&#34;&gt;What commands do you know that can be used to check DNS records?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;dig example.com MX &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;nsloockup &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; nslookup -type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;ns example.com &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;host &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;host -t ns example.com&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-unixlinux-commands-will-alter-a-files-ownership-files-permissions&#34;&gt;What Unix/Linux commands will alter a files ownership, files permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;chown - change file owner and group
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;chown - change file owner and group
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;chmod - change file mode bits
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-chmod-x-filename-do&#34;&gt;What does chmod +x FILENAME do?&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -780,11 +780,11 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;The directory owner has full access. Group users may list the directory, but cannot create files. Nobody else has any rights.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-add-a-new-system-user-without-login-permissions&#34;&gt;How to add a new system user without login permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt; usermod -L username ( lock the account to prevent logging in )
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt; useradd -r username ( does not have a password, a home dir and is unable to login )
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-addremove-a-group-from-a-user&#34;&gt;How to add/remove a group from a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gpasswd -a user group
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;---
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;gpasswd -d user group
@@ -795,7 +795,7 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;An alias is a (usually short) name that the shell translates into another (usually longer) name or command&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-set-the-mail-address-of-the-roota-user&#34;&gt;How do you set the mail address of the root/a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;/root/.forwards
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;/root/.forwards
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;/etc/aliases
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;P.S. for postfix: set in main.cf =&amp;gt; myhostname = host.example.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-ctrl-c-do&#34;&gt;What does CTRL-c do?&lt;/h2&gt;
@@ -815,7 +815,7 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;/etc/services file contains a list of network services and ports mapped to them.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-redirect-stdout-and-stderr-in-bash--devnull-21&#34;&gt;How to redirect STDOUT and STDERR in bash? (&amp;gt; /dev/null 2&amp;gt;&amp;amp;1)&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ls /tmp &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-unix-and-linux&#34;&gt;What is the difference between UNIX and Linux.&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -829,12 +829,12 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;uptime
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;uptime
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;w
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;top
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;cat /proc/loadavg
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls&#34;&gt;Can you name a lower-case letter that is not a valid option for GNU ls?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;option &amp;#39;y&amp;#39;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;option &amp;#39;y&amp;#39;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;option &amp;#39;z&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-linux-kernel-module&#34;&gt;What is a Linux kernel module?&lt;/h2&gt;
 &lt;blockquote&gt;

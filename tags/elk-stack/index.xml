@@ -18,11 +18,11 @@
           &lt;h2 id=&#34;setup-netflow-on-openwrt&#34;&gt;Setup NetFlow on OpenWRT&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/NetFlow&#34;&gt;NetFlow&lt;/a&gt;&lt;/strong&gt; is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install &lt;em&gt;&lt;strong&gt;softflowd package&lt;/strong&gt;&lt;/em&gt;.&lt;br&gt;
 &lt;strong&gt;softflowd&lt;/strong&gt; - is a software implementation of a flow-based network traffic monitor.  softflowd reads network traffic and gathers information about active traffic flows.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;opkg update
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;opkg update
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;opkg install softflowd
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;/etc/init.d/softflowd start &lt;span class=&#34;c1&#34;&gt;# or stop, or restart&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Config file: &lt;code&gt;/etc/config/softflowd&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# cat /etc/config/softflowd
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# cat /etc/config/softflowd
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;config softflowd
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;        option enabled        &amp;#39;1&amp;#39;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;        option interface      &amp;#39;br-lan&amp;#39;
@@ -40,7 +40,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Useful commands:&lt;br&gt;
 &lt;code&gt;softflowctl statistics&lt;/code&gt;&lt;br&gt;
 &lt;code&gt;softflowctl dump-flows&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# softflowctl statistics
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# softflowctl statistics
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;Number of active flows: 27
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;Packets processed: 16176338
@@ -70,7 +70,7 @@
 &lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;           igmp (2):           3656           89      10.80s      60.74s
 &lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;            tcp (6):     9019595755      9503208      23.06s     111.24s
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;           udp (17):     4888056323      6670438       8.06s      90.58s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;root@OpenWrt:~# softflowctl dump-flows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;root@OpenWrt:~# softflowctl dump-flows
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;softflowd[4563]: Dumping flow data:
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ACTIVE seq:59825 [192.168.10.4]:46672 &amp;lt;&amp;gt; [192.168.10.22]:443 proto:6 octets&amp;gt;:2929 packets&amp;gt;:16 octets&amp;lt;:6911 packets&amp;lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&amp;gt;:1b tcp&amp;lt;:1b flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;EXPIRY EVENT for flow 59825 now
@@ -82,7 +82,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elk-configuration&#34;&gt;ELK Configuration&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;ELK stack&lt;/strong&gt; is an acronym used to describe a stack that comprises of three popular open-source projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Instalation:&lt;/strong&gt; Here my installation example(on ubuntu 20.04 server), but I recommend to check &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt; because it changes pretty quickly.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sudo apt install apt-transport-https
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sudo apt install apt-transport-https
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo apt-key add -
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;sudo apt update
@@ -93,7 +93,7 @@
 &lt;h2 id=&#34;elastiflow-instalation&#34;&gt;ElastiFlow Instalation&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ElastiFlow™&lt;/strong&gt; - provides network flow data collection and visualization using the Elastic Stack. It supports Netflow v5/v9, sFlow and IPFIX flow types. In simple words is a set of configuration files for logstash and preconfigured kibana dashboard.&lt;br&gt;
 Full config settings and tuning ElastiFlow is out of scope this article, here an example to make it work. Please read official &lt;a href=&#34;https://github.com/robcowart/elastiflow/blob/master/INSTALL.md&#34;&gt;Installation guide&lt;/a&gt; for better understanding.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin list --installed
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow

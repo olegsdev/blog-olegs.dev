@@ -4,7 +4,7 @@
   <head>
 <title>Networking Questions | OS blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -200,7 +200,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 </ul>
 </blockquote>
 <h2 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>netstat -lntu 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>netstat -lntu 
 <span class="ln">2</span>netstat -tulpn <span class="p">|</span> grep LISTEN
 <span class="ln">3</span>ss -tulpn
 <span class="ln">4</span>lsof -i -P -n <span class="p">|</span> grep LISTEN
@@ -239,7 +239,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <p>A <strong>default gateway</strong> is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
 </blockquote>
 <h2 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ip route <span class="o">(</span>ip r<span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ip route <span class="o">(</span>ip r<span class="o">)</span>
 <span class="ln">2</span>netstat -r
 <span class="ln">3</span>route -n
 </code></pre></div><h2 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h2>
@@ -260,7 +260,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 </ul>
 </blockquote>
 <h2 id="how-do-you-add-an-ipv6-address-to-a-specific-interface">How do you add an IPv6 address to a specific interface?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>Same commands as for ipv4:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>Same commands as for ipv4:
 <span class="ln">2</span>ip -6 addr add &lt;ipv6address&gt;/&lt;prefixlength&gt; dev &lt;interface&gt;
 <span class="ln">3</span>ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
 <span class="ln">4</span>ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
@@ -332,6 +332,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     <h2 class="mt-4">Featured Posts</h2>
     <ul>
       <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -343,6 +346,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     </ul>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
       <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
@@ -390,6 +396,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://olegs.dev/tags/css/' class="post_tag button button_translucent" title="css">
+          CSS
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://olegs.dev/tags/elastiflow/' class="post_tag button button_translucent" title="elastiflow">
           ELASTIFLOW
           <span class="button_tally">1</span>
@@ -430,11 +441,6 @@ traceroute - the exact route you take to reach the server from your computer(ISP
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/openwrt/' class="post_tag button button_translucent" title="openwrt">
-          OPENWRT
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -442,6 +448,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
           <div class="tags_list">
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://olegs.dev/tags/css/' class=" post_tag button button_translucent" data-position=1 title="css">CSS<span class="button_tally">1</span>
             </a>
             
             

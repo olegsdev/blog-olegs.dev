@@ -4,7 +4,7 @@
   <head>
 <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT | OS blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -172,11 +172,11 @@
     <h2 id="setup-netflow-on-openwrt">Setup NetFlow on OpenWRT</h2>
 <p><strong><a href="https://en.wikipedia.org/wiki/NetFlow">NetFlow</a></strong> is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install <em><strong>softflowd package</strong></em>.<br>
 <strong>softflowd</strong> - is a software implementation of a flow-based network traffic monitor.  softflowd reads network traffic and gathers information about active traffic flows.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>opkg update
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>opkg update
 <span class="ln">2</span>opkg install softflowd
 <span class="ln">3</span>/etc/init.d/softflowd start <span class="c1"># or stop, or restart</span>
 </code></pre></div><p>Config file: <code>/etc/config/softflowd</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# cat /etc/config/softflowd
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# cat /etc/config/softflowd
 <span class="ln"> 2</span>config softflowd
 <span class="ln"> 3</span>        option enabled        &#39;1&#39;
 <span class="ln"> 4</span>        option interface      &#39;br-lan&#39;
@@ -194,7 +194,7 @@
 </code></pre></div><p>Useful commands:<br>
 <code>softflowctl statistics</code><br>
 <code>softflowctl dump-flows</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# softflowctl statistics
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# softflowctl statistics
 <span class="ln"> 2</span>softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
 <span class="ln"> 3</span>Number of active flows: 27
 <span class="ln"> 4</span>Packets processed: 16176338
@@ -224,7 +224,7 @@
 <span class="ln">28</span>           igmp (2):           3656           89      10.80s      60.74s
 <span class="ln">29</span>            tcp (6):     9019595755      9503208      23.06s     111.24s
 <span class="ln">30</span>           udp (17):     4888056323      6670438       8.06s      90.58s
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>root@OpenWrt:~# softflowctl dump-flows
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>root@OpenWrt:~# softflowctl dump-flows
 <span class="ln">2</span>softflowd[4563]: Dumping flow data:
 <span class="ln">3</span>ACTIVE seq:59825 [192.168.10.4]:46672 &lt;&gt; [192.168.10.22]:443 proto:6 octets&gt;:2929 packets&gt;:16 octets&lt;:6911 packets&lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&gt;:1b tcp&lt;:1b flowlabel&gt;:00000000 flowlabel&lt;:00000000 
 <span class="ln">4</span>EXPIRY EVENT for flow 59825 now
@@ -236,7 +236,7 @@
 </code></pre></div><h2 id="elk-configuration">ELK Configuration</h2>
 <p>The <strong>ELK stack</strong> is an acronym used to describe a stack that comprises of three popular open-source projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.</p>
 <p><strong>Instalation:</strong> Here my installation example(on ubuntu 20.04 server), but I recommend to check <a href="https://www.elastic.co/guide/index.html">official documentation</a> because it changes pretty quickly.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sudo apt install apt-transport-https
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sudo apt install apt-transport-https
 <span class="ln">2</span>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch <span class="p">|</span> sudo apt-key add -
 <span class="ln">3</span><span class="nb">echo</span> <span class="s2">&#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&#34;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 <span class="ln">4</span>sudo apt update
@@ -247,7 +247,7 @@
 <h2 id="elastiflow-instalation">ElastiFlow Instalation</h2>
 <p><strong>ElastiFlow™</strong> - provides network flow data collection and visualization using the Elastic Stack. It supports Netflow v5/v9, sFlow and IPFIX flow types. In simple words is a set of configuration files for logstash and preconfigured kibana dashboard.<br>
 Full config settings and tuning ElastiFlow is out of scope this article, here an example to make it work. Please read official <a href="https://github.com/robcowart/elastiflow/blob/master/INSTALL.md">Installation guide</a> for better understanding.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#install the sFlow codec for Logstash</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#install the sFlow codec for Logstash</span>
 <span class="ln"> 2</span>sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
 <span class="ln"> 3</span>sudo /usr/share/logstash/bin/logstash-plugin list --installed
 <span class="ln"> 4</span>sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
@@ -308,6 +308,9 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     <h2 class="mt-4">Featured Posts</h2>
     <ul>
       <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/lxd/" class="nav-link" title="LXD quick start (linux containers)">LXD quick start (linux containers)</a>
       </li>
       <li>
@@ -316,6 +319,9 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     </ul>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
       <li>
         <a href="https://olegs.dev/post/lxd/" class="nav-link" title="LXD quick start (linux containers)">LXD quick start (linux containers)</a>
       </li>
@@ -363,6 +369,11 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://olegs.dev/tags/css/' class="post_tag button button_translucent" title="css">
+          CSS
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://olegs.dev/tags/elastiflow/' class="post_tag button button_translucent" title="elastiflow">
           ELASTIFLOW
           <span class="button_tally">1</span>
@@ -403,11 +414,6 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/openwrt/' class="post_tag button button_translucent" title="openwrt">
-          OPENWRT
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -415,6 +421,10 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
           <div class="tags_list">
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://olegs.dev/tags/css/' class=" post_tag button button_translucent" data-position=1 title="css">CSS<span class="button_tally">1</span>
             </a>
             
             

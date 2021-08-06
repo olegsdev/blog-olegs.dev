@@ -4,7 +4,7 @@
   <head>
 <title>Simple Linux Questions | OS blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -202,22 +202,22 @@ This page contains ideas on how to answer questions. The answers are not absolut
 Groups in Linux are defined by GIDs (group IDs)</p>
 </blockquote>
 <h2 id="how-to-list-all-files-including-hidden-ones-in-a-directory">How to list all files, including hidden ones, in a directory?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ls --all  - <span class="k">do</span> not ignore entries starting with .  <span class="o">(</span>-a<span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ls --all  - <span class="k">do</span> not ignore entries starting with .  <span class="o">(</span>-a<span class="o">)</span>
 </code></pre></div><h2 id="what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents">What is the Unix/Linux command to remove a directory and its contents?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>rmdir - only empty directories
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>rmdir - only empty directories
 <span class="ln">2</span>rm -rf dir
 </code></pre></div><h2 id="which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux">Which command will show you free/used memory? Does free memory exist on Linux?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>free -m
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>free -m
 <span class="ln">2</span>Free memory does exist on linux
 </code></pre></div><h2 id="how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively">How to search for the string &quot;my konfu is the best&quot; in files of a directory recursively?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>grep -liR <span class="s2">&#34;my konfu is the best&#34;</span> ????
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>grep -liR <span class="s2">&#34;my konfu is the best&#34;</span> ????
 </code></pre></div><h2 id="how-to-connect-to-a-remote-server-or-what-is-ssh">How to connect to a remote server or what is SSH?</h2>
 <blockquote>
 <p><em><strong><strong>ssh user@server</strong></strong></em></p>
 <p>Secure Shell is a software standard to support encrypted data transfer between two computers. It can be used to support secure logins, file transfers or general purpose connects.</p>
 </blockquote>
 <h2 id="how-to-get-all-environment-variables-and-how-can-you-use-them">How to get all environment variables and how can you use them?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>printenv - print all or part of environment
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>printenv - print all or part of environment
 </code></pre></div><br>
 <h2 id="i-get-command-not-found-when-i-run-ifconfig--a-what-can-be-wrong">I get &quot;command not found&quot; when I run ifconfig -a. What can be wrong?</h2>
 <blockquote>
@@ -228,15 +228,15 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>the shell will automatically fill in the rest or show you the available options you can type (tab completion)</p>
 </blockquote>
 <h2 id="what-command-will-show-the-available-disk-space-on-the-unixlinux-system">What command will show the available disk space on the Unix/Linux system?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>df -h
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>df -h
 <span class="ln">2</span>df - report file system disk space usage
 </code></pre></div><h2 id="what-commands-do-you-know-that-can-be-used-to-check-dns-records">What commands do you know that can be used to check DNS records?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>dig <span class="o">(</span> dig <span class="o">[</span>server<span class="o">]</span> <span class="o">[</span>name<span class="o">]</span> <span class="o">[</span>type<span class="o">]</span>  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>dig <span class="o">(</span> dig <span class="o">[</span>server<span class="o">]</span> <span class="o">[</span>name<span class="o">]</span> <span class="o">[</span>type<span class="o">]</span>  
 <span class="ln">2</span>dig example.com MX <span class="o">)</span>
 <span class="ln">3</span>nsloockup <span class="o">(</span> nslookup -type<span class="o">=</span>ns example.com <span class="o">)</span>
 <span class="ln">4</span>host <span class="o">(</span>host -t ns example.com<span class="o">)</span>
 </code></pre></div><h2 id="what-unixlinux-commands-will-alter-a-files-ownership-files-permissions">What Unix/Linux commands will alter a files ownership, files permissions?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>chown - change file owner and group
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>chown - change file owner and group
 <span class="ln">2</span>chmod - change file mode bits
 </code></pre></div><h2 id="what-does-chmod-x-filename-do">What does chmod +x FILENAME do?</h2>
 <blockquote>
@@ -252,11 +252,11 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>The directory owner has full access. Group users may list the directory, but cannot create files. Nobody else has any rights.</p>
 </blockquote>
 <h2 id="how-to-add-a-new-system-user-without-login-permissions">How to add a new system user without login permissions?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span> useradd -M username ( Do no create the user&#39;s home directory )
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span> useradd -M username ( Do no create the user&#39;s home directory )
 <span class="ln">2</span> usermod -L username ( lock the account to prevent logging in )
 <span class="ln">3</span> useradd -r username ( does not have a password, a home dir and is unable to login )
 </code></pre></div><h2 id="how-to-addremove-a-group-from-a-user">How to add/remove a group from a user?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>usermod -a -G group user <span class="o">(</span> adding a user to a group <span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>usermod -a -G group user <span class="o">(</span> adding a user to a group <span class="o">)</span>
 <span class="ln">2</span>gpasswd -a user group
 <span class="ln">3</span>---
 <span class="ln">4</span>gpasswd -d user group
@@ -267,7 +267,7 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>An alias is a (usually short) name that the shell translates into another (usually longer) name or command</p>
 </blockquote>
 <h2 id="how-do-you-set-the-mail-address-of-the-roota-user">How do you set the mail address of the root/a user?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>/root/.forwards
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>/root/.forwards
 <span class="ln">2</span>/etc/aliases
 <span class="ln">3</span>P.S. for postfix: set in main.cf =&gt; myhostname = host.example.com
 </code></pre></div><h2 id="what-does-ctrl-c-do">What does CTRL-c do?</h2>
@@ -287,7 +287,7 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>/etc/services file contains a list of network services and ports mapped to them.</p>
 </blockquote>
 <h2 id="how-to-redirect-stdout-and-stderr-in-bash--devnull-21">How to redirect STDOUT and STDERR in bash? (&gt; /dev/null 2&gt;&amp;1)</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>command &gt; file-name 2&gt;&amp;1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>command &gt; file-name 2&gt;&amp;1
 <span class="ln">2</span>ls /tmp &gt; /dev/null 2&gt;&amp;1
 </code></pre></div><h2 id="what-is-the-difference-between-unix-and-linux">What is the difference between UNIX and Linux.</h2>
 <blockquote>
@@ -301,12 +301,12 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <blockquote>
 <p>Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>uptime
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>uptime
 <span class="ln">2</span>w
 <span class="ln">3</span>top
 <span class="ln">4</span>cat /proc/loadavg
 </code></pre></div><h2 id="can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls">Can you name a lower-case letter that is not a valid option for GNU ls?</h2>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>option &#39;y&#39;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>option &#39;y&#39;
 <span class="ln">2</span>option &#39;z&#39;
 </code></pre></div><h2 id="what-is-a-linux-kernel-module">What is a Linux kernel module?</h2>
 <blockquote>
@@ -364,6 +364,9 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
     <h2 class="mt-4">Featured Posts</h2>
     <ul>
       <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -375,6 +378,9 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
     </ul>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS Start">CSS Start</a>
+      </li>
       <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
@@ -422,6 +428,11 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://olegs.dev/tags/css/' class="post_tag button button_translucent" title="css">
+          CSS
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://olegs.dev/tags/elastiflow/' class="post_tag button button_translucent" title="elastiflow">
           ELASTIFLOW
           <span class="button_tally">1</span>
@@ -462,11 +473,6 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/openwrt/' class="post_tag button button_translucent" title="openwrt">
-          OPENWRT
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -474,6 +480,10 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
           <div class="tags_list">
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://olegs.dev/tags/css/' class=" post_tag button button_translucent" data-position=1 title="css">CSS<span class="button_tally">1</span>
             </a>
             
             

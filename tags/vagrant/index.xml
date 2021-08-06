@@ -35,7 +35,7 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
 ( LuCI: Network -&amp;gt; Interfaces -&amp;gt; LAN -&amp;gt; Edit -&amp;gt; scroll down to DHCP server -&amp;gt; Advanced settings -&amp;gt; look under DHCP-Options )&lt;br&gt;
 &lt;img src=&#34;https://olegs.dev/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo usermod -aG libvirt &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo usermod -aG kvm &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;

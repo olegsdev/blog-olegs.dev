@@ -19,7 +19,7 @@
 &lt;strong&gt;LXD&lt;/strong&gt; is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.&lt;/p&gt;
 &lt;p&gt;Before start, use &lt;code&gt;lxd init&lt;/code&gt; to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.&lt;/p&gt;
 &lt;h2 id=&#34;get-info&#34;&gt;Get Info:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc info container_name
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc config show container_name -e  &lt;span class=&#34;c1&#34;&gt;#all configurations&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;lxc storage list
@@ -51,23 +51,23 @@
 &lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    F - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;long&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launch-new-container&#34;&gt;Launch new container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc launch ubuntu:20.04 container_name
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc launch -p profile_name ubuntu:20.04 container_name   &lt;span class=&#34;c1&#34;&gt;#-p for applying a profile&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;Apply specific settings to a container:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.cpu &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name root size 10GB
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 limits.ingress 1Mbit
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-commands-within-container&#34;&gt;Run commands within container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name bash
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- su --login username
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc console container_name  &lt;span class=&#34;c1&#34;&gt;# terminal inside container, use ```ctrl+a-q``` for detach.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;profile&#34;&gt;Profile&lt;/h2&gt;
 &lt;p&gt;Profile helps create container preconfiguration. Can be apply in launch moment. Uses &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt; initialization.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc profile edit profilename
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# example&lt;/span&gt;
@@ -102,7 +102,7 @@
 &lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;...
 &lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc network create testbr0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc network create dev1br0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.20.5.10/24 ipv4.nat&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
@@ -123,22 +123,22 @@
 &lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 ipv4.address 192.168.10.5
 &lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;snapshots&#34;&gt;Snapshots&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc restore container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# restore the snapshot&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc delete container_name/snapshot_name  &lt;span class=&#34;c1&#34;&gt;# delete a snapshot&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc file pull -r container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;# Pull a folder&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc file push path-on-host container_name/path-in-container   &lt;span class=&#34;c1&#34;&gt;#  from host to instance&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc file push -r path-on-host container_name/path-in-container  &lt;span class=&#34;c1&#34;&gt;# folder&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc storage create zfs-pool zfs &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mapper/vg_lxd-lv_lxd_zfs
 &lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc storage list  
 &lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc storage show zfs-pool
 &lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;https://linuxcontainers.org/lxd/docs/master/storage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export--importor-backups-publish&#34;&gt;Export &amp;amp; import(or backups), publish&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc import container_name_date.tar.gz 
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Publish - turns a container or snapshot into an image in the local LXD image store&lt;/span&gt;
@@ -151,7 +151,7 @@
 &lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;privileges&#34;&gt;Privileges&lt;/h2&gt;
 &lt;p&gt;Set special privileges for container, this example is for NFS:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name raw.apparmor &lt;span class=&#34;s2&#34;&gt;&amp;#34;mount fstype=nfs,&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
 &lt;p&gt;Use this alias to prevent accidental deletion of an container.&lt;br&gt;
@@ -199,7 +199,7 @@ OpenWrt provides many capabilities found only in high-end devices and offers goo
 ( LuCI: Network -&amp;gt; Interfaces -&amp;gt; LAN -&amp;gt; Edit -&amp;gt; scroll down to DHCP server -&amp;gt; Advanced settings -&amp;gt; look under DHCP-Options )&lt;br&gt;
 &lt;img src=&#34;https://olegs.dev/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 &lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo usermod -aG libvirt &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
 &lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo usermod -aG kvm &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on OS blog</title>
+    <title>linux on QA, Web Dev, Linux | Tech Blog</title>
     <link>https://olegs.dev/tags/linux/</link>
-    <description>Recent content in linux on OS blog</description>
+    <description>Recent content in linux on QA, Web Dev, Linux | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/linux/index.xml" rel="self" type="application/rss+xml" />

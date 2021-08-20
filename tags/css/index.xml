@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>css on OS blog</title>
+    <title>css on QA, Web Dev, Linux | Tech Blog</title>
     <link>https://olegs.dev/tags/css/</link>
-    <description>Recent content in css on OS blog</description>
+    <description>Recent content in css on QA, Web Dev, Linux | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Thu, 05 Aug 2021 18:58:43 -0700</lastBuildDate><atom:link href="https://olegs.dev/tags/css/index.xml" rel="self" type="application/rss+xml" />

@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://olegs.dev/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/tags/docker/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/post/docker/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/tags/linux/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/post/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
+    <loc>https://olegs.dev/tags/</loc>
+    <lastmod>2021-09-01T20:08:53-07:00</lastmod>
+  </url><url>
     <loc>https://olegs.dev/portfolio/</loc>
     <lastmod>2021-08-06T06:45:13-07:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/</loc>
-    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/css/</loc>
     <lastmod>2021-08-05T18:58:43-07:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/post/css/</loc>
-    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/post/</loc>
-    <lastmod>2021-08-05T18:58:43-07:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/tags/</loc>
     <lastmod>2021-08-05T18:58:43-07:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/elastiflow/</loc>
@@ -27,9 +36,6 @@
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/elk-stack/</loc>
-    <lastmod>2021-02-08T18:28:25-08:00</lastmod>
-  </url><url>
-    <loc>https://olegs.dev/tags/linux/</loc>
     <lastmod>2021-02-08T18:28:25-08:00</lastmod>
   </url><url>
     <loc>https://olegs.dev/tags/monitoring/</loc>

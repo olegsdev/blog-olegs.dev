@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on QA, Web Dev, Linux | Tech Blog</title>
+    <link>https://olegs.dev/tags/docker/</link>
+    <description>Recent content in docker on QA, Web Dev, Linux | Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 01 Sep 2021 20:08:53 -0700</lastBuildDate><atom:link href="https://olegs.dev/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker quick start</title>
+      <link>https://olegs.dev/post/docker/</link>
+      <pubDate>Wed, 01 Sep 2021 20:08:53 -0700</pubDate>
+      
+      <guid>https://olegs.dev/post/docker/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;useful-docker-commands&#34;&gt;Useful docker commands&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker run (-d) - Run a command in a new container 
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker attach - Attach to a running container
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker start - Start one or more stopped containers
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker stop - Stop one or more running containers
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker ps -a - List containers
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker images - List images
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker inspect - Return low-level information on Docker objects
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker top - Display the running processes of a container
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker stats - Display a live stream of container(s) resource usage statistics
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker logs - Fetch the logs of a container
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker pull - Pull an image or a repository from a registry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;containers-management&#34;&gt;Containers Management:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker image ls             
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker image pull nginx         
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker image inspect 08393e824c3
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker container run busybox
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker container ls -a
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker container run -P -d nginx
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker container port 55590ea1f3b4
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker container ps
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker container inspect 030f0f31e94b
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker container top 030f0f31e94b
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker container attach 030f0f31e94b
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker container exec -it 030f0f31e94b /bin/bash
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;docker container exec -it 030f0f31e94b ls /usr/share/nginx/
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;docker container rm -f 030f0f31e94b
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;docker container run -d nginx
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;docker container run -it nginx /bin/bash
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;docker container exec -it ad8b407b51de ls /usr/share/nginx/
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;docker stop $(docker ps -a -q)
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;docker rm $(docker ps -a -q)
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;docker container run -d --expose 3000 -p 80:3000 nginx
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;docker container run -d --expose 3000 -p 8080:80 nginx
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;docker container port 0b45e49dd5f3
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;docker container run -d -p 8081:80/tcp -p 8081:80/udp nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networking-commands&#34;&gt;Networking Commands&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker network ls
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker network inspect bridge
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker network create br0
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker network rm br0
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker container run -d --name network-test -p 8081:80 nginx
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker network connect br1 network-test
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker network disconnect
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker network create -d bridge --internal localhost
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker network connect &amp;lt;NETWORK&amp;gt; &amp;lt;CONTAINER&amp;gt; # adding contaner to a network
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 br2
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br4
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;docker container run -d --name network-test02 --ip 10.1.4.102 --network br4 nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Volume Commands&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;/var/lib/docker/volumes&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker volume create      Create a volume
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker volume inspect     Display detailed information on one or more volumes
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker volume ls          List volumes
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker volume prune       Remove all unused local volumes
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker volume rm          Remove one or more volumes
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker volume create test-volume1
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker volume inspect test-volume1
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker volume rm test-volume1
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker volume prune !!!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Bind Mounts:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name nginx-bind-mount1 --mount type=bind,source=/root/dir1,target=/app nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Volumes for Persistent Storage:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker volume create volume3
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html/ nginx
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker volume inspect volume3 
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;sudo ls /var/snap/docker/common/var-lib-docker/volumes/volume3/_data 
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html,readonly nginx  #readonly
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dockerfile--building-images&#34;&gt;Dockerfile &amp;amp; Building Images&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Best practices for writing Dockerfiles&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;keep containers as ephemeral as possible&lt;/li&gt;
+&lt;li&gt;follow principle 6 of the 12 factor app&lt;/li&gt;
+&lt;li&gt;avoid including unnecessary file&lt;/li&gt;
+&lt;li&gt;use .dockerignore&lt;/li&gt;
+&lt;li&gt;use multi-storage builds&lt;/li&gt;
+&lt;li&gt;decouple applications&lt;/li&gt;
+&lt;li&gt;minimize the number of layers&lt;/li&gt;
+&lt;li&gt;sort multi-line arguments&lt;/li&gt;
+&lt;li&gt;leverage the build cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More info: &lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34;&gt;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;FROM&lt;/strong&gt; creates a layer from the ubuntu:18.04 Docker image.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;COPY&lt;/strong&gt; adds files from your Docker client’s current directory.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RUN&lt;/strong&gt; builds your application with make.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CMD&lt;/strong&gt; specifies what command to run within the container.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;FROM ubuntu:18.04
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;COPY . /app
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;RUN make /app
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;CMD python /app/app.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;FROM node:12-alpine
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;RUN apk add --no-cache python g++ make
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;WORKDIR /app
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;COPY . .
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;RUN yarn install --production
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;node&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;src/index.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker image build -t &amp;#39;testapp:v1&amp;#39; .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Using Environment Variables:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Create an image&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt; FROM node
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt; LABEL org.label-schema.version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;v1.1
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt; 
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt; ENV &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt; ENV PORT &lt;span class=&#34;m&#34;&gt;3000&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt; RUN mkdir -p /var/node
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt; ADD src/ var/node/
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt; WORKDIR /var/note
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt; RUN npm install
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt; EXPOSE &lt;span class=&#34;nv&#34;&gt;$PORT&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt; CMD .bin/www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; test/web-app:v2
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; --env &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;prod test/web-app:v2
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;some-others-commands&#34;&gt;Some others commands:&lt;/h2&gt;
+&lt;p&gt;History:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker image history node:latest 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Having Containers Start Automatically&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name container_10.2 --restart always centos /bin/bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Docker Events&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker system events
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker system events --filter type=container --since &amp;#39;1h&amp;#39; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Managing Stopped Container&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container ls -a -q -f status=exited
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sources&#34;&gt;Sources:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/get-started/overview/&#34;&gt;Docker documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.pluralsight.com/courses/docker-deep-dive-update&#34;&gt;Docker Deep Dive - Course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/anzhihe/Free-Docker-Books/blob/master/book/Docker%20Deep%20Dive%20-%202018.pdf&#34;&gt;Free book&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

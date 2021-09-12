@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mysql on QA, Web Dev, Linux | Tech Blog</title>
+    <title>mysql on Linux, QA, Web Dev | Tech Blog</title>
     <link>https://olegs.dev/tags/mysql/</link>
-    <description>Recent content in mysql on QA, Web Dev, Linux | Tech Blog</description>
+    <description>Recent content in mysql on Linux, QA, Web Dev | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Nov 2020 15:24:18 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/mysql/index.xml" rel="self" type="application/rss+xml" />

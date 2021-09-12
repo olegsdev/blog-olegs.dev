@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>containers on QA, Web Dev, Linux | Tech Blog</title>
+    <title>containers on Linux, QA, Web Dev | Tech Blog</title>
     <link>https://olegs.dev/tags/containers/</link>
-    <description>Recent content in containers on QA, Web Dev, Linux | Tech Blog</description>
+    <description>Recent content in containers on Linux, QA, Web Dev | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Wed, 03 Feb 2021 10:17:06 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/containers/index.xml" rel="self" type="application/rss+xml" />

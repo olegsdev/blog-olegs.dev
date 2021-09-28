@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>netflow on Linux, QA, Web Dev | Tech Blog</title>
+    <title>netflow on Linux, SysOps, QA | Tech Blog</title>
     <link>https://olegs.dev/tags/netflow/</link>
-    <description>Recent content in netflow on Linux, QA, Web Dev | Tech Blog</description>
+    <description>Recent content in netflow on Linux, SysOps, QA | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/netflow/index.xml" rel="self" type="application/rss+xml" />

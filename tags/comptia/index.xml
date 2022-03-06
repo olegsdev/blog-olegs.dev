@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>comptia on Linux, SRE, QA | Tech Blog</title>
+    <link>https://olegs.dev/tags/comptia/</link>
+    <description>Recent content in comptia on Linux, SRE, QA | Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
+    <lastBuildDate>Sun, 21 Feb 2021 20:16:01 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/comptia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Files, Directories, Text. CompTIA Linux&#43;</title>
+      <link>https://olegs.dev/post/comptia-linux-files-directories-text/</link>
+      <pubDate>Sun, 21 Feb 2021 20:16:01 -0800</pubDate>
+      
+      <guid>https://olegs.dev/post/comptia-linux-files-directories-text/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;files-and-directories&#34;&gt;Files and Directories&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;pwd&lt;/strong&gt; - print name of current/working directory&lt;br&gt;
+&lt;strong&gt;touch&lt;/strong&gt; - change file timestamps  &lt;br&gt;
+&lt;strong&gt;mkdir&lt;/strong&gt; - make directories&lt;br&gt;
+    &lt;em&gt;-p, --parents&lt;/em&gt; - no error if existing, make parent directories as needed&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ls&lt;/strong&gt; - list directory contents&lt;br&gt;
+    &lt;em&gt;-a, --all&lt;/em&gt; - do not ignore entries starting with&lt;br&gt;
+    &lt;em&gt;-d, --directory&lt;/em&gt; - list directories themselves, not their contents&lt;br&gt;
+    &lt;em&gt;-F, --classify&lt;/em&gt; - append indicator (one of &lt;code&gt;* / = &amp;gt; @ |&lt;/code&gt;) to entries&lt;br&gt;
+    &lt;em&gt;-i, --inode&lt;/em&gt; - print the index number of each file&lt;br&gt;
+    &lt;em&gt;-l&lt;/em&gt; - use a long listing format&lt;br&gt;
+    &lt;em&gt;-R, --recursive&lt;/em&gt; - list subdirectories recursively&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;cp&lt;/strong&gt; - copy files and directories&lt;br&gt;
+    &lt;em&gt;-a, --archive&lt;/em&gt; - same as -dR --preserve=all&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt;  [Overwrite any preexisting destination files with same name as DEST .] If an existing destination file cannot be opened, remove it and try again (this option is ignored when the -n option is also used)&lt;br&gt;
+    &lt;em&gt;-i, --interactive&lt;/em&gt; - prompt before overwrite (overrides a previous -n option)&lt;br&gt;
+    &lt;em&gt;-n, --no-clobber&lt;/em&gt; - do not overwrite an existing file (overrides a previous -i option)&lt;br&gt;
+    &lt;em&gt;-R, -r, --recursive&lt;/em&gt; - copy directories recursively&lt;br&gt;
+    &lt;em&gt;-u, --update&lt;/em&gt; - copy only when the SOURCE file is newer than the destination file or when the destination file is missing&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;mv&lt;/strong&gt; - move (rename) files&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt;  - do not prompt before overwriting&lt;br&gt;
+    &lt;em&gt;-i, --interactive&lt;/em&gt; - prompt before overwrite&lt;br&gt;
+    &lt;em&gt;-n, --no&lt;/em&gt;-clobber - do not overwrite an existing file&lt;br&gt;
+    &lt;em&gt;-u, --update&lt;/em&gt; - move only when the SOURCE file is newer than the destination file or when the destination file is missing&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rsync&lt;/strong&gt; - a fast, versatile, remote (and local) file-copying tool&lt;br&gt;
+    &lt;em&gt;-a, --archive&lt;/em&gt; - archive mode; equals -rlptgoD (no -H,-A,-X)&lt;br&gt;
+    &lt;em&gt;-D&lt;/em&gt; - same as --devices --specials&lt;br&gt;
+    &lt;em&gt;-g, --group&lt;/em&gt; - preserve group&lt;br&gt;
+    &lt;em&gt;-h, --human-readable&lt;/em&gt; - output numbers in a human-readable format&lt;br&gt;
+    &lt;em&gt;-P   --progress&lt;/em&gt; - show progress during transfer&lt;br&gt;
+    &lt;em&gt;-l, --links&lt;/em&gt; - copy symlinks as symlinks&lt;br&gt;
+    &lt;em&gt;-o, --owner&lt;/em&gt; - preserve owner (super-user only)&lt;br&gt;
+    &lt;em&gt;-p, --perms&lt;/em&gt; - preserve permissions&lt;br&gt;
+    &lt;em&gt;-r, --recursive&lt;/em&gt; - recurse into directories&lt;br&gt;
+    &lt;em&gt;--stats&lt;/em&gt; - give some file-transfer stats [Display detailed file transfer statistics]&lt;br&gt;
+    &lt;em&gt;-t, --times&lt;/em&gt; - preserve modification times&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - increase verbosity&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rm&lt;/strong&gt; - remove files or directories&lt;br&gt;
+    &lt;em&gt;-d, --dir&lt;/em&gt; - remove empty directories&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt; - ignore nonexistent files and arguments, never prompt&lt;br&gt;
+    &lt;em&gt;-i&lt;/em&gt; - prompt before every removal&lt;br&gt;
+    &lt;em&gt;-I&lt;/em&gt; - prompt once before removing more than three files, or when removing recursively; less intrusive than -i, while still giving protection against most mistakes&lt;br&gt;
+    &lt;em&gt;-r, -R, --recursive&lt;/em&gt; - remove directories and their contents recursively&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done [Provide detailed command action information as command executes.]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rmdir&lt;/strong&gt; - remove empty directories&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;linking-files-and-directories&#34;&gt;Linking Files and Directories&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Hard Link&lt;/strong&gt;
+A hard link is a file or directory that has one index (inode) number but at least two different file names.
+A hard link allows you to have a pseudo-copy of a file without truly copying its data. This is often used in file backups where not enough filesystem space exists to back up the file’s data.&lt;br&gt;
+&lt;code&gt;ln OriginalFile.txt HardLinkFile.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When creating and using hard links, there are a few important items to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The original file must exist before you issue the ln command.&lt;/li&gt;
+&lt;li&gt;The second file name listed in the ln command must not exist prior to issuing the command.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links share the same inode number.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links share the same data.&lt;/li&gt;
+&lt;li&gt;An original file and any of its hard links can exist in different directories.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links must exist on the same filesystem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Soft Link&lt;/strong&gt;
+Typically, a soft link file provides a pointer to a file that may reside on another filesystem.&lt;br&gt;
+&lt;code&gt;ln -s OriginalSFile.txt SoftLinkFile.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When creating and using soft links, there are a few important items to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The original file must exist before you issue the ln -s command.&lt;/li&gt;
+&lt;li&gt;The second file name listed in the ln -s command must not exist prior to issuing the command.&lt;/li&gt;
+&lt;li&gt;An original file and its soft links do not share the same inode number.&lt;/li&gt;
+&lt;li&gt;An original file and its soft links do not share the same data.&lt;/li&gt;
+&lt;li&gt;An original file and any of its soft links can exist in different directories.&lt;/li&gt;
+&lt;li&gt;An original file and its softs links can exist in different filesystems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;readlink&lt;/strong&gt; - print resolved symbolic links or canonical file names&lt;br&gt;
+&lt;code&gt;readlink -f /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reading-files&#34;&gt;Reading Files&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;cat&lt;/strong&gt; - concatenate files and print on the standard output&lt;br&gt;
+    &lt;em&gt;-n, --number &lt;em&gt;- number all output lines&lt;br&gt;
+    &lt;/em&gt;-v, --show-nonprinting&lt;/em&gt; - use ^ and M- notation, except for LFD and TAB&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;pr&lt;/strong&gt; - convert text files for printing&lt;br&gt;
+    &lt;em&gt;-COLUMN, --columns=COLUMN&lt;/em&gt; - output COLUMN columns and print columns down, unless -a is used. Balance number of lines in the columns on each page&lt;br&gt;
+    &lt;em&gt;-n[SEP[DIGITS]], --number-lines[=SEP[DIGITS]]&lt;/em&gt; - number lines, use DIGITS (5) digits, then SEP (TAB), default counting starts with 1st line of input file&lt;br&gt;
+    &lt;em&gt;-l, --length=PAGE_LENGTH&lt;/em&gt; - [Change the default 66-line page length to n lines long.]     set the page length to PAGE_LENGTH (66) lines (default number of lines of text 56, and with -F 63).  implies -t if PAGE_LENGTH &amp;lt;= 10&lt;br&gt;
+    &lt;em&gt;-m, --merge&lt;/em&gt; - print all files in parallel, one in each column, truncate lines, but join lines of full length with -J&lt;br&gt;
+    &lt;em&gt;-s[CHAR], --separator[=CHAR]&lt;/em&gt; - separate  columns  by a single character, default for CHAR is the &lt;TAB&gt; character without -w and &#39;no char&#39; with -w.  -s[CHAR] turns off line truncation of all 3
+    &lt;em&gt;-t, --omit-header&lt;/em&gt; - omit page headers and trailers; implied if PAGE_LENGTH &amp;lt;= 10 [Do not display any file header or trailers.]
+    &lt;em&gt;-w, --width=PAGE_WIDTH&lt;/em&gt; - set page width to PAGE_WIDTH (72) characters for multiple text-column output only, -s[char] turns off (72)
+&lt;a href=&#34;https://www.geeksforgeeks.org/pr-command-in-linux/&#34;&gt;https://www.geeksforgeeks.org/pr-command-in-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;grep, egrep, fgrep, rgrep&lt;/strong&gt; - print lines that match patterns   [-i, --ignore-case]&lt;br&gt;
+&lt;strong&gt;head&lt;/strong&gt; - output the first part of files  (&lt;code&gt;head -n 2 /etc/passwd&lt;/code&gt;)&lt;br&gt;
+&lt;strong&gt;tail&lt;/strong&gt; - output the last part of files  (&lt;code&gt;tail -f /var/log/auth.log&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;more&lt;/strong&gt; - is a filter for paging through text one screenful at a time.&lt;br&gt;
+&lt;strong&gt;less&lt;/strong&gt; - opposite of more. Less does not have to read the entire input file before starting, so with large input files it starts up faster than text editors like vi (1).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;finding-information&#34;&gt;Finding Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;diff&lt;/strong&gt; - compare files line by line&lt;br&gt;
+    &lt;em&gt;-e, --ed&lt;/em&gt; - [Create an ed script, which can be used to make the first file compared the same as the second file compared.] &lt;br&gt;
+    &lt;em&gt;-q, --brief&lt;/em&gt; - report only when files differ&lt;br&gt;
+    &lt;em&gt;-r, --recursive&lt;/em&gt; - recursively compare any subdirectories found&lt;br&gt;
+    &lt;em&gt;-s, --report-identical-files&lt;/em&gt; - report when two files are the same&lt;br&gt;
+    &lt;em&gt;-W, --width=NUM&lt;/em&gt; - output at most NUM (default 130) print columns&lt;br&gt;
+    &lt;em&gt;-y, --side-by-side&lt;/em&gt; - output in two columns&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; - locate a command&lt;br&gt;
+&lt;strong&gt;whereis&lt;/strong&gt; - locate the binary, source, and manual page files for a command&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;locate&lt;/strong&gt; - find files by name, utility searches a database, mlocate.db, which is located in the /var/lib/mlocate/&lt;br&gt;
+    &lt;em&gt;-A, --all&lt;/em&gt; - Print only entries that match all PATTERNs instead of requiring only one of them to match.&lt;br&gt;
+    &lt;em&gt;-b, --basename&lt;/em&gt; - Match only the base name against the specified patterns.  This is the opposite of --wholename.&lt;br&gt;
+    &lt;em&gt;-c, --count&lt;/em&gt; - Instead of writing file names on standard output, write the number of matching entries only.&lt;br&gt;
+    &lt;em&gt;-i, --ignore-case&lt;/em&gt; - Ignore case distinctions when matching patterns.&lt;br&gt;
+    &lt;em&gt;-q, --quiet&lt;/em&gt; - Write no messages about errors encountered while reading and processing databases.&lt;br&gt;
+    &lt;em&gt;-r, --regexp REGEXP&lt;/em&gt; - Search for a basic regexp REGEXP.  No PATTERNs are allowed if this option is used, but this option can be specified multiple times.&lt;br&gt;
+    &lt;em&gt;-w, --wholename&lt;/em&gt; - Match only the whole path name against the specified patterns. [Display file names that match the pattern and include any directory names that match the pattern. This is default behavior.]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using the locate command PATTERN can be a little tricky, due to default pattern file globbing . File globbing occurs when you use wildcards, such as an asterisk (&lt;code&gt;*&lt;/code&gt;) or a question mark (&lt;code&gt;?&lt;/code&gt;) added to a file name argument in a command, and the file name is expanded into multiple names. For example, &lt;code&gt;passw*d&lt;/code&gt; could be expanded into the file name password or passwrd.&lt;br&gt;
+If you don’t enter any wildcards into your pattern, the locate command, by default, adds wildcards to the pattern. So if you enter the pattern, passwd, it is automatically turned into &lt;em&gt;passwd&lt;/em&gt;. Thus, if you just want to search for the base name passwd, with no file globbing, you must add quotation marks (single or double) around the pattern and precede the pattern with the \ character.&lt;br&gt;
+&lt;code&gt;locate -b &#39;\passwd&#39; &#39;\group&#39;&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;updatedb&lt;/strong&gt; - update a database for mlocate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;find&lt;/strong&gt; - search for files in a directory hierarchy&lt;br&gt;
+    &lt;em&gt;-cmin n&lt;/em&gt; : Display names of files whose status changed n minutes ago.&lt;br&gt;
+    &lt;em&gt;-empty&lt;/em&gt; : Display names of files that are empty and are a regular text file or a directory.&lt;br&gt;
+    &lt;em&gt;-gid n&lt;/em&gt; : Display names of files whose group id is equal to n.&lt;br&gt;
+    &lt;em&gt;-group name&lt;/em&gt; : Display names of files whose group is name.&lt;br&gt;
+    &lt;em&gt;-inum n&lt;/em&gt; : Display names of files whose inode number is equal to n.&lt;br&gt;
+    &lt;em&gt;-maxdepth n&lt;/em&gt; : When searching for files, traverse down into the starting point directory’s tree only n levels.&lt;br&gt;
+    &lt;em&gt;-mmin n&lt;/em&gt; : Display names of files whose data changed n minutes ago.&lt;br&gt;
+    &lt;em&gt;-name pattern&lt;/em&gt; : Display names of files whose name matches pattern. Many regular expression arguments may be used in the pattern and need to be enclosed in quotation marks to avoid unpredictable results. Replace -name with -iname to ignore case.&lt;br&gt;
+    &lt;em&gt;-nogroup&lt;/em&gt; : Display names of files where no group name exists for the file’s group ID.&lt;br&gt;
+    &lt;em&gt;-nouser&lt;/em&gt; : Display names of files where no username exists for the file’s user ID.&lt;br&gt;
+    &lt;em&gt;-perm mode&lt;/em&gt; : Display names of files whose permissions matches mode. Either octal or symbolic modes may be used.&lt;br&gt;
+    &lt;em&gt;-size n&lt;/em&gt; : Display names of files whose size matches n. Suffixes can be used to make the size more human readable, such as G for gigabytes.&lt;br&gt;
+    &lt;em&gt;-user name&lt;/em&gt; : Display names of files whose owner is name.&lt;br&gt;
+&lt;code&gt;find /usr/bin -perm /4000&lt;/code&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

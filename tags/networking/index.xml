@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>networking on Linux, SysOps, QA | Tech Blog</title>
+    <title>networking on Linux, SRE, QA | Tech Blog</title>
     <link>https://olegs.dev/tags/networking/</link>
-    <description>Recent content in networking on Linux, SysOps, QA | Tech Blog</description>
+    <description>Recent content in networking on Linux, SRE, QA | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/networking/index.xml" rel="self" type="application/rss+xml" />
@@ -34,12 +34,12 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine&#34;&gt;What is the command used to show all open ports and/or socket connections on a machine?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ss -tulpn
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -lntu 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ss -tulpn
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;No, octet can&#39;t be more than 255&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -73,10 +73,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;p&gt;A &lt;strong&gt;default gateway&lt;/strong&gt; is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-command-used-to-show-the-routing-table-on-a-linux-box&#34;&gt;What is command used to show the routing table on a Linux box?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -r
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;route -n
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;route -n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;remote-ip-address&lt;/li&gt;
@@ -94,11 +94,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-add-an-ipv6-address-to-a-specific-interface&#34;&gt;How do you add an IPv6 address to a specific interface?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Same commands as for ipv4:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;firewall blocks traffic ipv6&lt;/p&gt;

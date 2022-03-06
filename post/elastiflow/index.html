@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT | Linux, SysOps, QA | Tech Blog</title>
+<title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="100" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -172,112 +172,111 @@
     <h2 id="setup-netflow-on-openwrt">Setup NetFlow on OpenWRT</h2>
 <p><strong><a href="https://en.wikipedia.org/wiki/NetFlow">NetFlow</a></strong> is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install <em><strong>softflowd package</strong></em>.<br>
 <strong>softflowd</strong> - is a software implementation of a flow-based network traffic monitor.  softflowd reads network traffic and gathers information about active traffic flows.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>opkg update
-<span class="ln">2</span>opkg install softflowd
-<span class="ln">3</span>/etc/init.d/softflowd start <span class="c1"># or stop, or restart</span>
-</code></pre></div><p>Config file: <code>/etc/config/softflowd</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# cat /etc/config/softflowd
-<span class="ln"> 2</span>config softflowd
-<span class="ln"> 3</span>        option enabled        &#39;1&#39;
-<span class="ln"> 4</span>        option interface      &#39;br-lan&#39;
-<span class="ln"> 5</span>        option pcap_file      &#39;&#39;
-<span class="ln"> 6</span>        option timeout        &#39;maxlife=60&#39;
-<span class="ln"> 7</span>        option max_flows      &#39;8192&#39;
-<span class="ln"> 8</span>        option host_port      &#39;192.168.10.55:2055&#39;
-<span class="ln"> 9</span>        option pid_file       &#39;/var/run/softflowd.pid&#39;
-<span class="ln">10</span>        option control_socket &#39;/var/run/softflowd.ctl&#39;
-<span class="ln">11</span>        option export_version &#39;5&#39;
-<span class="ln">12</span>        option hoplimit       &#39;&#39;
-<span class="ln">13</span>        option tracking_level &#39;full&#39;
-<span class="ln">14</span>        option track_ipv6     &#39;0&#39;
-<span class="ln">15</span>        option sampling_rate  &#39;10&#39;
-</code></pre></div><p>Useful commands:<br>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">opkg update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">opkg install softflowd
+</span></span><span class="line"><span class="ln">3</span><span class="cl">/etc/init.d/softflowd start <span class="c1"># or stop, or restart</span>
+</span></span></code></pre></div><p>Config file: <code>/etc/config/softflowd</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">root@OpenWrt:~# cat /etc/config/softflowd
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">config softflowd
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        option enabled        &#39;1&#39;
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        option interface      &#39;br-lan&#39;
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        option pcap_file      &#39;&#39;
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        option timeout        &#39;maxlife=60&#39;
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        option max_flows      &#39;8192&#39;
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        option host_port      &#39;192.168.10.55:2055&#39;
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        option pid_file       &#39;/var/run/softflowd.pid&#39;
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        option control_socket &#39;/var/run/softflowd.ctl&#39;
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        option export_version &#39;5&#39;
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        option hoplimit       &#39;&#39;
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        option tracking_level &#39;full&#39;
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        option track_ipv6     &#39;0&#39;
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        option sampling_rate  &#39;10&#39;
+</span></span></code></pre></div><p>Useful commands:<br>
 <code>softflowctl statistics</code><br>
 <code>softflowctl dump-flows</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>root@OpenWrt:~# softflowctl statistics
-<span class="ln"> 2</span>softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
-<span class="ln"> 3</span>Number of active flows: 27
-<span class="ln"> 4</span>Packets processed: 16176338
-<span class="ln"> 5</span>Fragments: 2352200
-<span class="ln"> 6</span>Ignored packets: 55416 (55410 non-IP, 6 too short)
-<span class="ln"> 7</span>Flows expired: 59561 (0 forced)
-<span class="ln"> 8</span>Flows exported: 114321 in 6271 packets (0 failures)
-<span class="ln"> 9</span>Packets received by libpcap: 16231910
-<span class="ln">10</span>Packets dropped by libpcap: 0
-<span class="ln">11</span>Packets dropped by interface: 0
-<span class="ln">12</span>
-<span class="ln">13</span>Expired flow statistics:  minimum       average       maximum
-<span class="ln">14</span>  Flow bytes:                  40        233515     740181706
-<span class="ln">15</span>  Flow packets:                 1           272        728069
-<span class="ln">16</span>  Duration:                  0.00s        17.90s       111.24s
-<span class="ln">17</span>
-<span class="ln">18</span>Expired flow reasons:
-<span class="ln">19</span>       tcp =     13888   tcp.rst =      6337   tcp.fin =     12323
-<span class="ln">20</span>       udp =     18408      icmp =       577   general =        20
-<span class="ln">21</span>   maxlife =      8008
-<span class="ln">22</span>over 2 GiB =         0
-<span class="ln">23</span>  maxflows =         0
-<span class="ln">24</span>   flushed =         0
-<span class="ln">25</span>
-<span class="ln">26</span>Per-protocol statistics:     Octets      Packets   Avg Life    Max Life
-<span class="ln">27</span>           icmp (1):         712567         2244      17.02s      64.16s
-<span class="ln">28</span>           igmp (2):           3656           89      10.80s      60.74s
-<span class="ln">29</span>            tcp (6):     9019595755      9503208      23.06s     111.24s
-<span class="ln">30</span>           udp (17):     4888056323      6670438       8.06s      90.58s
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>root@OpenWrt:~# softflowctl dump-flows
-<span class="ln">2</span>softflowd[4563]: Dumping flow data:
-<span class="ln">3</span>ACTIVE seq:59825 [192.168.10.4]:46672 &lt;&gt; [192.168.10.22]:443 proto:6 octets&gt;:2929 packets&gt;:16 octets&lt;:6911 packets&lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&gt;:1b tcp&lt;:1b flowlabel&gt;:00000000 flowlabel&lt;:00000000 
-<span class="ln">4</span>EXPIRY EVENT for flow 59825 now
-<span class="ln">5</span>
-<span class="ln">6</span>ACTIVE seq:59826 [142.250.69.206]:443 &lt;&gt; [192.168.10.4]:54510 proto:6 octets&gt;:195 packets&gt;:3 octets&lt;:414 packets&lt;:6 start:2021-02-09T02:54:38.569 finish:2021-02-09T02:55:32.298 tcp&gt;:19 tcp&lt;:19 flowlabel&gt;:00000000 flowlabel&lt;:00000000 
-<span class="ln">7</span>EXPIRY EVENT for flow 59826 now
-<span class="ln">8</span>...
-<span class="ln">9</span>
-</code></pre></div><h2 id="elk-configuration">ELK Configuration</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">root@OpenWrt:~# softflowctl statistics
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Number of active flows: 27
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Packets processed: 16176338
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Fragments: 2352200
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Ignored packets: 55416 (55410 non-IP, 6 too short)
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Flows expired: 59561 (0 forced)
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">Flows exported: 114321 in 6271 packets (0 failures)
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Packets received by libpcap: 16231910
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Packets dropped by libpcap: 0
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Packets dropped by interface: 0
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">Expired flow statistics:  minimum       average       maximum
+</span></span><span class="line"><span class="ln">14</span><span class="cl">  Flow bytes:                  40        233515     740181706
+</span></span><span class="line"><span class="ln">15</span><span class="cl">  Flow packets:                 1           272        728069
+</span></span><span class="line"><span class="ln">16</span><span class="cl">  Duration:                  0.00s        17.90s       111.24s
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">Expired flow reasons:
+</span></span><span class="line"><span class="ln">19</span><span class="cl">       tcp =     13888   tcp.rst =      6337   tcp.fin =     12323
+</span></span><span class="line"><span class="ln">20</span><span class="cl">       udp =     18408      icmp =       577   general =        20
+</span></span><span class="line"><span class="ln">21</span><span class="cl">   maxlife =      8008
+</span></span><span class="line"><span class="ln">22</span><span class="cl">over 2 GiB =         0
+</span></span><span class="line"><span class="ln">23</span><span class="cl">  maxflows =         0
+</span></span><span class="line"><span class="ln">24</span><span class="cl">   flushed =         0
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl">Per-protocol statistics:     Octets      Packets   Avg Life    Max Life
+</span></span><span class="line"><span class="ln">27</span><span class="cl">           icmp (1):         712567         2244      17.02s      64.16s
+</span></span><span class="line"><span class="ln">28</span><span class="cl">           igmp (2):           3656           89      10.80s      60.74s
+</span></span><span class="line"><span class="ln">29</span><span class="cl">            tcp (6):     9019595755      9503208      23.06s     111.24s
+</span></span><span class="line"><span class="ln">30</span><span class="cl">           udp (17):     4888056323      6670438       8.06s      90.58s
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">root@OpenWrt:~# softflowctl dump-flows
+</span></span><span class="line"><span class="ln">2</span><span class="cl">softflowd[4563]: Dumping flow data:
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ACTIVE seq:59825 [192.168.10.4]:46672 &lt;&gt; [192.168.10.22]:443 proto:6 octets&gt;:2929 packets&gt;:16 octets&lt;:6911 packets&lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&gt;:1b tcp&lt;:1b flowlabel&gt;:00000000 flowlabel&lt;:00000000 
+</span></span><span class="line"><span class="ln">4</span><span class="cl">EXPIRY EVENT for flow 59825 now
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">ACTIVE seq:59826 [142.250.69.206]:443 &lt;&gt; [192.168.10.4]:54510 proto:6 octets&gt;:195 packets&gt;:3 octets&lt;:414 packets&lt;:6 start:2021-02-09T02:54:38.569 finish:2021-02-09T02:55:32.298 tcp&gt;:19 tcp&lt;:19 flowlabel&gt;:00000000 flowlabel&lt;:00000000 
+</span></span><span class="line"><span class="ln">7</span><span class="cl">EXPIRY EVENT for flow 59826 now
+</span></span><span class="line"><span class="ln">8</span><span class="cl">...
+</span></span></code></pre></div><h2 id="elk-configuration">ELK Configuration</h2>
 <p>The <strong>ELK stack</strong> is an acronym used to describe a stack that comprises of three popular open-source projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.</p>
 <p><strong>Instalation:</strong> Here my installation example(on ubuntu 20.04 server), but I recommend to check <a href="https://www.elastic.co/guide/index.html">official documentation</a> because it changes pretty quickly.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>sudo apt install apt-transport-https
-<span class="ln">2</span>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch <span class="p">|</span> sudo apt-key add -
-<span class="ln">3</span><span class="nb">echo</span> <span class="s2">&#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&#34;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-<span class="ln">4</span>sudo apt update
-<span class="ln">5</span>sudo apt install elasticsearch logstash kibana
-<span class="ln">6</span>sudo systemctl <span class="nb">enable</span> elasticsearch.service logstash.service kibana.service  
-<span class="ln">7</span>sudo systemctl start elasticsearch.service kibana.service
-</code></pre></div><p>Cause this installation for educational purposes, all configuration files are left by default.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt install apt-transport-https
+</span></span><span class="line"><span class="ln">2</span><span class="cl">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch <span class="p">|</span> sudo apt-key add -
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&#34;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+</span></span><span class="line"><span class="ln">4</span><span class="cl">sudo apt update
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo apt install elasticsearch logstash kibana
+</span></span><span class="line"><span class="ln">6</span><span class="cl">sudo systemctl <span class="nb">enable</span> elasticsearch.service logstash.service kibana.service  
+</span></span><span class="line"><span class="ln">7</span><span class="cl">sudo systemctl start elasticsearch.service kibana.service
+</span></span></code></pre></div><p>Cause this installation for educational purposes, all configuration files are left by default.</p>
 <h2 id="elastiflow-instalation">ElastiFlow Instalation</h2>
 <p><strong>ElastiFlow™</strong> - provides network flow data collection and visualization using the Elastic Stack. It supports Netflow v5/v9, sFlow and IPFIX flow types. In simple words is a set of configuration files for logstash and preconfigured kibana dashboard.<br>
 Full config settings and tuning ElastiFlow is out of scope this article, here an example to make it work. Please read official <a href="https://github.com/robcowart/elastiflow/blob/master/INSTALL.md">Installation guide</a> for better understanding.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#install the sFlow codec for Logstash</span>
-<span class="ln"> 2</span>sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
-<span class="ln"> 3</span>sudo /usr/share/logstash/bin/logstash-plugin list --installed
-<span class="ln"> 4</span>sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
-<span class="ln"> 5</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span><span class="c1"># download ElastiFlow files and copy them in system</span>
-<span class="ln"> 8</span>wget https://github.com/robcowart/elastiflow/archive/v4.0.1.tar.gz
-<span class="ln"> 9</span>tar xf v4.0.1.tar.gz
-<span class="ln">10</span>sudo chown root:root -R elastiflow-4.0.1/
-<span class="ln">11</span>sudo rsync -avh elastiflow-4.0.1/logstash.service.d /etc/systemd/system/
-<span class="ln">12</span>sudo rsync -avh elastiflow-4.0.1/logstash/elastiflow /etc/logstash/
-<span class="ln">13</span>
-<span class="ln">14</span><span class="c1"># increasing the priority of the Logstash service</span>
-<span class="ln">15</span>sudo sed -i <span class="s1">&#39;s/Nice=19/Nice=0/g&#39;</span> /etc/systemd/system/logstash.service
-<span class="ln">16</span><span class="c1"># specify Logstash configuration path</span>
-<span class="ln">17</span>sudo sed -i <span class="s1">&#39;s/main/elastiflow/g&#39;</span> /etc/logstash/pipelines.yml
-<span class="ln">18</span>sudo sed -i <span class="s1">&#39;s:logstash:logstash/elastiflow:g&#39;</span> /etc/logstash/pipelines.yml
-<span class="ln">19</span>
-<span class="ln">20</span><span class="c1">#Logstash startup script to take the variables from configs</span>
-<span class="ln">21</span>sudo /usr/share/logstash/bin/system-install
-<span class="ln">22</span><span class="c1"># apply changes for logstash servece</span>
-<span class="ln">23</span>sudo systemctl daemon-reload
-<span class="ln">24</span><span class="c1"># start</span>
-<span class="ln">25</span>sudo systemctl start logstash.service
-<span class="ln">26</span><span class="c1"># starting process can be viewed in</span>
-<span class="ln">27</span>/var/log/logstash/logstash-plain.log
-<span class="ln">28</span>
-<span class="ln">29</span><span class="c1">#In kibana go to &#34;Management/Stack Management/Saved Objects&#34; and import</span>
-<span class="ln">30</span>elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
-</code></pre></div><h2 id="elastiflow-screenshots">ElastiFlow screenshots</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">#install the sFlow codec for Logstash</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">sudo /usr/share/logstash/bin/logstash-plugin list --installed
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># download ElastiFlow files and copy them in system</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">wget https://github.com/robcowart/elastiflow/archive/v4.0.1.tar.gz
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">tar xf v4.0.1.tar.gz
+</span></span><span class="line"><span class="ln">10</span><span class="cl">sudo chown root:root -R elastiflow-4.0.1/
+</span></span><span class="line"><span class="ln">11</span><span class="cl">sudo rsync -avh elastiflow-4.0.1/logstash.service.d /etc/systemd/system/
+</span></span><span class="line"><span class="ln">12</span><span class="cl">sudo rsync -avh elastiflow-4.0.1/logstash/elastiflow /etc/logstash/
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"># increasing the priority of the Logstash service</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">sudo sed -i <span class="s1">&#39;s/Nice=19/Nice=0/g&#39;</span> /etc/systemd/system/logstash.service
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"># specify Logstash configuration path</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">sudo sed -i <span class="s1">&#39;s/main/elastiflow/g&#39;</span> /etc/logstash/pipelines.yml
+</span></span><span class="line"><span class="ln">18</span><span class="cl">sudo sed -i <span class="s1">&#39;s:logstash:logstash/elastiflow:g&#39;</span> /etc/logstash/pipelines.yml
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1">#Logstash startup script to take the variables from configs</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">sudo /usr/share/logstash/bin/system-install
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"># apply changes for logstash servece</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"># start</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">sudo systemctl start logstash.service
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1"># starting process can be viewed in</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">/var/log/logstash/logstash-plain.log
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1">#In kibana go to &#34;Management/Stack Management/Saved Objects&#34; and import</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
+</span></span></code></pre></div><h2 id="elastiflow-screenshots">ElastiFlow screenshots</h2>
 <p><img src="/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png" alt="ElastiFlow screenshot"></p>
 <div id="disqus_thread"></div>
 <script>
@@ -302,7 +301,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -329,6 +328,9 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/lxd/" class="nav-link" title="LXD quick start (linux containers)">LXD quick start (linux containers)</a>
       </li>
       <li>
@@ -343,16 +345,13 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
       <li>
         <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/simple-linux-questions/" class="nav-link" title="Simple Linux Questions">Simple Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -368,6 +367,11 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -415,16 +419,15 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -450,7 +453,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -580,8 +583,8 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -590,7 +593,7 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

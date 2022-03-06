@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>LXD quick start (linux containers) | Linux, SysOps, QA | Tech Blog</title>
+<title>LXD quick start (linux containers) | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="100" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -177,141 +177,138 @@
 <strong>LXD</strong> is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.</p>
 <p>Before start, use <code>lxd init</code> to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.</p>
 <h2 id="get-info">Get Info:</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc profile show default
-<span class="ln"> 2</span>lxc info container_name
-<span class="ln"> 3</span>lxc config show container_name -e  <span class="c1">#all configurations</span>
-<span class="ln"> 4</span>lxc storage list
-<span class="ln"> 5</span>
-<span class="ln"> 6</span>lxc ls <span class="c1">#List instances</span>
-<span class="ln"> 7</span>lxc list -c ns4mDSb
-<span class="ln"> 8</span>
-<span class="ln"> 9</span>All available column options:
-<span class="ln">10</span>    <span class="m">4</span> - IPv4 address
-<span class="ln">11</span>    <span class="m">6</span> - IPv6 address
-<span class="ln">12</span>    a - Architecture
-<span class="ln">13</span>    b - Storage pool
-<span class="ln">14</span>    c - Creation date
-<span class="ln">15</span>    d - Description
-<span class="ln">16</span>    D - disk usage
-<span class="ln">17</span>    l - Last used date
-<span class="ln">18</span>    m - Memory usage
-<span class="ln">19</span>    M - Memory usage <span class="o">(</span>%<span class="o">)</span>
-<span class="ln">20</span>    n - Name
-<span class="ln">21</span>    N - Number of Processes
-<span class="ln">22</span>    p - PID of the instances init process
-<span class="ln">23</span>    P - Profiles
-<span class="ln">24</span>    s - State
-<span class="ln">25</span>    S - Number of snapshots
-<span class="ln">26</span>    t - Type <span class="o">(</span>persistent or ephemeral<span class="o">)</span>
-<span class="ln">27</span>    u - CPU usage <span class="o">(</span>in seconds<span class="o">)</span>
-<span class="ln">28</span>    L - Location of the instance <span class="o">(</span>e.g. its cluster member<span class="o">)</span>
-<span class="ln">29</span>    f - Base Image Fingerprint <span class="o">(</span>short<span class="o">)</span>
-<span class="ln">30</span>    F - Base Image Fingerprint <span class="o">(</span>long<span class="o">)</span>
-<span class="ln">31</span>
-</code></pre></div><h2 id="launch-new-container">Launch new container</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc launch images:centos/7/amd64 container_name
-<span class="ln">2</span>lxc launch ubuntu:20.04 container_name
-<span class="ln">3</span>lxc launch -p profile_name ubuntu:20.04 container_name   <span class="c1">#-p for applying a profile</span>
-</code></pre></div><h2 id="configuration">Configuration</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">lxc profile show default
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">lxc info container_name
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">lxc config show container_name -e  <span class="c1">#all configurations</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">lxc storage list
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">lxc ls <span class="c1">#List instances</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">lxc list -c ns4mDSb
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">All available column options:
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="m">4</span> - IPv4 address
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="m">6</span> - IPv6 address
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    a - Architecture
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    b - Storage pool
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    c - Creation date
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    d - Description
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    D - disk usage
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    l - Last used date
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    m - Memory usage
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    M - Memory usage <span class="o">(</span>%<span class="o">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    n - Name
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    N - Number of Processes
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    p - PID of the instances init process
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    P - Profiles
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    s - State
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    S - Number of snapshots
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    t - Type <span class="o">(</span>persistent or ephemeral<span class="o">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    u - CPU usage <span class="o">(</span>in seconds<span class="o">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    L - Location of the instance <span class="o">(</span>e.g. its cluster member<span class="o">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    f - Base Image Fingerprint <span class="o">(</span>short<span class="o">)</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    F - Base Image Fingerprint <span class="o">(</span>long<span class="o">)</span>
+</span></span></code></pre></div><h2 id="launch-new-container">Launch new container</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc launch images:centos/7/amd64 container_name
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc launch ubuntu:20.04 container_name
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc launch -p profile_name ubuntu:20.04 container_name   <span class="c1">#-p for applying a profile</span>
+</span></span></code></pre></div><h2 id="configuration">Configuration</h2>
 <p>Apply specific settings to a container:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc config <span class="nb">set</span> container_name limits.memory 512MB
-<span class="ln">2</span>lxc config <span class="nb">set</span> container_name limits.cpu <span class="m">2</span>
-<span class="ln">3</span>lxc config device <span class="nb">set</span> container_name root size 10GB
-<span class="ln">4</span>lxc config device <span class="nb">set</span> container_name eth0 limits.ingress 1Mbit
-</code></pre></div><h2 id="run-commands-within-container">Run commands within container</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc <span class="nb">exec</span> container_name -- /bin/bash <span class="c1">#Get a shell inside a container as a root</span>
-<span class="ln">2</span>lxc <span class="nb">exec</span> container_name bash
-<span class="ln">3</span>lxc <span class="nb">exec</span> container_name -- su --login username
-<span class="ln">4</span>lxc console container_name  <span class="c1"># terminal inside container, use ```ctrl+a-q``` for detach.</span>
-</code></pre></div><h2 id="profile">Profile</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc config <span class="nb">set</span> container_name limits.memory 512MB
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc config <span class="nb">set</span> container_name limits.cpu <span class="m">2</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc config device <span class="nb">set</span> container_name root size 10GB
+</span></span><span class="line"><span class="ln">4</span><span class="cl">lxc config device <span class="nb">set</span> container_name eth0 limits.ingress 1Mbit
+</span></span></code></pre></div><h2 id="run-commands-within-container">Run commands within container</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc <span class="nb">exec</span> container_name -- /bin/bash <span class="c1">#Get a shell inside a container as a root</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc <span class="nb">exec</span> container_name bash
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc <span class="nb">exec</span> container_name -- su --login username
+</span></span><span class="line"><span class="ln">4</span><span class="cl">lxc console container_name  <span class="c1"># terminal inside container, use ```ctrl+a-q``` for detach.</span>
+</span></span></code></pre></div><h2 id="profile">Profile</h2>
 <p>Profile helps create container preconfiguration. Can be apply in launch moment. Uses <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> initialization.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc profile create profilename
-<span class="ln"> 2</span>lxc profile edit profilename
-<span class="ln"> 3</span>
-<span class="ln"> 4</span><span class="c1"># example</span>
-<span class="ln"> 5</span>oleg@t600:~$ lxc profile show dev1 
-<span class="ln"> 6</span>config:
-<span class="ln"> 7</span>  limits.cpu: <span class="s2">&#34;1&#34;</span>
-<span class="ln"> 8</span>  limits.memory: 1024MB
-<span class="ln"> 9</span>  user.user-data: <span class="p">|</span>
-<span class="ln">10</span>    <span class="c1">#cloud-config</span>
-<span class="ln">11</span>    package_upgrade: <span class="nb">true</span>
-<span class="ln">12</span>    timezone: America/Los_Angeles
-<span class="ln">13</span>    <span class="c1"># User setup</span>
-<span class="ln">14</span>    users:
-<span class="ln">15</span>     - name: oleg
-<span class="ln">16</span>       ssh-authorized-keys:
-<span class="ln">17</span>         - ssh-rsa AAAA......<span class="o">==</span> oleg@t800
-<span class="ln">18</span>       sudo: <span class="o">[</span><span class="s1">&#39;ALL=(ALL) NOPASSWD:ALL&#39;</span><span class="o">]</span>
-<span class="ln">19</span>       groups: sudo
-<span class="ln">20</span>       shell: /bin/bash
-<span class="ln">21</span>description: dev environment <span class="k">for</span> tests
-<span class="ln">22</span>devices:
-<span class="ln">23</span>  eth0:
-<span class="ln">24</span>    nictype: bridged
-<span class="ln">25</span>    parent: br0
-<span class="ln">26</span>    type: nic
-<span class="ln">27</span>  root:
-<span class="ln">28</span>    path: /
-<span class="ln">29</span>    pool: zfs-pool
-<span class="ln">30</span>    type: disk
-<span class="ln">31</span>name: dev1
-<span class="ln">32</span>used_by:
-<span class="ln">33</span>...
-<span class="ln">34</span>
-</code></pre></div><h2 id="network">Network</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#Create bridge:</span>
-<span class="ln"> 2</span>lxc network create testbr0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>none
-<span class="ln"> 3</span>lxc network create dev1br0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>172.20.5.10/24 ipv4.nat<span class="o">=</span><span class="nb">true</span>
-<span class="ln"> 4</span>
-<span class="ln"> 5</span><span class="c1">#containers get IP from your LAN using a bridge. Profile:</span>
-<span class="ln"> 6</span>devices:
-<span class="ln"> 7</span>  eth0:
-<span class="ln"> 8</span>    nictype: bridged
-<span class="ln"> 9</span>    parent: br0
-<span class="ln">10</span>    type: nic
-<span class="ln">11</span>https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
-<span class="ln">12</span>
-<span class="ln">13</span><span class="c1">#containers get IP from your LAN using macvlan</span>
-<span class="ln">14</span>lxc profile device add dev1 eth0 nic <span class="nv">nictype</span><span class="o">=</span>macvlan <span class="nv">parent</span><span class="o">=</span>br0
-<span class="ln">15</span>https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
-<span class="ln">16</span>
-<span class="ln">17</span><span class="c1">#Set static ip (stop container before):</span>
-<span class="ln">18</span>lxc network attach lxdbr0 container_name eth0 eth0
-<span class="ln">19</span>lxc config device <span class="nb">set</span> container_name eth0 ipv4.address 192.168.10.5
-<span class="ln">20</span>
-</code></pre></div><h2 id="snapshots">Snapshots</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc snapshot container_name snapshot_name <span class="c1"># reate the snapshot</span>
-<span class="ln">2</span>lxc restore container_name snapshot_name <span class="c1"># restore the snapshot</span>
-<span class="ln">3</span>lxc delete container_name/snapshot_name  <span class="c1"># delete a snapshot</span>
-</code></pre></div><h2 id="files">Files</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc file pull container_name/path-in-container path-on-host  <span class="c1">#from an instance to host</span>
-<span class="ln">2</span>lxc file pull -r container_name/path-in-container path-on-host  <span class="c1"># Pull a folder</span>
-<span class="ln">3</span>lxc file push path-on-host container_name/path-in-container   <span class="c1">#  from host to instance</span>
-<span class="ln">4</span>lxc file push -r path-on-host container_name/path-in-container  <span class="c1"># folder</span>
-</code></pre></div><h2 id="storage">Storage</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc storage create NAME <span class="nb">type</span> <span class="nv">source</span><span class="o">=</span>/some/empty/directory
-<span class="ln">2</span>lxc storage create zfs-pool zfs <span class="nv">source</span><span class="o">=</span>/dev/mapper/vg_lxd-lv_lxd_zfs
-<span class="ln">3</span>lxc storage list  
-<span class="ln">4</span>lxc storage show zfs-pool
-<span class="ln">5</span>https://linuxcontainers.org/lxd/docs/master/storage
-</code></pre></div><h2 id="export--importor-backups-publish">Export &amp; import(or backups), publish</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span>lxc <span class="nb">export</span> container_name /tmp/container_name_date.tar.gz
-<span class="ln"> 2</span>lxc import container_name_date.tar.gz 
-<span class="ln"> 3</span>
-<span class="ln"> 4</span><span class="c1">#Publish - turns a container or snapshot into an image in the local LXD image store</span>
-<span class="ln"> 5</span>lxc publish container_name/snapshot --alias new_local_image
-<span class="ln"> 6</span>lxc publish container_name --alias image_name
-<span class="ln"> 7</span>
-<span class="ln"> 8</span>lxc image import container_name.tar.gz  --alias custom-imagename
-<span class="ln"> 9</span>lxc image <span class="nb">export</span> imagename <span class="o">[</span>target folder<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
-<span class="ln">10</span>
-<span class="ln">11</span><span class="c1">#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463</span>
-</code></pre></div><h2 id="privileges">Privileges</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">lxc profile create profilename
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">lxc profile edit profilename
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># example</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">oleg@t600:~$ lxc profile show dev1 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">config:
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  limits.cpu: <span class="s2">&#34;1&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  limits.memory: 1024MB
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  user.user-data: <span class="p">|</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">#cloud-config</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    package_upgrade: <span class="nb">true</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    timezone: America/Los_Angeles
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1"># User setup</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    users:
+</span></span><span class="line"><span class="ln">15</span><span class="cl">     - name: oleg
+</span></span><span class="line"><span class="ln">16</span><span class="cl">       ssh-authorized-keys:
+</span></span><span class="line"><span class="ln">17</span><span class="cl">         - ssh-rsa AAAA......<span class="o">==</span> oleg@t800
+</span></span><span class="line"><span class="ln">18</span><span class="cl">       sudo: <span class="o">[</span><span class="s1">&#39;ALL=(ALL) NOPASSWD:ALL&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">       groups: sudo
+</span></span><span class="line"><span class="ln">20</span><span class="cl">       shell: /bin/bash
+</span></span><span class="line"><span class="ln">21</span><span class="cl">description: dev environment <span class="k">for</span> tests
+</span></span><span class="line"><span class="ln">22</span><span class="cl">devices:
+</span></span><span class="line"><span class="ln">23</span><span class="cl">  eth0:
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    nictype: bridged
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    parent: br0
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    type: nic
+</span></span><span class="line"><span class="ln">27</span><span class="cl">  root:
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    path: /
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    pool: zfs-pool
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    type: disk
+</span></span><span class="line"><span class="ln">31</span><span class="cl">name: dev1
+</span></span><span class="line"><span class="ln">32</span><span class="cl">used_by:
+</span></span><span class="line"><span class="ln">33</span><span class="cl">...
+</span></span></code></pre></div><h2 id="network">Network</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">#Create bridge:</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">lxc network create testbr0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>none
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">lxc network create dev1br0 ipv6.address<span class="o">=</span>none ipv4.address<span class="o">=</span>172.20.5.10/24 ipv4.nat<span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">#containers get IP from your LAN using a bridge. Profile:</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">devices:
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  eth0:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    nictype: bridged
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    parent: br0
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    type: nic
+</span></span><span class="line"><span class="ln">11</span><span class="cl">https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">#containers get IP from your LAN using macvlan</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">lxc profile device add dev1 eth0 nic <span class="nv">nictype</span><span class="o">=</span>macvlan <span class="nv">parent</span><span class="o">=</span>br0
+</span></span><span class="line"><span class="ln">15</span><span class="cl">https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">#Set static ip (stop container before):</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">lxc network attach lxdbr0 container_name eth0 eth0
+</span></span><span class="line"><span class="ln">19</span><span class="cl">lxc config device <span class="nb">set</span> container_name eth0 ipv4.address 192.168.10.5
+</span></span></code></pre></div><h2 id="snapshots">Snapshots</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc snapshot container_name snapshot_name <span class="c1"># reate the snapshot</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc restore container_name snapshot_name <span class="c1"># restore the snapshot</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc delete container_name/snapshot_name  <span class="c1"># delete a snapshot</span>
+</span></span></code></pre></div><h2 id="files">Files</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc file pull container_name/path-in-container path-on-host  <span class="c1">#from an instance to host</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc file pull -r container_name/path-in-container path-on-host  <span class="c1"># Pull a folder</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc file push path-on-host container_name/path-in-container   <span class="c1">#  from host to instance</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">lxc file push -r path-on-host container_name/path-in-container  <span class="c1"># folder</span>
+</span></span></code></pre></div><h2 id="storage">Storage</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc storage create NAME <span class="nb">type</span> <span class="nv">source</span><span class="o">=</span>/some/empty/directory
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc storage create zfs-pool zfs <span class="nv">source</span><span class="o">=</span>/dev/mapper/vg_lxd-lv_lxd_zfs
+</span></span><span class="line"><span class="ln">3</span><span class="cl">lxc storage list  
+</span></span><span class="line"><span class="ln">4</span><span class="cl">lxc storage show zfs-pool
+</span></span><span class="line"><span class="ln">5</span><span class="cl">https://linuxcontainers.org/lxd/docs/master/storage
+</span></span></code></pre></div><h2 id="export--importor-backups-publish">Export &amp; import(or backups), publish</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">lxc <span class="nb">export</span> container_name /tmp/container_name_date.tar.gz
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">lxc import container_name_date.tar.gz 
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">#Publish - turns a container or snapshot into an image in the local LXD image store</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">lxc publish container_name/snapshot --alias new_local_image
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">lxc publish container_name --alias image_name
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">lxc image import container_name.tar.gz  --alias custom-imagename
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">lxc image <span class="nb">export</span> imagename <span class="o">[</span>target folder<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1">#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463</span>
+</span></span></code></pre></div><h2 id="privileges">Privileges</h2>
 <p>Set special privileges for container, this example is for NFS:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>lxc config <span class="nb">set</span> container_name security.privileged <span class="nb">true</span>
-<span class="ln">2</span>lxc config <span class="nb">set</span> container_name raw.apparmor <span class="s2">&#34;mount fstype=nfs,&#34;</span>
-</code></pre></div><h2 id="recommendations">Recommendations</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">lxc config <span class="nb">set</span> container_name security.privileged <span class="nb">true</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">lxc config <span class="nb">set</span> container_name raw.apparmor <span class="s2">&#34;mount fstype=nfs,&#34;</span>
+</span></span></code></pre></div><h2 id="recommendations">Recommendations</h2>
 <p>Use this alias to prevent accidental deletion of an container.<br>
 <code>lxc alias add delete &quot;delete -i&quot;</code></p>
 <h2 id="gui">Gui</h2>
@@ -347,7 +344,7 @@
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -374,6 +371,9 @@
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -388,16 +388,13 @@
       <li>
         <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/simple-linux-questions/" class="nav-link" title="Simple Linux Questions">Simple Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -413,6 +410,11 @@
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -460,16 +462,15 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -495,7 +496,7 @@
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -625,8 +626,8 @@
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -635,7 +636,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>Networking Questions | Linux, SysOps, QA | Tech Blog</title>
+<title>Networking Questions | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="10" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -200,12 +200,12 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 </ul>
 </blockquote>
 <h2 id="what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine">What is the command used to show all open ports and/or socket connections on a machine?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>netstat -lntu 
-<span class="ln">2</span>netstat -tulpn <span class="p">|</span> grep LISTEN
-<span class="ln">3</span>ss -tulpn
-<span class="ln">4</span>lsof -i -P -n <span class="p">|</span> grep LISTEN
-<span class="ln">5</span><span class="c1"># https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/</span>
-</code></pre></div><h2 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">netstat -lntu 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">netstat -tulpn <span class="p">|</span> grep LISTEN
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ss -tulpn
+</span></span><span class="line"><span class="ln">4</span><span class="cl">lsof -i -P -n <span class="p">|</span> grep LISTEN
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"># https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/</span>
+</span></span></code></pre></div><h2 id="is-3001680123-a-valid-ipv4-address">Is 300.168.0.123 a valid IPv4 address?</h2>
 <blockquote>
 <p>No, octet can't be more than 255</p>
 </blockquote>
@@ -239,10 +239,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 <p>A <strong>default gateway</strong> is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.</p>
 </blockquote>
 <h2 id="what-is-command-used-to-show-the-routing-table-on-a-linux-box">What is command used to show the routing table on a Linux box?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ip route <span class="o">(</span>ip r<span class="o">)</span>
-<span class="ln">2</span>netstat -r
-<span class="ln">3</span>route -n
-</code></pre></div><h2 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ip route <span class="o">(</span>ip r<span class="o">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">netstat -r
+</span></span><span class="line"><span class="ln">3</span><span class="cl">route -n
+</span></span></code></pre></div><h2 id="a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things">A TCP connection on a network can be uniquely defined by 4 things. What are those things?</h2>
 <blockquote>
 <ul>
 <li>remote-ip-address</li>
@@ -260,11 +260,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 </ul>
 </blockquote>
 <h2 id="how-do-you-add-an-ipv6-address-to-a-specific-interface">How do you add an IPv6 address to a specific interface?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>Same commands as for ipv4:
-<span class="ln">2</span>ip -6 addr add &lt;ipv6address&gt;/&lt;prefixlength&gt; dev &lt;interface&gt;
-<span class="ln">3</span>ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
-<span class="ln">4</span>ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
-</code></pre></div><h2 id="sendmsg-operation-not-permitted-what-could-be-wrong">sendmsg: operation not permitted. what could be wrong?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Same commands as for ipv4:
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ip -6 addr add &lt;ipv6address&gt;/&lt;prefixlength&gt; dev &lt;interface&gt;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+</span></span></code></pre></div><h2 id="sendmsg-operation-not-permitted-what-could-be-wrong">sendmsg: operation not permitted. what could be wrong?</h2>
 <blockquote>
 <p><strong>You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?</strong></p>
 <p>firewall blocks traffic ipv6</p>
@@ -326,7 +326,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -356,6 +356,9 @@ traceroute - the exact route you take to reach the server from your computer(ISP
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -370,16 +373,13 @@ traceroute - the exact route you take to reach the server from your computer(ISP
       <li>
         <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/simple-linux-questions/" class="nav-link" title="Simple Linux Questions">Simple Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -395,6 +395,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -442,16 +447,15 @@ traceroute - the exact route you take to reach the server from your computer(ISP
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -477,7 +481,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -607,8 +611,8 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -617,7 +621,7 @@ traceroute - the exact route you take to reach the server from your computer(ISP
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

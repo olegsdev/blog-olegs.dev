@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>Simple Linux Questions | Linux, SysOps, QA | Tech Blog</title>
+<title>Simple Linux Questions | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="10" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -202,23 +202,23 @@ This page contains ideas on how to answer questions. The answers are not absolut
 Groups in Linux are defined by GIDs (group IDs)</p>
 </blockquote>
 <h2 id="how-to-list-all-files-including-hidden-ones-in-a-directory">How to list all files, including hidden ones, in a directory?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>ls --all  - <span class="k">do</span> not ignore entries starting with .  <span class="o">(</span>-a<span class="o">)</span>
-</code></pre></div><h2 id="what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents">What is the Unix/Linux command to remove a directory and its contents?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>rmdir - only empty directories
-<span class="ln">2</span>rm -rf dir
-</code></pre></div><h2 id="which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux">Which command will show you free/used memory? Does free memory exist on Linux?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>free -m
-<span class="ln">2</span>Free memory does exist on linux
-</code></pre></div><h2 id="how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively">How to search for the string &quot;my konfu is the best&quot; in files of a directory recursively?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>grep -liR <span class="s2">&#34;my konfu is the best&#34;</span> ????
-</code></pre></div><h2 id="how-to-connect-to-a-remote-server-or-what-is-ssh">How to connect to a remote server or what is SSH?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ls --all  - <span class="k">do</span> not ignore entries starting with .  <span class="o">(</span>-a<span class="o">)</span>
+</span></span></code></pre></div><h2 id="what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents">What is the Unix/Linux command to remove a directory and its contents?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">rmdir - only empty directories
+</span></span><span class="line"><span class="ln">2</span><span class="cl">rm -rf dir
+</span></span></code></pre></div><h2 id="which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux">Which command will show you free/used memory? Does free memory exist on Linux?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">free -m
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Free memory does exist on linux
+</span></span></code></pre></div><h2 id="how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively">How to search for the string &quot;my konfu is the best&quot; in files of a directory recursively?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">grep -liR <span class="s2">&#34;my konfu is the best&#34;</span> ????
+</span></span></code></pre></div><h2 id="how-to-connect-to-a-remote-server-or-what-is-ssh">How to connect to a remote server or what is SSH?</h2>
 <blockquote>
 <p><em><strong><strong>ssh user@server</strong></strong></em></p>
 <p>Secure Shell is a software standard to support encrypted data transfer between two computers. It can be used to support secure logins, file transfers or general purpose connects.</p>
 </blockquote>
 <h2 id="how-to-get-all-environment-variables-and-how-can-you-use-them">How to get all environment variables and how can you use them?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>printenv - print all or part of environment
-</code></pre></div><br>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">printenv - print all or part of environment
+</span></span></code></pre></div><br>
 <h2 id="i-get-command-not-found-when-i-run-ifconfig--a-what-can-be-wrong">I get &quot;command not found&quot; when I run ifconfig -a. What can be wrong?</h2>
 <blockquote>
 <p>net-tools is not installed</p>
@@ -228,17 +228,17 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>the shell will automatically fill in the rest or show you the available options you can type (tab completion)</p>
 </blockquote>
 <h2 id="what-command-will-show-the-available-disk-space-on-the-unixlinux-system">What command will show the available disk space on the Unix/Linux system?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>df -h
-<span class="ln">2</span>df - report file system disk space usage
-</code></pre></div><h2 id="what-commands-do-you-know-that-can-be-used-to-check-dns-records">What commands do you know that can be used to check DNS records?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>dig <span class="o">(</span> dig <span class="o">[</span>server<span class="o">]</span> <span class="o">[</span>name<span class="o">]</span> <span class="o">[</span>type<span class="o">]</span>  
-<span class="ln">2</span>dig example.com MX <span class="o">)</span>
-<span class="ln">3</span>nsloockup <span class="o">(</span> nslookup -type<span class="o">=</span>ns example.com <span class="o">)</span>
-<span class="ln">4</span>host <span class="o">(</span>host -t ns example.com<span class="o">)</span>
-</code></pre></div><h2 id="what-unixlinux-commands-will-alter-a-files-ownership-files-permissions">What Unix/Linux commands will alter a files ownership, files permissions?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>chown - change file owner and group
-<span class="ln">2</span>chmod - change file mode bits
-</code></pre></div><h2 id="what-does-chmod-x-filename-do">What does chmod +x FILENAME do?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">df -h
+</span></span><span class="line"><span class="ln">2</span><span class="cl">df - report file system disk space usage
+</span></span></code></pre></div><h2 id="what-commands-do-you-know-that-can-be-used-to-check-dns-records">What commands do you know that can be used to check DNS records?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dig <span class="o">(</span> dig <span class="o">[</span>server<span class="o">]</span> <span class="o">[</span>name<span class="o">]</span> <span class="o">[</span>type<span class="o">]</span>  
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dig example.com MX <span class="o">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">nsloockup <span class="o">(</span> nslookup -type<span class="o">=</span>ns example.com <span class="o">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">host <span class="o">(</span>host -t ns example.com<span class="o">)</span>
+</span></span></code></pre></div><h2 id="what-unixlinux-commands-will-alter-a-files-ownership-files-permissions">What Unix/Linux commands will alter a files ownership, files permissions?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">chown - change file owner and group
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chmod - change file mode bits
+</span></span></code></pre></div><h2 id="what-does-chmod-x-filename-do">What does chmod +x FILENAME do?</h2>
 <blockquote>
 <p>make it executable</p>
 </blockquote>
@@ -252,25 +252,25 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>The directory owner has full access. Group users may list the directory, but cannot create files. Nobody else has any rights.</p>
 </blockquote>
 <h2 id="how-to-add-a-new-system-user-without-login-permissions">How to add a new system user without login permissions?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span> useradd -M username ( Do no create the user&#39;s home directory )
-<span class="ln">2</span> usermod -L username ( lock the account to prevent logging in )
-<span class="ln">3</span> useradd -r username ( does not have a password, a home dir and is unable to login )
-</code></pre></div><h2 id="how-to-addremove-a-group-from-a-user">How to add/remove a group from a user?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>usermod -a -G group user <span class="o">(</span> adding a user to a group <span class="o">)</span>
-<span class="ln">2</span>gpasswd -a user group
-<span class="ln">3</span>---
-<span class="ln">4</span>gpasswd -d user group
-<span class="ln">5</span>deluser user group
-<span class="ln">6</span>usermod -G <span class="s2">&#34;&#34;</span> username <span class="o">(</span> removes all secondary/supplementary groups from username <span class="o">)</span>
-</code></pre></div><h2 id="what-is-a-bash-alias">What is a bash alias?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl"> useradd -M username ( Do no create the user&#39;s home directory )
+</span></span><span class="line"><span class="ln">2</span><span class="cl"> usermod -L username ( lock the account to prevent logging in )
+</span></span><span class="line"><span class="ln">3</span><span class="cl"> useradd -r username ( does not have a password, a home dir and is unable to login )
+</span></span></code></pre></div><h2 id="how-to-addremove-a-group-from-a-user">How to add/remove a group from a user?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">usermod -a -G group user <span class="o">(</span> adding a user to a group <span class="o">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">gpasswd -a user group
+</span></span><span class="line"><span class="ln">3</span><span class="cl">---
+</span></span><span class="line"><span class="ln">4</span><span class="cl">gpasswd -d user group
+</span></span><span class="line"><span class="ln">5</span><span class="cl">deluser user group
+</span></span><span class="line"><span class="ln">6</span><span class="cl">usermod -G <span class="s2">&#34;&#34;</span> username <span class="o">(</span> removes all secondary/supplementary groups from username <span class="o">)</span>
+</span></span></code></pre></div><h2 id="what-is-a-bash-alias">What is a bash alias?</h2>
 <blockquote>
 <p>An alias is a (usually short) name that the shell translates into another (usually longer) name or command</p>
 </blockquote>
 <h2 id="how-do-you-set-the-mail-address-of-the-roota-user">How do you set the mail address of the root/a user?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>/root/.forwards
-<span class="ln">2</span>/etc/aliases
-<span class="ln">3</span>P.S. for postfix: set in main.cf =&gt; myhostname = host.example.com
-</code></pre></div><h2 id="what-does-ctrl-c-do">What does CTRL-c do?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">/root/.forwards
+</span></span><span class="line"><span class="ln">2</span><span class="cl">/etc/aliases
+</span></span><span class="line"><span class="ln">3</span><span class="cl">P.S. for postfix: set in main.cf =&gt; myhostname = host.example.com
+</span></span></code></pre></div><h2 id="what-does-ctrl-c-do">What does CTRL-c do?</h2>
 <blockquote>
 <p>CTRL+C is used to kill a process with the signal SIGINT, and can be intercepted by a program so it can clean its self up before exiting, or not exit at all</p>
 </blockquote>
@@ -287,9 +287,9 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <p>/etc/services file contains a list of network services and ports mapped to them.</p>
 </blockquote>
 <h2 id="how-to-redirect-stdout-and-stderr-in-bash--devnull-21">How to redirect STDOUT and STDERR in bash? (&gt; /dev/null 2&gt;&amp;1)</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>command &gt; file-name 2&gt;&amp;1
-<span class="ln">2</span>ls /tmp &gt; /dev/null 2&gt;&amp;1
-</code></pre></div><h2 id="what-is-the-difference-between-unix-and-linux">What is the difference between UNIX and Linux.</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">command &gt; file-name 2&gt;&amp;1
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ls /tmp &gt; /dev/null 2&gt;&amp;1
+</span></span></code></pre></div><h2 id="what-is-the-difference-between-unix-and-linux">What is the difference between UNIX and Linux.</h2>
 <blockquote>
 <p>Linux is not Unix, but it is a Unix-like operating system. Linux system is derived from Unix and it is a continuation of the basis of Unix design. Linux distributions are the most famous and healthiest example of the direct Unix derivatives. BSD (Berkley Software Distribution) is also an example of a Unix derivative.</p>
 </blockquote>
@@ -301,14 +301,14 @@ Groups in Linux are defined by GIDs (group IDs)</p>
 <blockquote>
 <p>Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>uptime
-<span class="ln">2</span>w
-<span class="ln">3</span>top
-<span class="ln">4</span>cat /proc/loadavg
-</code></pre></div><h2 id="can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls">Can you name a lower-case letter that is not a valid option for GNU ls?</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>option &#39;y&#39;
-<span class="ln">2</span>option &#39;z&#39;
-</code></pre></div><h2 id="what-is-a-linux-kernel-module">What is a Linux kernel module?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">uptime
+</span></span><span class="line"><span class="ln">2</span><span class="cl">w
+</span></span><span class="line"><span class="ln">3</span><span class="cl">top
+</span></span><span class="line"><span class="ln">4</span><span class="cl">cat /proc/loadavg
+</span></span></code></pre></div><h2 id="can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls">Can you name a lower-case letter that is not a valid option for GNU ls?</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">option &#39;y&#39;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">option &#39;z&#39;
+</span></span></code></pre></div><h2 id="what-is-a-linux-kernel-module">What is a Linux kernel module?</h2>
 <blockquote>
 <p>Kernel modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.</p>
 </blockquote>
@@ -358,7 +358,7 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -388,6 +388,9 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -402,16 +405,13 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
       <li>
         <a href="https://olegs.dev/post/mysql-questions/" class="nav-link" title="Mysql Questions">Mysql Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -427,6 +427,11 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -474,16 +479,15 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -509,7 +513,7 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -639,8 +643,8 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -649,7 +653,7 @@ ICMP is used by a device, like a router, to communicate with the source of a dat
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

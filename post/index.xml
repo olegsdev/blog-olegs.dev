@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Linux, SysOps, QA | Tech Blog</title>
+    <title>Posts on Linux, SRE, QA | Tech Blog</title>
     <link>https://olegs.dev/post/</link>
-    <description>Recent content in Posts on Linux, SysOps, QA | Tech Blog</description>
+    <description>Recent content in Posts on Linux, SRE, QA | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Wed, 01 Sep 2021 20:08:53 -0700</lastBuildDate><atom:link href="https://olegs.dev/post/index.xml" rel="self" type="application/rss+xml" />
@@ -16,80 +16,80 @@
       <description>
         
           &lt;h2 id=&#34;useful-docker-commands&#34;&gt;Useful docker commands&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker run (-d) - Run a command in a new container 
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker attach - Attach to a running container
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker start - Start one or more stopped containers
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker stop - Stop one or more running containers
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker ps -a - List containers
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker images - List images
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker inspect - Return low-level information on Docker objects
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker top - Display the running processes of a container
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker stats - Display a live stream of container(s) resource usage statistics
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker logs - Fetch the logs of a container
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker pull - Pull an image or a repository from a registry
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;containers-management&#34;&gt;Containers Management:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker image ls             
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker image pull nginx         
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker image inspect 08393e824c3
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker container run busybox
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker container ls -a
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker container run -P -d nginx
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker container port 55590ea1f3b4
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker container ps
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker container inspect 030f0f31e94b
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker container top 030f0f31e94b
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker container attach 030f0f31e94b
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker container exec -it 030f0f31e94b /bin/bash
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;docker container exec -it 030f0f31e94b ls /usr/share/nginx/
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;docker container rm -f 030f0f31e94b
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;docker container run -d nginx
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;docker container run -it nginx /bin/bash
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;docker container exec -it ad8b407b51de ls /usr/share/nginx/
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;docker stop $(docker ps -a -q)
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;docker rm $(docker ps -a -q)
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;docker container run -d --expose 3000 -p 80:3000 nginx
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;docker container run -d --expose 3000 -p 8080:80 nginx
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;docker container port 0b45e49dd5f3
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;docker container run -d -p 8081:80/tcp -p 8081:80/udp nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networking-commands&#34;&gt;Networking Commands&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker network ls
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker network inspect bridge
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker network create br0
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker network rm br0
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker container run -d --name network-test -p 8081:80 nginx
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;docker network connect br1 network-test
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker network disconnect
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker network create -d bridge --internal localhost
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker network connect &amp;lt;NETWORK&amp;gt; &amp;lt;CONTAINER&amp;gt; # adding contaner to a network
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 br2
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br4
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;docker container run -d --name network-test02 --ip 10.1.4.102 --network br4 nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker run (-d) - Run a command in a new container 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker attach - Attach to a running container
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker start - Start one or more stopped containers
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker stop - Stop one or more running containers
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker ps -a - List containers
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker images - List images
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker inspect - Return low-level information on Docker objects
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker top - Display the running processes of a container
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker stats - Display a live stream of container(s) resource usage statistics
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker logs - Fetch the logs of a container
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker pull - Pull an image or a repository from a registry
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;containers-management&#34;&gt;Containers Management:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker image ls             
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker image pull nginx         
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker image inspect 08393e824c3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run busybox
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container ls -a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -P -d nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container port 55590ea1f3b4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container ps
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container inspect 030f0f31e94b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container top 030f0f31e94b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container attach 030f0f31e94b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container exec -it 030f0f31e94b /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container exec -it 030f0f31e94b ls /usr/share/nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container rm -f 030f0f31e94b
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -it nginx /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container exec -it ad8b407b51de ls /usr/share/nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker stop $(docker ps -a -q)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker rm $(docker ps -a -q)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --expose 3000 -p 80:3000 nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --expose 3000 -p 8080:80 nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container port 0b45e49dd5f3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d -p 8081:80/tcp -p 8081:80/udp nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networking-commands&#34;&gt;Networking Commands&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network inspect bridge
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network create br0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network rm br0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name network-test -p 8081:80 nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network connect br1 network-test
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network disconnect
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network create -d bridge --internal localhost
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network connect &amp;lt;NETWORK&amp;gt; &amp;lt;CONTAINER&amp;gt; # adding contaner to a network
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 br2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name network-test02 --ip 10.1.4.102 --network br4 nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Volume Commands&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;/var/lib/docker/volumes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;docker volume create      Create a volume
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;docker volume inspect     Display detailed information on one or more volumes
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;docker volume ls          List volumes
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;docker volume prune       Remove all unused local volumes
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;docker volume rm          Remove one or more volumes
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;docker volume create test-volume1
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;docker volume inspect test-volume1
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;docker volume rm test-volume1
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;docker volume prune !!!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Bind Mounts:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name nginx-bind-mount1 --mount type=bind,source=/root/dir1,target=/app nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Volumes for Persistent Storage:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker volume create volume3
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html/ nginx
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;docker volume inspect volume3 
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;sudo ls /var/snap/docker/common/var-lib-docker/volumes/volume3/_data 
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html,readonly nginx  #readonly
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dockerfile--building-images&#34;&gt;Dockerfile &amp;amp; Building Images&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume create      Create a volume
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume inspect     Display detailed information on one or more volumes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume ls          List volumes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume prune       Remove all unused local volumes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume rm          Remove one or more volumes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume create test-volume1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume inspect test-volume1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume rm test-volume1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume prune !!!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Bind Mounts:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name nginx-bind-mount1 --mount type=bind,source=/root/dir1,target=/app nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Volumes for Persistent Storage:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume create volume3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html/ nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker volume inspect volume3 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo ls /var/snap/docker/common/var-lib-docker/volumes/volume3/_data 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html,readonly nginx  #readonly
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dockerfile--building-images&#34;&gt;Dockerfile &amp;amp; Building Images&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Best practices for writing Dockerfiles&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;keep containers as ephemeral as possible&lt;/li&gt;
@@ -110,47 +110,46 @@
 &lt;li&gt;&lt;strong&gt;CMD&lt;/strong&gt; specifies what command to run within the container.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;FROM ubuntu:18.04
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;COPY . /app
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;RUN make /app
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;CMD python /app/app.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;FROM node:12-alpine
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;RUN apk add --no-cache python g++ make
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;WORKDIR /app
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;COPY . .
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;RUN yarn install --production
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;node&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;src/index.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker image build -t &amp;#39;testapp:v1&amp;#39; .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Using Environment Variables:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Create an image&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt; FROM node
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt; LABEL org.label-schema.version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;v1.1
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt; 
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt; ENV &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt; ENV PORT &lt;span class=&#34;m&#34;&gt;3000&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt; RUN mkdir -p /var/node
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt; ADD src/ var/node/
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt; WORKDIR /var/note
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt; RUN npm install
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt; EXPOSE &lt;span class=&#34;nv&#34;&gt;$PORT&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt; CMD .bin/www
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; test/web-app:v2
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; --env &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;prod test/web-app:v2
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;some-others-commands&#34;&gt;Some others commands:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;FROM ubuntu:18.04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;COPY . /app
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;RUN make /app
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;CMD python /app/app.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;FROM node:12-alpine
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;RUN apk add --no-cache python g++ make
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;WORKDIR /app
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;COPY . .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;RUN yarn install --production
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;CMD &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;node&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;src/index.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker image build -t &amp;#39;testapp:v1&amp;#39; .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Using Environment Variables:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;c1&#34;&gt;# Create an image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; FROM node
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; LABEL org.label-schema.version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;v1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; ENV &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; ENV PORT &lt;span class=&#34;m&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; RUN mkdir -p /var/node
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; ADD src/ var/node/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; WORKDIR /var/note
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; RUN npm install
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; EXPOSE &lt;span class=&#34;nv&#34;&gt;$PORT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; CMD .bin/www
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; test/web-app:v2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name appName-dev -p 8082:3001 --env &lt;span class=&#34;nv&#34;&gt;PORT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3001&lt;/span&gt; --env &lt;span class=&#34;nv&#34;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;prod test/web-app:v2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;some-others-commands&#34;&gt;Some others commands:&lt;/h2&gt;
 &lt;p&gt;History:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker image history node:latest 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Having Containers Start Automatically&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container run -d --name container_10.2 --restart always centos /bin/bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Docker Events&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker system events
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;docker system events --filter type=container --since &amp;#39;1h&amp;#39; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Managing Stopped Container&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;docker container ls -a -q -f status=exited
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sources&#34;&gt;Sources:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker image history node:latest 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Having Containers Start Automatically&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container run -d --name container_10.2 --restart always centos /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Docker Events&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker system events
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker system events --filter type=container --since &amp;#39;1h&amp;#39; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Managing Stopped Container&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;docker container ls -a -q -f status=exited
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sources&#34;&gt;Sources:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.docker.com/get-started/overview/&#34;&gt;Docker documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.pluralsight.com/courses/docker-deep-dive-update&#34;&gt;Docker Deep Dive - Course&lt;/a&gt;&lt;/li&gt;
@@ -172,10 +171,10 @@
           &lt;p&gt;&lt;strong&gt;CSS&lt;/strong&gt; - Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.&lt;/p&gt;
 &lt;h2 id=&#34;syntax&#34;&gt;Syntax:&lt;/h2&gt;
 &lt;p&gt;CSS consists of a selector and a declaration block.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;selector {
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;  property: value;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;selectors&#34;&gt;Selectors:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;selector {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  property: value;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;selectors&#34;&gt;Selectors:&lt;/h2&gt;
 &lt;p&gt;CSS selector - selects the HTML element(s) you want to style.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;html element&lt;/strong&gt; -  selects HTML elements based on the element name.&lt;/li&gt;
@@ -240,6 +239,154 @@ Example: &lt;code&gt;&amp;lt;h1 style=&amp;quot;color: #ffffff;&amp;quot;&amp;gt
     </item>
     
     <item>
+      <title>Files, Directories, Text. CompTIA Linux&#43;</title>
+      <link>https://olegs.dev/post/comptia-linux-files-directories-text/</link>
+      <pubDate>Sun, 21 Feb 2021 20:16:01 -0800</pubDate>
+      
+      <guid>https://olegs.dev/post/comptia-linux-files-directories-text/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;files-and-directories&#34;&gt;Files and Directories&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;pwd&lt;/strong&gt; - print name of current/working directory&lt;br&gt;
+&lt;strong&gt;touch&lt;/strong&gt; - change file timestamps  &lt;br&gt;
+&lt;strong&gt;mkdir&lt;/strong&gt; - make directories&lt;br&gt;
+    &lt;em&gt;-p, --parents&lt;/em&gt; - no error if existing, make parent directories as needed&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ls&lt;/strong&gt; - list directory contents&lt;br&gt;
+    &lt;em&gt;-a, --all&lt;/em&gt; - do not ignore entries starting with&lt;br&gt;
+    &lt;em&gt;-d, --directory&lt;/em&gt; - list directories themselves, not their contents&lt;br&gt;
+    &lt;em&gt;-F, --classify&lt;/em&gt; - append indicator (one of &lt;code&gt;* / = &amp;gt; @ |&lt;/code&gt;) to entries&lt;br&gt;
+    &lt;em&gt;-i, --inode&lt;/em&gt; - print the index number of each file&lt;br&gt;
+    &lt;em&gt;-l&lt;/em&gt; - use a long listing format&lt;br&gt;
+    &lt;em&gt;-R, --recursive&lt;/em&gt; - list subdirectories recursively&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;cp&lt;/strong&gt; - copy files and directories&lt;br&gt;
+    &lt;em&gt;-a, --archive&lt;/em&gt; - same as -dR --preserve=all&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt;  [Overwrite any preexisting destination files with same name as DEST .] If an existing destination file cannot be opened, remove it and try again (this option is ignored when the -n option is also used)&lt;br&gt;
+    &lt;em&gt;-i, --interactive&lt;/em&gt; - prompt before overwrite (overrides a previous -n option)&lt;br&gt;
+    &lt;em&gt;-n, --no-clobber&lt;/em&gt; - do not overwrite an existing file (overrides a previous -i option)&lt;br&gt;
+    &lt;em&gt;-R, -r, --recursive&lt;/em&gt; - copy directories recursively&lt;br&gt;
+    &lt;em&gt;-u, --update&lt;/em&gt; - copy only when the SOURCE file is newer than the destination file or when the destination file is missing&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;mv&lt;/strong&gt; - move (rename) files&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt;  - do not prompt before overwriting&lt;br&gt;
+    &lt;em&gt;-i, --interactive&lt;/em&gt; - prompt before overwrite&lt;br&gt;
+    &lt;em&gt;-n, --no&lt;/em&gt;-clobber - do not overwrite an existing file&lt;br&gt;
+    &lt;em&gt;-u, --update&lt;/em&gt; - move only when the SOURCE file is newer than the destination file or when the destination file is missing&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rsync&lt;/strong&gt; - a fast, versatile, remote (and local) file-copying tool&lt;br&gt;
+    &lt;em&gt;-a, --archive&lt;/em&gt; - archive mode; equals -rlptgoD (no -H,-A,-X)&lt;br&gt;
+    &lt;em&gt;-D&lt;/em&gt; - same as --devices --specials&lt;br&gt;
+    &lt;em&gt;-g, --group&lt;/em&gt; - preserve group&lt;br&gt;
+    &lt;em&gt;-h, --human-readable&lt;/em&gt; - output numbers in a human-readable format&lt;br&gt;
+    &lt;em&gt;-P   --progress&lt;/em&gt; - show progress during transfer&lt;br&gt;
+    &lt;em&gt;-l, --links&lt;/em&gt; - copy symlinks as symlinks&lt;br&gt;
+    &lt;em&gt;-o, --owner&lt;/em&gt; - preserve owner (super-user only)&lt;br&gt;
+    &lt;em&gt;-p, --perms&lt;/em&gt; - preserve permissions&lt;br&gt;
+    &lt;em&gt;-r, --recursive&lt;/em&gt; - recurse into directories&lt;br&gt;
+    &lt;em&gt;--stats&lt;/em&gt; - give some file-transfer stats [Display detailed file transfer statistics]&lt;br&gt;
+    &lt;em&gt;-t, --times&lt;/em&gt; - preserve modification times&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - increase verbosity&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rm&lt;/strong&gt; - remove files or directories&lt;br&gt;
+    &lt;em&gt;-d, --dir&lt;/em&gt; - remove empty directories&lt;br&gt;
+    &lt;em&gt;-f, --force&lt;/em&gt; - ignore nonexistent files and arguments, never prompt&lt;br&gt;
+    &lt;em&gt;-i&lt;/em&gt; - prompt before every removal&lt;br&gt;
+    &lt;em&gt;-I&lt;/em&gt; - prompt once before removing more than three files, or when removing recursively; less intrusive than -i, while still giving protection against most mistakes&lt;br&gt;
+    &lt;em&gt;-r, -R, --recursive&lt;/em&gt; - remove directories and their contents recursively&lt;br&gt;
+    &lt;em&gt;-v, --verbose&lt;/em&gt; - explain what is being done [Provide detailed command action information as command executes.]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rmdir&lt;/strong&gt; - remove empty directories&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;linking-files-and-directories&#34;&gt;Linking Files and Directories&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Hard Link&lt;/strong&gt;
+A hard link is a file or directory that has one index (inode) number but at least two different file names.
+A hard link allows you to have a pseudo-copy of a file without truly copying its data. This is often used in file backups where not enough filesystem space exists to back up the file’s data.&lt;br&gt;
+&lt;code&gt;ln OriginalFile.txt HardLinkFile.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When creating and using hard links, there are a few important items to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The original file must exist before you issue the ln command.&lt;/li&gt;
+&lt;li&gt;The second file name listed in the ln command must not exist prior to issuing the command.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links share the same inode number.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links share the same data.&lt;/li&gt;
+&lt;li&gt;An original file and any of its hard links can exist in different directories.&lt;/li&gt;
+&lt;li&gt;An original file and its hard links must exist on the same filesystem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Soft Link&lt;/strong&gt;
+Typically, a soft link file provides a pointer to a file that may reside on another filesystem.&lt;br&gt;
+&lt;code&gt;ln -s OriginalSFile.txt SoftLinkFile.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When creating and using soft links, there are a few important items to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The original file must exist before you issue the ln -s command.&lt;/li&gt;
+&lt;li&gt;The second file name listed in the ln -s command must not exist prior to issuing the command.&lt;/li&gt;
+&lt;li&gt;An original file and its soft links do not share the same inode number.&lt;/li&gt;
+&lt;li&gt;An original file and its soft links do not share the same data.&lt;/li&gt;
+&lt;li&gt;An original file and any of its soft links can exist in different directories.&lt;/li&gt;
+&lt;li&gt;An original file and its softs links can exist in different filesystems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;readlink&lt;/strong&gt; - print resolved symbolic links or canonical file names&lt;br&gt;
+&lt;code&gt;readlink -f /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reading-files&#34;&gt;Reading Files&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;cat&lt;/strong&gt; - concatenate files and print on the standard output&lt;br&gt;
+    &lt;em&gt;-n, --number &lt;em&gt;- number all output lines&lt;br&gt;
+    &lt;/em&gt;-v, --show-nonprinting&lt;/em&gt; - use ^ and M- notation, except for LFD and TAB&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;pr&lt;/strong&gt; - convert text files for printing&lt;br&gt;
+    &lt;em&gt;-COLUMN, --columns=COLUMN&lt;/em&gt; - output COLUMN columns and print columns down, unless -a is used. Balance number of lines in the columns on each page&lt;br&gt;
+    &lt;em&gt;-n[SEP[DIGITS]], --number-lines[=SEP[DIGITS]]&lt;/em&gt; - number lines, use DIGITS (5) digits, then SEP (TAB), default counting starts with 1st line of input file&lt;br&gt;
+    &lt;em&gt;-l, --length=PAGE_LENGTH&lt;/em&gt; - [Change the default 66-line page length to n lines long.]     set the page length to PAGE_LENGTH (66) lines (default number of lines of text 56, and with -F 63).  implies -t if PAGE_LENGTH &amp;lt;= 10&lt;br&gt;
+    &lt;em&gt;-m, --merge&lt;/em&gt; - print all files in parallel, one in each column, truncate lines, but join lines of full length with -J&lt;br&gt;
+    &lt;em&gt;-s[CHAR], --separator[=CHAR]&lt;/em&gt; - separate  columns  by a single character, default for CHAR is the &lt;TAB&gt; character without -w and &#39;no char&#39; with -w.  -s[CHAR] turns off line truncation of all 3
+    &lt;em&gt;-t, --omit-header&lt;/em&gt; - omit page headers and trailers; implied if PAGE_LENGTH &amp;lt;= 10 [Do not display any file header or trailers.]
+    &lt;em&gt;-w, --width=PAGE_WIDTH&lt;/em&gt; - set page width to PAGE_WIDTH (72) characters for multiple text-column output only, -s[char] turns off (72)
+&lt;a href=&#34;https://www.geeksforgeeks.org/pr-command-in-linux/&#34;&gt;https://www.geeksforgeeks.org/pr-command-in-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;grep, egrep, fgrep, rgrep&lt;/strong&gt; - print lines that match patterns   [-i, --ignore-case]&lt;br&gt;
+&lt;strong&gt;head&lt;/strong&gt; - output the first part of files  (&lt;code&gt;head -n 2 /etc/passwd&lt;/code&gt;)&lt;br&gt;
+&lt;strong&gt;tail&lt;/strong&gt; - output the last part of files  (&lt;code&gt;tail -f /var/log/auth.log&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;more&lt;/strong&gt; - is a filter for paging through text one screenful at a time.&lt;br&gt;
+&lt;strong&gt;less&lt;/strong&gt; - opposite of more. Less does not have to read the entire input file before starting, so with large input files it starts up faster than text editors like vi (1).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;finding-information&#34;&gt;Finding Information&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;diff&lt;/strong&gt; - compare files line by line&lt;br&gt;
+    &lt;em&gt;-e, --ed&lt;/em&gt; - [Create an ed script, which can be used to make the first file compared the same as the second file compared.] &lt;br&gt;
+    &lt;em&gt;-q, --brief&lt;/em&gt; - report only when files differ&lt;br&gt;
+    &lt;em&gt;-r, --recursive&lt;/em&gt; - recursively compare any subdirectories found&lt;br&gt;
+    &lt;em&gt;-s, --report-identical-files&lt;/em&gt; - report when two files are the same&lt;br&gt;
+    &lt;em&gt;-W, --width=NUM&lt;/em&gt; - output at most NUM (default 130) print columns&lt;br&gt;
+    &lt;em&gt;-y, --side-by-side&lt;/em&gt; - output in two columns&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; - locate a command&lt;br&gt;
+&lt;strong&gt;whereis&lt;/strong&gt; - locate the binary, source, and manual page files for a command&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;locate&lt;/strong&gt; - find files by name, utility searches a database, mlocate.db, which is located in the /var/lib/mlocate/&lt;br&gt;
+    &lt;em&gt;-A, --all&lt;/em&gt; - Print only entries that match all PATTERNs instead of requiring only one of them to match.&lt;br&gt;
+    &lt;em&gt;-b, --basename&lt;/em&gt; - Match only the base name against the specified patterns.  This is the opposite of --wholename.&lt;br&gt;
+    &lt;em&gt;-c, --count&lt;/em&gt; - Instead of writing file names on standard output, write the number of matching entries only.&lt;br&gt;
+    &lt;em&gt;-i, --ignore-case&lt;/em&gt; - Ignore case distinctions when matching patterns.&lt;br&gt;
+    &lt;em&gt;-q, --quiet&lt;/em&gt; - Write no messages about errors encountered while reading and processing databases.&lt;br&gt;
+    &lt;em&gt;-r, --regexp REGEXP&lt;/em&gt; - Search for a basic regexp REGEXP.  No PATTERNs are allowed if this option is used, but this option can be specified multiple times.&lt;br&gt;
+    &lt;em&gt;-w, --wholename&lt;/em&gt; - Match only the whole path name against the specified patterns. [Display file names that match the pattern and include any directory names that match the pattern. This is default behavior.]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using the locate command PATTERN can be a little tricky, due to default pattern file globbing . File globbing occurs when you use wildcards, such as an asterisk (&lt;code&gt;*&lt;/code&gt;) or a question mark (&lt;code&gt;?&lt;/code&gt;) added to a file name argument in a command, and the file name is expanded into multiple names. For example, &lt;code&gt;passw*d&lt;/code&gt; could be expanded into the file name password or passwrd.&lt;br&gt;
+If you don’t enter any wildcards into your pattern, the locate command, by default, adds wildcards to the pattern. So if you enter the pattern, passwd, it is automatically turned into &lt;em&gt;passwd&lt;/em&gt;. Thus, if you just want to search for the base name passwd, with no file globbing, you must add quotation marks (single or double) around the pattern and precede the pattern with the \ character.&lt;br&gt;
+&lt;code&gt;locate -b &#39;\passwd&#39; &#39;\group&#39;&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;updatedb&lt;/strong&gt; - update a database for mlocate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;find&lt;/strong&gt; - search for files in a directory hierarchy&lt;br&gt;
+    &lt;em&gt;-cmin n&lt;/em&gt; : Display names of files whose status changed n minutes ago.&lt;br&gt;
+    &lt;em&gt;-empty&lt;/em&gt; : Display names of files that are empty and are a regular text file or a directory.&lt;br&gt;
+    &lt;em&gt;-gid n&lt;/em&gt; : Display names of files whose group id is equal to n.&lt;br&gt;
+    &lt;em&gt;-group name&lt;/em&gt; : Display names of files whose group is name.&lt;br&gt;
+    &lt;em&gt;-inum n&lt;/em&gt; : Display names of files whose inode number is equal to n.&lt;br&gt;
+    &lt;em&gt;-maxdepth n&lt;/em&gt; : When searching for files, traverse down into the starting point directory’s tree only n levels.&lt;br&gt;
+    &lt;em&gt;-mmin n&lt;/em&gt; : Display names of files whose data changed n minutes ago.&lt;br&gt;
+    &lt;em&gt;-name pattern&lt;/em&gt; : Display names of files whose name matches pattern. Many regular expression arguments may be used in the pattern and need to be enclosed in quotation marks to avoid unpredictable results. Replace -name with -iname to ignore case.&lt;br&gt;
+    &lt;em&gt;-nogroup&lt;/em&gt; : Display names of files where no group name exists for the file’s group ID.&lt;br&gt;
+    &lt;em&gt;-nouser&lt;/em&gt; : Display names of files where no username exists for the file’s user ID.&lt;br&gt;
+    &lt;em&gt;-perm mode&lt;/em&gt; : Display names of files whose permissions matches mode. Either octal or symbolic modes may be used.&lt;br&gt;
+    &lt;em&gt;-size n&lt;/em&gt; : Display names of files whose size matches n. Suffixes can be used to make the size more human readable, such as G for gigabytes.&lt;br&gt;
+    &lt;em&gt;-user name&lt;/em&gt; : Display names of files whose owner is name.&lt;br&gt;
+&lt;code&gt;find /usr/bin -perm /4000&lt;/code&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
       <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</title>
       <link>https://olegs.dev/post/elastiflow/</link>
       <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
@@ -250,112 +397,111 @@ Example: &lt;code&gt;&amp;lt;h1 style=&amp;quot;color: #ffffff;&amp;quot;&amp;gt
           &lt;h2 id=&#34;setup-netflow-on-openwrt&#34;&gt;Setup NetFlow on OpenWRT&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/NetFlow&#34;&gt;NetFlow&lt;/a&gt;&lt;/strong&gt; is a network protocol system created by Cisco that collects active IP network traffic as it flows in or out of an interface. In my case all traffic runs from router with OpenWRT. To activate netflow monitoring we need to install &lt;em&gt;&lt;strong&gt;softflowd package&lt;/strong&gt;&lt;/em&gt;.&lt;br&gt;
 &lt;strong&gt;softflowd&lt;/strong&gt; - is a software implementation of a flow-based network traffic monitor.  softflowd reads network traffic and gathers information about active traffic flows.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;opkg update
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;opkg install softflowd
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;/etc/init.d/softflowd start &lt;span class=&#34;c1&#34;&gt;# or stop, or restart&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Config file: &lt;code&gt;/etc/config/softflowd&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# cat /etc/config/softflowd
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;config softflowd
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;        option enabled        &amp;#39;1&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;        option interface      &amp;#39;br-lan&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;        option pcap_file      &amp;#39;&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;        option timeout        &amp;#39;maxlife=60&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;        option max_flows      &amp;#39;8192&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;        option host_port      &amp;#39;192.168.10.55:2055&amp;#39;
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;        option pid_file       &amp;#39;/var/run/softflowd.pid&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;        option control_socket &amp;#39;/var/run/softflowd.ctl&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;        option export_version &amp;#39;5&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;        option hoplimit       &amp;#39;&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        option tracking_level &amp;#39;full&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;        option track_ipv6     &amp;#39;0&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;        option sampling_rate  &amp;#39;10&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Useful commands:&lt;br&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;opkg update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;opkg install softflowd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/etc/init.d/softflowd start &lt;span class=&#34;c1&#34;&gt;# or stop, or restart&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Config file: &lt;code&gt;/etc/config/softflowd&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;root@OpenWrt:~# cat /etc/config/softflowd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;config softflowd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option enabled        &amp;#39;1&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option interface      &amp;#39;br-lan&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option pcap_file      &amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option timeout        &amp;#39;maxlife=60&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option max_flows      &amp;#39;8192&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option host_port      &amp;#39;192.168.10.55:2055&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option pid_file       &amp;#39;/var/run/softflowd.pid&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option control_socket &amp;#39;/var/run/softflowd.ctl&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option export_version &amp;#39;5&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option hoplimit       &amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option tracking_level &amp;#39;full&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option track_ipv6     &amp;#39;0&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        option sampling_rate  &amp;#39;10&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Useful commands:&lt;br&gt;
 &lt;code&gt;softflowctl statistics&lt;/code&gt;&lt;br&gt;
 &lt;code&gt;softflowctl dump-flows&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;root@OpenWrt:~# softflowctl statistics
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;Number of active flows: 27
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;Packets processed: 16176338
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;Fragments: 2352200
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;Ignored packets: 55416 (55410 non-IP, 6 too short)
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;Flows expired: 59561 (0 forced)
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;Flows exported: 114321 in 6271 packets (0 failures)
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;Packets received by libpcap: 16231910
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;Packets dropped by libpcap: 0
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;Packets dropped by interface: 0
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;Expired flow statistics:  minimum       average       maximum
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;  Flow bytes:                  40        233515     740181706
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;  Flow packets:                 1           272        728069
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;  Duration:                  0.00s        17.90s       111.24s
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;Expired flow reasons:
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;       tcp =     13888   tcp.rst =      6337   tcp.fin =     12323
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;       udp =     18408      icmp =       577   general =        20
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;   maxlife =      8008
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;over 2 GiB =         0
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;  maxflows =         0
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;   flushed =         0
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;Per-protocol statistics:     Octets      Packets   Avg Life    Max Life
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;           icmp (1):         712567         2244      17.02s      64.16s
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;           igmp (2):           3656           89      10.80s      60.74s
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;            tcp (6):     9019595755      9503208      23.06s     111.24s
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;           udp (17):     4888056323      6670438       8.06s      90.58s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;root@OpenWrt:~# softflowctl dump-flows
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;softflowd[4563]: Dumping flow data:
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ACTIVE seq:59825 [192.168.10.4]:46672 &amp;lt;&amp;gt; [192.168.10.22]:443 proto:6 octets&amp;gt;:2929 packets&amp;gt;:16 octets&amp;lt;:6911 packets&amp;lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&amp;gt;:1b tcp&amp;lt;:1b flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;EXPIRY EVENT for flow 59825 now
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;ACTIVE seq:59826 [142.250.69.206]:443 &amp;lt;&amp;gt; [192.168.10.4]:54510 proto:6 octets&amp;gt;:195 packets&amp;gt;:3 octets&amp;lt;:414 packets&amp;lt;:6 start:2021-02-09T02:54:38.569 finish:2021-02-09T02:55:32.298 tcp&amp;gt;:19 tcp&amp;lt;:19 flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;EXPIRY EVENT for flow 59826 now
-&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;...
-&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elk-configuration&#34;&gt;ELK Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;root@OpenWrt:~# softflowctl statistics
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;softflowd[4563]: Accumulated statistics since 2021-02-07T19:39:59 UTC:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Number of active flows: 27
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Packets processed: 16176338
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Fragments: 2352200
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Ignored packets: 55416 (55410 non-IP, 6 too short)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Flows expired: 59561 (0 forced)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Flows exported: 114321 in 6271 packets (0 failures)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Packets received by libpcap: 16231910
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Packets dropped by libpcap: 0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Packets dropped by interface: 0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Expired flow statistics:  minimum       average       maximum
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  Flow bytes:                  40        233515     740181706
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  Flow packets:                 1           272        728069
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  Duration:                  0.00s        17.90s       111.24s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Expired flow reasons:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       tcp =     13888   tcp.rst =      6337   tcp.fin =     12323
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       udp =     18408      icmp =       577   general =        20
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;   maxlife =      8008
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;over 2 GiB =         0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  maxflows =         0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;   flushed =         0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Per-protocol statistics:     Octets      Packets   Avg Life    Max Life
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;           icmp (1):         712567         2244      17.02s      64.16s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;           igmp (2):           3656           89      10.80s      60.74s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;            tcp (6):     9019595755      9503208      23.06s     111.24s
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;           udp (17):     4888056323      6670438       8.06s      90.58s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;root@OpenWrt:~# softflowctl dump-flows
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;softflowd[4563]: Dumping flow data:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ACTIVE seq:59825 [192.168.10.4]:46672 &amp;lt;&amp;gt; [192.168.10.22]:443 proto:6 octets&amp;gt;:2929 packets&amp;gt;:16 octets&amp;lt;:6911 packets&amp;lt;:16 start:2021-02-09T02:54:37.540 finish:2021-02-09T02:54:42.650 tcp&amp;gt;:1b tcp&amp;lt;:1b flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;EXPIRY EVENT for flow 59825 now
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ACTIVE seq:59826 [142.250.69.206]:443 &amp;lt;&amp;gt; [192.168.10.4]:54510 proto:6 octets&amp;gt;:195 packets&amp;gt;:3 octets&amp;lt;:414 packets&amp;lt;:6 start:2021-02-09T02:54:38.569 finish:2021-02-09T02:55:32.298 tcp&amp;gt;:19 tcp&amp;lt;:19 flowlabel&amp;gt;:00000000 flowlabel&amp;lt;:00000000 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;EXPIRY EVENT for flow 59826 now
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elk-configuration&#34;&gt;ELK Configuration&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;ELK stack&lt;/strong&gt; is an acronym used to describe a stack that comprises of three popular open-source projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Instalation:&lt;/strong&gt; Here my installation example(on ubuntu 20.04 server), but I recommend to check &lt;a href=&#34;https://www.elastic.co/guide/index.html&#34;&gt;official documentation&lt;/a&gt; because it changes pretty quickly.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;sudo apt install apt-transport-https
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo apt-key add -
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;sudo apt update
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;sudo apt install elasticsearch logstash kibana
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; elasticsearch.service logstash.service kibana.service  
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;sudo systemctl start elasticsearch.service kibana.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cause this installation for educational purposes, all configuration files are left by default.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install apt-transport-https
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb https://artifacts.elastic.co/packages/7.x/apt stable main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install elasticsearch logstash kibana
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; elasticsearch.service logstash.service kibana.service  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start elasticsearch.service kibana.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cause this installation for educational purposes, all configuration files are left by default.&lt;/p&gt;
 &lt;h2 id=&#34;elastiflow-instalation&#34;&gt;ElastiFlow Instalation&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ElastiFlow™&lt;/strong&gt; - provides network flow data collection and visualization using the Elastic Stack. It supports Netflow v5/v9, sFlow and IPFIX flow types. In simple words is a set of configuration files for logstash and preconfigured kibana dashboard.&lt;br&gt;
 Full config settings and tuning ElastiFlow is out of scope this article, here an example to make it work. Please read official &lt;a href=&#34;https://github.com/robcowart/elastiflow/blob/master/INSTALL.md&#34;&gt;Installation guide&lt;/a&gt; for better understanding.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin list --installed
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# download ElastiFlow files and copy them in system&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;wget https://github.com/robcowart/elastiflow/archive/v4.0.1.tar.gz
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;tar xf v4.0.1.tar.gz
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;sudo chown root:root -R elastiflow-4.0.1/
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;sudo rsync -avh elastiflow-4.0.1/logstash.service.d /etc/systemd/system/
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;sudo rsync -avh elastiflow-4.0.1/logstash/elastiflow /etc/logstash/
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# increasing the priority of the Logstash service&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/Nice=19/Nice=0/g&amp;#39;&lt;/span&gt; /etc/systemd/system/logstash.service
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# specify Logstash configuration path&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/main/elastiflow/g&amp;#39;&lt;/span&gt; /etc/logstash/pipelines.yml
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s:logstash:logstash/elastiflow:g&amp;#39;&lt;/span&gt; /etc/logstash/pipelines.yml
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Logstash startup script to take the variables from configs&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;sudo /usr/share/logstash/bin/system-install
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# apply changes for logstash servece&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;sudo systemctl daemon-reload
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# start&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;sudo systemctl start logstash.service
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# starting process can be viewed in&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;/var/log/logstash/logstash-plain.log
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#In kibana go to &amp;#34;Management/Stack Management/Saved Objects&amp;#34; and import&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elastiflow-screenshots&#34;&gt;ElastiFlow screenshots&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#install the sFlow codec for Logstash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo /usr/share/logstash/bin/logstash-plugin install logstash-codec-sflow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo /usr/share/logstash/bin/logstash-plugin list --installed
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo /usr/share/logstash/bin/logstash-plugin update logstash-codec-netflow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# download ElastiFlow files and copy them in system&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;wget https://github.com/robcowart/elastiflow/archive/v4.0.1.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;tar xf v4.0.1.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo chown root:root -R elastiflow-4.0.1/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo rsync -avh elastiflow-4.0.1/logstash.service.d /etc/systemd/system/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo rsync -avh elastiflow-4.0.1/logstash/elastiflow /etc/logstash/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# increasing the priority of the Logstash service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/Nice=19/Nice=0/g&amp;#39;&lt;/span&gt; /etc/systemd/system/logstash.service
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# specify Logstash configuration path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/main/elastiflow/g&amp;#39;&lt;/span&gt; /etc/logstash/pipelines.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s:logstash:logstash/elastiflow:g&amp;#39;&lt;/span&gt; /etc/logstash/pipelines.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Logstash startup script to take the variables from configs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo /usr/share/logstash/bin/system-install
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# apply changes for logstash servece&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl daemon-reload
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# start&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start logstash.service
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# starting process can be viewed in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/var/log/logstash/logstash-plain.log
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#In kibana go to &amp;#34;Management/Stack Management/Saved Objects&amp;#34; and import&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;elastiflow-4.0.1/kibana/elastiflow.kibana.x.x.x.ndjson
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;elastiflow-screenshots&#34;&gt;ElastiFlow screenshots&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://olegs.dev/images/2021/ElastiFlow_Traffic_Details_types_Elastic.png&#34; alt=&#34;ElastiFlow screenshot&#34;&gt;&lt;/p&gt;
 
         
@@ -374,141 +520,138 @@ Full config settings and tuning ElastiFlow is out of scope this article, here an
 &lt;strong&gt;LXD&lt;/strong&gt; is a system container and virtual machine manager. It offers a unified user experience around full Linux systems running inside containers or virtual machines.&lt;/p&gt;
 &lt;p&gt;Before start, use &lt;code&gt;lxd init&lt;/code&gt; to configure LXD settings such as network, storage, clustering and other. All of them can be changed later.&lt;/p&gt;
 &lt;h2 id=&#34;get-info&#34;&gt;Get Info:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile show default
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc info container_name
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc config show container_name -e  &lt;span class=&#34;c1&#34;&gt;#all configurations&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;lxc storage list
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;lxc ls &lt;span class=&#34;c1&#34;&gt;#List instances&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;lxc list -c ns4mDSb
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;All available column options:
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; - IPv4 address
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; - IPv6 address
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    a - Architecture
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    b - Storage pool
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    c - Creation date
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    d - Description
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    D - disk usage
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    l - Last used date
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    m - Memory usage
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    M - Memory usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    n - Name
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    N - Number of Processes
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    p - PID of the instances init process
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    P - Profiles
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    s - State
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    S - Number of snapshots
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    t - Type &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;persistent or ephemeral&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    u - CPU usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;in seconds&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    L - Location of the instance &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g. its cluster member&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    f - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;short&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    F - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;long&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launch-new-container&#34;&gt;Launch new container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc launch images:centos/7/amd64 container_name
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc launch ubuntu:20.04 container_name
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc launch -p profile_name ubuntu:20.04 container_name   &lt;span class=&#34;c1&#34;&gt;#-p for applying a profile&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc profile show default
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc info container_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config show container_name -e  &lt;span class=&#34;c1&#34;&gt;#all configurations&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc storage list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc ls &lt;span class=&#34;c1&#34;&gt;#List instances&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc list -c ns4mDSb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;All available column options:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; - IPv4 address
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; - IPv6 address
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    a - Architecture
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    b - Storage pool
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    c - Creation date
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    d - Description
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    D - disk usage
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    l - Last used date
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    m - Memory usage
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    M - Memory usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;%&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    n - Name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    N - Number of Processes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    p - PID of the instances init process
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    P - Profiles
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    s - State
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    S - Number of snapshots
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    t - Type &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;persistent or ephemeral&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    u - CPU usage &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;in seconds&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    L - Location of the instance &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;e.g. its cluster member&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    f - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;short&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    F - Base Image Fingerprint &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;long&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;launch-new-container&#34;&gt;Launch new container&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc launch images:centos/7/amd64 container_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc launch ubuntu:20.04 container_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc launch -p profile_name ubuntu:20.04 container_name   &lt;span class=&#34;c1&#34;&gt;#-p for applying a profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;Apply specific settings to a container:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.cpu &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name root size 10GB
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 limits.ingress 1Mbit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-commands-within-container&#34;&gt;Run commands within container&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name bash
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- su --login username
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc console container_name  &lt;span class=&#34;c1&#34;&gt;# terminal inside container, use ```ctrl+a-q``` for detach.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;profile&#34;&gt;Profile&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.memory 512MB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name limits.cpu &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name root size 10GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 limits.ingress 1Mbit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-commands-within-container&#34;&gt;Run commands within container&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- /bin/bash &lt;span class=&#34;c1&#34;&gt;#Get a shell inside a container as a root&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; container_name -- su --login username
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc console container_name  &lt;span class=&#34;c1&#34;&gt;# terminal inside container, use ```ctrl+a-q``` for detach.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;profile&#34;&gt;Profile&lt;/h2&gt;
 &lt;p&gt;Profile helps create container preconfiguration. Can be apply in launch moment. Uses &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;cloud-init&lt;/a&gt; initialization.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc profile create profilename
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc profile edit profilename
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# example&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;oleg@t600:~$ lxc profile show dev1 
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;config:
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;  limits.cpu: &lt;span class=&#34;s2&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;  limits.memory: 1024MB
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;  user.user-data: &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;#cloud-config&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    package_upgrade: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    timezone: America/Los_Angeles
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# User setup&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    users:
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;     - name: oleg
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;       ssh-authorized-keys:
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;         - ssh-rsa AAAA......&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; oleg@t800
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;       sudo: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ALL=(ALL) NOPASSWD:ALL&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;       groups: sudo
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;       shell: /bin/bash
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;description: dev environment &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; tests
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;devices:
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;  eth0:
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    nictype: bridged
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    parent: br0
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    type: nic
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;  root:
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    path: /
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    pool: zfs-pool
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    type: disk
-&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;name: dev1
-&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;used_by:
-&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;...
-&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc network create testbr0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;lxc network create dev1br0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.20.5.10/24 ipv4.nat&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using a bridge. Profile:&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;devices:
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;  eth0:
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    nictype: bridged
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    parent: br0
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    type: nic
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using macvlan&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;lxc profile device add dev1 eth0 nic &lt;span class=&#34;nv&#34;&gt;nictype&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;macvlan &lt;span class=&#34;nv&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;br0
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
-&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Set static ip (stop container before):&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;lxc network attach lxdbr0 container_name eth0 eth0
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 ipv4.address 192.168.10.5
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;snapshots&#34;&gt;Snapshots&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc restore container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# restore the snapshot&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc delete container_name/snapshot_name  &lt;span class=&#34;c1&#34;&gt;# delete a snapshot&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc file pull -r container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;# Pull a folder&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc file push path-on-host container_name/path-in-container   &lt;span class=&#34;c1&#34;&gt;#  from host to instance&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc file push -r path-on-host container_name/path-in-container  &lt;span class=&#34;c1&#34;&gt;# folder&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc storage create zfs-pool zfs &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mapper/vg_lxd-lv_lxd_zfs
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;lxc storage list  
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lxc storage show zfs-pool
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;https://linuxcontainers.org/lxd/docs/master/storage
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export--importor-backups-publish&#34;&gt;Export &amp;amp; import(or backups), publish&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;lxc import container_name_date.tar.gz 
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Publish - turns a container or snapshot into an image in the local LXD image store&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;lxc publish container_name/snapshot --alias new_local_image
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;lxc publish container_name --alias image_name
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;lxc image import container_name.tar.gz  --alias custom-imagename
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;lxc image &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; imagename &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;target folder&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;flags&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;privileges&#34;&gt;Privileges&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc profile create profilename
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc profile edit profilename
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# example&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;oleg@t600:~$ lxc profile show dev1 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;config:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  limits.cpu: &lt;span class=&#34;s2&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  limits.memory: 1024MB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  user.user-data: &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;#cloud-config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    package_upgrade: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    timezone: America/Los_Angeles
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# User setup&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    users:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;     - name: oleg
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       ssh-authorized-keys:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         - ssh-rsa AAAA......&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; oleg@t800
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       sudo: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ALL=(ALL) NOPASSWD:ALL&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       groups: sudo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;       shell: /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;description: dev environment &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; tests
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;devices:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  eth0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    nictype: bridged
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    parent: br0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    type: nic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  root:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    path: /
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    pool: zfs-pool
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    type: disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;name: dev1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;used_by:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;network&#34;&gt;Network&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Create bridge:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc network create testbr0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc network create dev1br0 ipv6.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;none ipv4.address&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;172.20.5.10/24 ipv4.nat&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using a bridge. Profile:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;devices:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  eth0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    nictype: bridged
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    parent: br0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    type: nic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#containers get IP from your LAN using macvlan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc profile device add dev1 eth0 nic &lt;span class=&#34;nv&#34;&gt;nictype&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;macvlan &lt;span class=&#34;nv&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;br0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;https://blog.simos.info/how-to-make-your-lxd-container-get-ip-addresses-from-your-lan/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Set static ip (stop container before):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc network attach lxdbr0 container_name eth0 eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config device &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name eth0 ipv4.address 192.168.10.5
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;snapshots&#34;&gt;Snapshots&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc snapshot container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# reate the snapshot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc restore container_name snapshot_name &lt;span class=&#34;c1&#34;&gt;# restore the snapshot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc delete container_name/snapshot_name  &lt;span class=&#34;c1&#34;&gt;# delete a snapshot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc file pull container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;#from an instance to host&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc file pull -r container_name/path-in-container path-on-host  &lt;span class=&#34;c1&#34;&gt;# Pull a folder&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc file push path-on-host container_name/path-in-container   &lt;span class=&#34;c1&#34;&gt;#  from host to instance&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc file push -r path-on-host container_name/path-in-container  &lt;span class=&#34;c1&#34;&gt;# folder&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;storage&#34;&gt;Storage&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc storage create NAME &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/some/empty/directory
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc storage create zfs-pool zfs &lt;span class=&#34;nv&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mapper/vg_lxd-lv_lxd_zfs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc storage list  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc storage show zfs-pool
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;https://linuxcontainers.org/lxd/docs/master/storage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;export--importor-backups-publish&#34;&gt;Export &amp;amp; import(or backups), publish&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; container_name /tmp/container_name_date.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc import container_name_date.tar.gz 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Publish - turns a container or snapshot into an image in the local LXD image store&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc publish container_name/snapshot --alias new_local_image
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc publish container_name --alias image_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc image import container_name.tar.gz  --alias custom-imagename
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc image &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; imagename &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;target folder&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;flags&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#https://discuss.linuxcontainers.org/t/backup-the-container-and-install-it-on-another-server/463&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;privileges&#34;&gt;Privileges&lt;/h2&gt;
 &lt;p&gt;Set special privileges for container, this example is for NFS:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name raw.apparmor &lt;span class=&#34;s2&#34;&gt;&amp;#34;mount fstype=nfs,&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name security.privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxc config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; container_name raw.apparmor &lt;span class=&#34;s2&#34;&gt;&amp;#34;mount fstype=nfs,&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
 &lt;p&gt;Use this alias to prevent accidental deletion of an container.&lt;br&gt;
 &lt;code&gt;lxc alias add delete &amp;quot;delete -i&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;gui&#34;&gt;Gui&lt;/h2&gt;
@@ -554,49 +697,49 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 ( LuCI: Network -&amp;gt; Interfaces -&amp;gt; LAN -&amp;gt; Edit -&amp;gt; scroll down to DHCP server -&amp;gt; Advanced settings -&amp;gt; look under DHCP-Options )&lt;br&gt;
 &lt;img src=&#34;https://olegs.dev/images/2021/pihole.png&#34; alt=&#34;Pi-hole dashboard&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;instalation&#34;&gt;Instalation:&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;sudo usermod -aG libvirt &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;sudo usermod -aG kvm &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#LXD is installed by default in Ubuntu as a snap package just need to run:&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;lxd init
-&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Vagrant &lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;wget https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
-&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;sudo apt install ./vagrant_2.2.14_x86_64.deb
-&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;sudo apt install qemu libvirt-daemon-system libvirt-clients &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	ebtables dnsmasq-base  libxslt-dev libxml2-dev libvirt-dev &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	zlib1g-dev ruby-dev ruby-libvirt build-essential
-&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;vagrant plugin install vagrant-libvirt
-&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Network bridge&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;sudo vim /etc/netplan/00-installer-config.yaml
-&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;	network:
-&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;	  version: &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;	  &lt;span class=&#34;c1&#34;&gt;# renderer: networkd&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;	  ethernets:
-&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;	    eno1:
-&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;	      dhcp4: no
-&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;	      dhcp6: no
-&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt; 	
-&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;	  bridges:
-&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;	    br0:
-&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;	      interfaces: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;eno1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;	      dhcp4: no
-&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;	      addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.10/24&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;	      gateway4: 192.168.10.1
-&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;	      nameservers:
-&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;	        addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;sudo netplan apply
-&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;sudo timedatectl set-timezone America/Los_Angeles
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#KVM&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo usermod -aG libvirt &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo usermod -aG kvm &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#LXD is installed by default in Ubuntu as a snap package just need to run:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lxd init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Vagrant &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;wget https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install ./vagrant_2.2.14_x86_64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install qemu libvirt-daemon-system libvirt-clients &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	ebtables dnsmasq-base  libxslt-dev libxml2-dev libvirt-dev &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;	zlib1g-dev ruby-dev ruby-libvirt build-essential
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;vagrant plugin install vagrant-libvirt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Network bridge&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /etc/netplan/00-installer-config.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	network:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	  version: &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	  &lt;span class=&#34;c1&#34;&gt;# renderer: networkd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	  ethernets:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	    eno1:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      dhcp4: no
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      dhcp6: no
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; 	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	  bridges:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	    br0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      interfaces: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;eno1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      dhcp4: no
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.10/24&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      gateway4: 192.168.10.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	      nameservers:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	        addresses: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;192.168.10.1&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo netplan apply
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo timedatectl set-timezone America/Los_Angeles
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h2&gt;
 &lt;p&gt;For monitoring I&#39;m using &lt;strong&gt;&lt;a href=&#34;https://www.monitorix.org/&#34;&gt;Monitorix&lt;/a&gt;&lt;/strong&gt;.  It is a free, open source, lightweight system monitoring tool designed to monitor as many services and system resources as possible. It has been created to be used under production Linux/UNIX servers, but due to its simplicity and small size can be used on embedded devices as well.&lt;br&gt;
 &lt;img src=&#34;https://olegs.dev/images/2021/monitorix_cpu.png&#34; alt=&#34;Monitorix CPU and memory&#34;&gt;&lt;/p&gt;
 
@@ -631,12 +774,12 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine&#34;&gt;What is the command used to show all open ports and/or socket connections on a machine?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ss -tulpn
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -lntu 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ss -tulpn
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;No, octet can&#39;t be more than 255&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -670,10 +813,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;p&gt;A &lt;strong&gt;default gateway&lt;/strong&gt; is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-command-used-to-show-the-routing-table-on-a-linux-box&#34;&gt;What is command used to show the routing table on a Linux box?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -r
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;route -n
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;route -n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;remote-ip-address&lt;/li&gt;
@@ -691,11 +834,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-add-an-ipv6-address-to-a-specific-interface&#34;&gt;How do you add an IPv6 address to a specific interface?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Same commands as for ipv4:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;firewall blocks traffic ipv6&lt;/p&gt;
@@ -752,10 +895,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-create-a-user&#34;&gt;How do you create a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The LEFT JOIN allows you to query data from two or more tables. Similar to the INNER JOIN clause, the LEFT JOIN is an optional clause of the SELECT statement, which appears immediately after the FROM clause.&lt;br&gt;
 RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tables is reversed.&lt;br&gt;
@@ -784,10 +927,10 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-check-which-jobs-are-running&#34;&gt;How do you check which jobs are running?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         
       </description>
     </item>
@@ -942,14 +1085,14 @@ p.s. In the field of Networking, (Split Horizon) is used for a method that preve
 &lt;h2 id=&#34;what-is-a-runlevel-and-how-to-get-the-current-runlevel&#34;&gt;What is a runlevel and how to get the current runlevel?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;A runlevel is a preset operating state on a sysVinit-like operating system. A system can be booted into any of several runlevels. Each runlevel designates a different system configuration and allows access to a different combination of processes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;    0 – System halt i.e the system can be safely powered off with no activity.
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    1 – Single user mode.
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    2 – Multiple user mode with no NFS(network file system).
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    3 – Multiple user mode under the command line interface and not under the graphical user interface.
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;    4 – User-definable.
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;    5 – Multiple user mode under GUI (graphical user interface) 
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;    6 – Reboot which is used to restart the system.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;command: &lt;strong&gt;runlevel&lt;/strong&gt; - Print previous and current SysV runlevel&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    0 – System halt i.e the system can be safely powered off with no activity.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    1 – Single user mode.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    2 – Multiple user mode with no NFS(network file system).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    3 – Multiple user mode under the command line interface and not under the graphical user interface.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    4 – User-definable.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    5 – Multiple user mode under GUI (graphical user interface) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    6 – Reboot which is used to restart the system.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;command: &lt;strong&gt;runlevel&lt;/strong&gt; - Print previous and current SysV runlevel&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-ssh-port-forwarding&#34;&gt;What is SSH port forwarding?&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -1040,23 +1183,23 @@ This page contains ideas on how to answer questions. The answers are not absolut
 Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-list-all-files-including-hidden-ones-in-a-directory&#34;&gt;How to list all files, including hidden ones, in a directory?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents&#34;&gt;What is the Unix/Linux command to remove a directory and its contents?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;rmdir - only empty directories
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;rm -rf dir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux&#34;&gt;Which command will show you free/used memory? Does free memory exist on Linux?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;free -m
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;Free memory does exist on linux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively&#34;&gt;How to search for the string &amp;quot;my konfu is the best&amp;quot; in files of a directory recursively?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-connect-to-a-remote-server-or-what-is-ssh&#34;&gt;How to connect to a remote server or what is SSH?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents&#34;&gt;What is the Unix/Linux command to remove a directory and its contents?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;rmdir - only empty directories
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;rm -rf dir
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux&#34;&gt;Which command will show you free/used memory? Does free memory exist on Linux?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;free -m
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Free memory does exist on linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively&#34;&gt;How to search for the string &amp;quot;my konfu is the best&amp;quot; in files of a directory recursively?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-connect-to-a-remote-server-or-what-is-ssh&#34;&gt;How to connect to a remote server or what is SSH?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;strong&gt;ssh user@server&lt;/strong&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Secure Shell is a software standard to support encrypted data transfer between two computers. It can be used to support secure logins, file transfers or general purpose connects.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-get-all-environment-variables-and-how-can-you-use-them&#34;&gt;How to get all environment variables and how can you use them?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;printenv - print all or part of environment
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;printenv - print all or part of environment
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h2 id=&#34;i-get-command-not-found-when-i-run-ifconfig--a-what-can-be-wrong&#34;&gt;I get &amp;quot;command not found&amp;quot; when I run ifconfig -a. What can be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;net-tools is not installed&lt;/p&gt;
@@ -1066,17 +1209,17 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;the shell will automatically fill in the rest or show you the available options you can type (tab completion)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-command-will-show-the-available-disk-space-on-the-unixlinux-system&#34;&gt;What command will show the available disk space on the Unix/Linux system?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;df -h
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;df - report file system disk space usage
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-commands-do-you-know-that-can-be-used-to-check-dns-records&#34;&gt;What commands do you know that can be used to check DNS records?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;dig example.com MX &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;nsloockup &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; nslookup -type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;ns example.com &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;host &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;host -t ns example.com&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-unixlinux-commands-will-alter-a-files-ownership-files-permissions&#34;&gt;What Unix/Linux commands will alter a files ownership, files permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;chown - change file owner and group
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;chmod - change file mode bits
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-chmod-x-filename-do&#34;&gt;What does chmod +x FILENAME do?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;df - report file system disk space usage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-commands-do-you-know-that-can-be-used-to-check-dns-records&#34;&gt;What commands do you know that can be used to check DNS records?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;dig example.com MX &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;nsloockup &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; nslookup -type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;ns example.com &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;host &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;host -t ns example.com&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-unixlinux-commands-will-alter-a-files-ownership-files-permissions&#34;&gt;What Unix/Linux commands will alter a files ownership, files permissions?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chown - change file owner and group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod - change file mode bits
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-chmod-x-filename-do&#34;&gt;What does chmod +x FILENAME do?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;make it executable&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1090,25 +1233,25 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;The directory owner has full access. Group users may list the directory, but cannot create files. Nobody else has any rights.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-add-a-new-system-user-without-login-permissions&#34;&gt;How to add a new system user without login permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt; usermod -L username ( lock the account to prevent logging in )
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt; useradd -r username ( does not have a password, a home dir and is unable to login )
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-addremove-a-group-from-a-user&#34;&gt;How to add/remove a group from a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gpasswd -a user group
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;---
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;gpasswd -d user group
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;deluser user group
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;usermod -G &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; username &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; removes all secondary/supplementary groups from username &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-bash-alias&#34;&gt;What is a bash alias?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; usermod -L username ( lock the account to prevent logging in )
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; useradd -r username ( does not have a password, a home dir and is unable to login )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-addremove-a-group-from-a-user&#34;&gt;How to add/remove a group from a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;gpasswd -a user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;gpasswd -d user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;deluser user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;usermod -G &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; username &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; removes all secondary/supplementary groups from username &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-bash-alias&#34;&gt;What is a bash alias?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;An alias is a (usually short) name that the shell translates into another (usually longer) name or command&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-set-the-mail-address-of-the-roota-user&#34;&gt;How do you set the mail address of the root/a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;/root/.forwards
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;/etc/aliases
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;P.S. for postfix: set in main.cf =&amp;gt; myhostname = host.example.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-ctrl-c-do&#34;&gt;What does CTRL-c do?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/root/.forwards
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/etc/aliases
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;P.S. for postfix: set in main.cf =&amp;gt; myhostname = host.example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-ctrl-c-do&#34;&gt;What does CTRL-c do?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;CTRL+C is used to kill a process with the signal SIGINT, and can be intercepted by a program so it can clean its self up before exiting, or not exit at all&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1125,9 +1268,9 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;/etc/services file contains a list of network services and ports mapped to them.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-redirect-stdout-and-stderr-in-bash--devnull-21&#34;&gt;How to redirect STDOUT and STDERR in bash? (&amp;gt; /dev/null 2&amp;gt;&amp;amp;1)&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ls /tmp &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-unix-and-linux&#34;&gt;What is the difference between UNIX and Linux.&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ls /tmp &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-unix-and-linux&#34;&gt;What is the difference between UNIX and Linux.&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Linux is not Unix, but it is a Unix-like operating system. Linux system is derived from Unix and it is a continuation of the basis of Unix design. Linux distributions are the most famous and healthiest example of the direct Unix derivatives. BSD (Berkley Software Distribution) is also an example of a Unix derivative.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1139,14 +1282,14 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;uptime
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;w
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;top
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;cat /proc/loadavg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls&#34;&gt;Can you name a lower-case letter that is not a valid option for GNU ls?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;option &amp;#39;y&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;option &amp;#39;z&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-linux-kernel-module&#34;&gt;What is a Linux kernel module?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;uptime
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;w
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;cat /proc/loadavg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls&#34;&gt;Can you name a lower-case letter that is not a valid option for GNU ls?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;option &amp;#39;y&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;option &amp;#39;z&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-linux-kernel-module&#34;&gt;What is a Linux kernel module?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Kernel modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.&lt;/p&gt;
 &lt;/blockquote&gt;

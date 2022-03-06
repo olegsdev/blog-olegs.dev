@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>My Home Lab (v2) | Linux, SysOps, QA | Tech Blog</title>
+<title>My Home Lab (v2) | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="50" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -190,49 +190,49 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 ( LuCI: Network -&gt; Interfaces -&gt; LAN -&gt; Edit -&gt; scroll down to DHCP server -&gt; Advanced settings -&gt; look under DHCP-Options )<br>
 <img src="/images/2021/pihole.png" alt="Pi-hole dashboard"></p>
 <h2 id="instalation">Instalation:</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span><span class="c1">#KVM</span>
-<span class="ln"> 2</span>sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-<span class="ln"> 3</span>sudo usermod -aG libvirt <span class="nv">$USER</span>
-<span class="ln"> 4</span>sudo usermod -aG kvm <span class="nv">$USER</span>
-<span class="ln"> 5</span>
-<span class="ln"> 6</span>
-<span class="ln"> 7</span><span class="c1">#LXD is installed by default in Ubuntu as a snap package just need to run:</span>
-<span class="ln"> 8</span>lxd init
-<span class="ln"> 9</span>
-<span class="ln">10</span>
-<span class="ln">11</span><span class="c1">#Vagrant </span>
-<span class="ln">12</span>wget https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
-<span class="ln">13</span>sudo apt install ./vagrant_2.2.14_x86_64.deb
-<span class="ln">14</span>
-<span class="ln">15</span>sudo apt install qemu libvirt-daemon-system libvirt-clients <span class="se">\
-</span><span class="ln">16</span><span class="se"></span>	ebtables dnsmasq-base  libxslt-dev libxml2-dev libvirt-dev <span class="se">\
-</span><span class="ln">17</span><span class="se"></span>	zlib1g-dev ruby-dev ruby-libvirt build-essential
-<span class="ln">18</span>
-<span class="ln">19</span>vagrant plugin install vagrant-libvirt
-<span class="ln">20</span>
-<span class="ln">21</span><span class="c1">#Network bridge</span>
-<span class="ln">22</span>sudo vim /etc/netplan/00-installer-config.yaml
-<span class="ln">23</span>	network:
-<span class="ln">24</span>	  version: <span class="m">2</span>
-<span class="ln">25</span>	  <span class="c1"># renderer: networkd</span>
-<span class="ln">26</span>	  ethernets:
-<span class="ln">27</span>	    eno1:
-<span class="ln">28</span>	      dhcp4: no
-<span class="ln">29</span>	      dhcp6: no
-<span class="ln">30</span> 	
-<span class="ln">31</span>	  bridges:
-<span class="ln">32</span>	    br0:
-<span class="ln">33</span>	      interfaces: <span class="o">[</span>eno1<span class="o">]</span>
-<span class="ln">34</span>	      dhcp4: no
-<span class="ln">35</span>	      addresses: <span class="o">[</span>192.168.10.10/24<span class="o">]</span>
-<span class="ln">36</span>	      gateway4: 192.168.10.1
-<span class="ln">37</span>	      nameservers:
-<span class="ln">38</span>	        addresses: <span class="o">[</span>192.168.10.1<span class="o">]</span>
-<span class="ln">39</span>
-<span class="ln">40</span>sudo netplan apply
-<span class="ln">41</span>
-<span class="ln">42</span>sudo timedatectl set-timezone America/Los_Angeles
-</code></pre></div><h2 id="monitoring">Monitoring</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">#KVM</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">sudo usermod -aG libvirt <span class="nv">$USER</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">sudo usermod -aG kvm <span class="nv">$USER</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">#LXD is installed by default in Ubuntu as a snap package just need to run:</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">lxd init
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1">#Vagrant </span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">wget https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb
+</span></span><span class="line"><span class="ln">13</span><span class="cl">sudo apt install ./vagrant_2.2.14_x86_64.deb
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl">sudo apt install qemu libvirt-daemon-system libvirt-clients <span class="se">\
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="se"></span>	ebtables dnsmasq-base  libxslt-dev libxml2-dev libvirt-dev <span class="se">\
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="se"></span>	zlib1g-dev ruby-dev ruby-libvirt build-essential
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl">vagrant plugin install vagrant-libvirt
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1">#Network bridge</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">sudo vim /etc/netplan/00-installer-config.yaml
+</span></span><span class="line"><span class="ln">23</span><span class="cl">	network:
+</span></span><span class="line"><span class="ln">24</span><span class="cl">	  version: <span class="m">2</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">	  <span class="c1"># renderer: networkd</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">	  ethernets:
+</span></span><span class="line"><span class="ln">27</span><span class="cl">	    eno1:
+</span></span><span class="line"><span class="ln">28</span><span class="cl">	      dhcp4: no
+</span></span><span class="line"><span class="ln">29</span><span class="cl">	      dhcp6: no
+</span></span><span class="line"><span class="ln">30</span><span class="cl"> 	
+</span></span><span class="line"><span class="ln">31</span><span class="cl">	  bridges:
+</span></span><span class="line"><span class="ln">32</span><span class="cl">	    br0:
+</span></span><span class="line"><span class="ln">33</span><span class="cl">	      interfaces: <span class="o">[</span>eno1<span class="o">]</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">	      dhcp4: no
+</span></span><span class="line"><span class="ln">35</span><span class="cl">	      addresses: <span class="o">[</span>192.168.10.10/24<span class="o">]</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">	      gateway4: 192.168.10.1
+</span></span><span class="line"><span class="ln">37</span><span class="cl">	      nameservers:
+</span></span><span class="line"><span class="ln">38</span><span class="cl">	        addresses: <span class="o">[</span>192.168.10.1<span class="o">]</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">
+</span></span><span class="line"><span class="ln">40</span><span class="cl">sudo netplan apply
+</span></span><span class="line"><span class="ln">41</span><span class="cl">
+</span></span><span class="line"><span class="ln">42</span><span class="cl">sudo timedatectl set-timezone America/Los_Angeles
+</span></span></code></pre></div><h2 id="monitoring">Monitoring</h2>
 <p>For monitoring I'm using <strong><a href="https://www.monitorix.org/">Monitorix</a></strong>.  It is a free, open source, lightweight system monitoring tool designed to monitor as many services and system resources as possible. It has been created to be used under production Linux/UNIX servers, but due to its simplicity and small size can be used on embedded devices as well.<br>
 <img src="/images/2021/monitorix_cpu.png" alt="Monitorix CPU and memory"></p>
 <div id="disqus_thread"></div>
@@ -258,7 +258,7 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -285,6 +285,9 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -299,16 +302,13 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
       <li>
         <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/simple-linux-questions/" class="nav-link" title="Simple Linux Questions">Simple Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -324,6 +324,11 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -371,16 +376,15 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -406,7 +410,7 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -536,8 +540,8 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -546,7 +550,7 @@ For this I chose KVM - as a hypervisor and LXC(LXD) for lightweight containers. 
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

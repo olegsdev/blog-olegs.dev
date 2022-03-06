@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux-questions on Linux, SysOps, QA | Tech Blog</title>
+    <title>linux-questions on Linux, SRE, QA | Tech Blog</title>
     <link>https://olegs.dev/tags/linux-questions/</link>
-    <description>Recent content in linux-questions on Linux, SysOps, QA | Tech Blog</description>
+    <description>Recent content in linux-questions on Linux, SRE, QA | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021, Oleg Sarbaev; all rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 15:52:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/linux-questions/index.xml" rel="self" type="application/rss+xml" />
@@ -34,12 +34,12 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-the-command-used-to-show-all-open-ports-andor-socket-connections-on-a-machine&#34;&gt;What is the command used to show all open ports and/or socket connections on a machine?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;netstat -lntu 
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ss -tulpn
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -lntu 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -tulpn &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ss -tulpn
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;lsof -i -P -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep LISTEN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# https://www.cyberciti.biz/faq/how-to-check-open-ports-in-linux-using-the-cli/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;is-3001680123-a-valid-ipv4-address&#34;&gt;Is 300.168.0.123 a valid IPv4 address?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;No, octet can&#39;t be more than 255&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -73,10 +73,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;p&gt;A &lt;strong&gt;default gateway&lt;/strong&gt; is the node in a computer network using the internet protocol suite that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-command-used-to-show-the-routing-table-on-a-linux-box&#34;&gt;What is command used to show the routing table on a Linux box?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;netstat -r
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;route -n
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip route &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ip r&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;netstat -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;route -n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-tcp-connection-on-a-network-can-be-uniquely-defined-by-4-things-what-are-those-things&#34;&gt;A TCP connection on a network can be uniquely defined by 4 things. What are those things?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;remote-ip-address&lt;/li&gt;
@@ -94,11 +94,11 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-add-an-ipv6-address-to-a-specific-interface&#34;&gt;How do you add an IPv6 address to a specific interface?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;Same commands as for ipv4:
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Same commands as for ipv4:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add &amp;lt;ipv6address&amp;gt;/&amp;lt;prefixlength&amp;gt; dev &amp;lt;interface&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ip -6 addr add 3ffe:ffff:0:f101::1/64 dev eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig eth0 inet6 add 3ffe:ffff:0:f101::1/64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sendmsg-operation-not-permitted-what-could-be-wrong&#34;&gt;sendmsg: operation not permitted. what could be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;You have added an IPv4 and IPv6 address to interface eth0. A ping to the v4 address is working but a ping to the v6 address gives you the response sendmsg: operation not permitted. What could be wrong?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;firewall blocks traffic ipv6&lt;/p&gt;
@@ -155,10 +155,10 @@ traceroute - the exact route you take to reach the server from your computer(ISP
 This page contains ideas on how to answer questions. The answers are not absolutely accurate, please, consider to double-check yourself.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-create-a-user&#34;&gt;How do you create a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;CREATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IDENTIFIED&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;BY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-you-provide-privileges-to-a-user&#34;&gt;How do you provide privileges to a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;GRANT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;user_name&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-a-left-and-a-right-join&#34;&gt;What is the difference between a &amp;quot;left&amp;quot; and a &amp;quot;right&amp;quot; join?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The LEFT JOIN allows you to query data from two or more tables. Similar to the INNER JOIN clause, the LEFT JOIN is an optional clause of the SELECT statement, which appears immediately after the FROM clause.&lt;br&gt;
 RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tables is reversed.&lt;br&gt;
@@ -187,10 +187,10 @@ RIGHT JOIN is similar to LEFT JOIN, except that the treatment of the joined tabl
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-check-which-jobs-are-running&#34;&gt;How do you check which jobs are running?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SHOW&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FULL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-would-you-take-a-backup-of-a-mysql-database&#34;&gt;How would you take a backup of a MySQL database?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;mysqldump -u username -p -–all-databases &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; gzip &amp;gt; file.sql.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         
       </description>
     </item>
@@ -345,14 +345,14 @@ p.s. In the field of Networking, (Split Horizon) is used for a method that preve
 &lt;h2 id=&#34;what-is-a-runlevel-and-how-to-get-the-current-runlevel&#34;&gt;What is a runlevel and how to get the current runlevel?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;A runlevel is a preset operating state on a sysVinit-like operating system. A system can be booted into any of several runlevels. Each runlevel designates a different system configuration and allows access to a different combination of processes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;    0 – System halt i.e the system can be safely powered off with no activity.
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    1 – Single user mode.
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    2 – Multiple user mode with no NFS(network file system).
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    3 – Multiple user mode under the command line interface and not under the graphical user interface.
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;    4 – User-definable.
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;    5 – Multiple user mode under GUI (graphical user interface) 
-&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;    6 – Reboot which is used to restart the system.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;command: &lt;strong&gt;runlevel&lt;/strong&gt; - Print previous and current SysV runlevel&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    0 – System halt i.e the system can be safely powered off with no activity.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    1 – Single user mode.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    2 – Multiple user mode with no NFS(network file system).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    3 – Multiple user mode under the command line interface and not under the graphical user interface.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    4 – User-definable.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    5 – Multiple user mode under GUI (graphical user interface) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    6 – Reboot which is used to restart the system.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;command: &lt;strong&gt;runlevel&lt;/strong&gt; - Print previous and current SysV runlevel&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-ssh-port-forwarding&#34;&gt;What is SSH port forwarding?&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -443,23 +443,23 @@ This page contains ideas on how to answer questions. The answers are not absolut
 Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-list-all-files-including-hidden-ones-in-a-directory&#34;&gt;How to list all files, including hidden ones, in a directory?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents&#34;&gt;What is the Unix/Linux command to remove a directory and its contents?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;rmdir - only empty directories
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;rm -rf dir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux&#34;&gt;Which command will show you free/used memory? Does free memory exist on Linux?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;free -m
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;Free memory does exist on linux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively&#34;&gt;How to search for the string &amp;quot;my konfu is the best&amp;quot; in files of a directory recursively?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-connect-to-a-remote-server-or-what-is-ssh&#34;&gt;How to connect to a remote server or what is SSH?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ls --all  - &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; not ignore entries starting with .  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;-a&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-unixlinux-command-to-remove-a-directory-and-its-contents&#34;&gt;What is the Unix/Linux command to remove a directory and its contents?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;rmdir - only empty directories
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;rm -rf dir
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;which-command-will-show-you-freeused-memory-does-free-memory-exist-on-linux&#34;&gt;Which command will show you free/used memory? Does free memory exist on Linux?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;free -m
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Free memory does exist on linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-search-for-the-string-my-konfu-is-the-best-in-files-of-a-directory-recursively&#34;&gt;How to search for the string &amp;quot;my konfu is the best&amp;quot; in files of a directory recursively?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;grep -liR &lt;span class=&#34;s2&#34;&gt;&amp;#34;my konfu is the best&amp;#34;&lt;/span&gt; ????
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-connect-to-a-remote-server-or-what-is-ssh&#34;&gt;How to connect to a remote server or what is SSH?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;strong&gt;ssh user@server&lt;/strong&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Secure Shell is a software standard to support encrypted data transfer between two computers. It can be used to support secure logins, file transfers or general purpose connects.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-get-all-environment-variables-and-how-can-you-use-them&#34;&gt;How to get all environment variables and how can you use them?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;printenv - print all or part of environment
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;printenv - print all or part of environment
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h2 id=&#34;i-get-command-not-found-when-i-run-ifconfig--a-what-can-be-wrong&#34;&gt;I get &amp;quot;command not found&amp;quot; when I run ifconfig -a. What can be wrong?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;net-tools is not installed&lt;/p&gt;
@@ -469,17 +469,17 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;the shell will automatically fill in the rest or show you the available options you can type (tab completion)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-command-will-show-the-available-disk-space-on-the-unixlinux-system&#34;&gt;What command will show the available disk space on the Unix/Linux system?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;df -h
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;df - report file system disk space usage
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-commands-do-you-know-that-can-be-used-to-check-dns-records&#34;&gt;What commands do you know that can be used to check DNS records?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;dig example.com MX &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;nsloockup &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; nslookup -type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;ns example.com &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;host &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;host -t ns example.com&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-unixlinux-commands-will-alter-a-files-ownership-files-permissions&#34;&gt;What Unix/Linux commands will alter a files ownership, files permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;chown - change file owner and group
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;chmod - change file mode bits
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-chmod-x-filename-do&#34;&gt;What does chmod +x FILENAME do?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;df - report file system disk space usage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-commands-do-you-know-that-can-be-used-to-check-dns-records&#34;&gt;What commands do you know that can be used to check DNS records?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;dig &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; dig &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;server&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;type&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;dig example.com MX &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;nsloockup &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; nslookup -type&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;ns example.com &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;host &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;host -t ns example.com&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-unixlinux-commands-will-alter-a-files-ownership-files-permissions&#34;&gt;What Unix/Linux commands will alter a files ownership, files permissions?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chown - change file owner and group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;chmod - change file mode bits
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-chmod-x-filename-do&#34;&gt;What does chmod +x FILENAME do?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;make it executable&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -493,25 +493,25 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;The directory owner has full access. Group users may list the directory, but cannot create files. Nobody else has any rights.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-add-a-new-system-user-without-login-permissions&#34;&gt;How to add a new system user without login permissions?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt; usermod -L username ( lock the account to prevent logging in )
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt; useradd -r username ( does not have a password, a home dir and is unable to login )
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-addremove-a-group-from-a-user&#34;&gt;How to add/remove a group from a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;gpasswd -a user group
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;---
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;gpasswd -d user group
-&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;deluser user group
-&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;usermod -G &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; username &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; removes all secondary/supplementary groups from username &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-bash-alias&#34;&gt;What is a bash alias?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; useradd -M username ( Do no create the user&amp;#39;s home directory )
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; usermod -L username ( lock the account to prevent logging in )
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; useradd -r username ( does not have a password, a home dir and is unable to login )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-addremove-a-group-from-a-user&#34;&gt;How to add/remove a group from a user?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;usermod -a -G group user &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; adding a user to a group &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;gpasswd -a user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;gpasswd -d user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;deluser user group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;usermod -G &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; username &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; removes all secondary/supplementary groups from username &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-bash-alias&#34;&gt;What is a bash alias?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;An alias is a (usually short) name that the shell translates into another (usually longer) name or command&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-do-you-set-the-mail-address-of-the-roota-user&#34;&gt;How do you set the mail address of the root/a user?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;/root/.forwards
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;/etc/aliases
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;P.S. for postfix: set in main.cf =&amp;gt; myhostname = host.example.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-ctrl-c-do&#34;&gt;What does CTRL-c do?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/root/.forwards
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;/etc/aliases
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;P.S. for postfix: set in main.cf =&amp;gt; myhostname = host.example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-ctrl-c-do&#34;&gt;What does CTRL-c do?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;CTRL+C is used to kill a process with the signal SIGINT, and can be intercepted by a program so it can clean its self up before exiting, or not exit at all&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -528,9 +528,9 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;p&gt;/etc/services file contains a list of network services and ports mapped to them.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;how-to-redirect-stdout-and-stderr-in-bash--devnull-21&#34;&gt;How to redirect STDOUT and STDERR in bash? (&amp;gt; /dev/null 2&amp;gt;&amp;amp;1)&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;ls /tmp &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-unix-and-linux&#34;&gt;What is the difference between UNIX and Linux.&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;command &amp;gt; file-name 2&amp;gt;&amp;amp;1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ls /tmp &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-the-difference-between-unix-and-linux&#34;&gt;What is the difference between UNIX and Linux.&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Linux is not Unix, but it is a Unix-like operating system. Linux system is derived from Unix and it is a continuation of the basis of Unix design. Linux distributions are the most famous and healthiest example of the direct Unix derivatives. BSD (Berkley Software Distribution) is also an example of a Unix derivative.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -542,14 +542,14 @@ Groups in Linux are defined by GIDs (group IDs)&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;uptime
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;w
-&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;top
-&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;cat /proc/loadavg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls&#34;&gt;Can you name a lower-case letter that is not a valid option for GNU ls?&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;option &amp;#39;y&amp;#39;
-&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;option &amp;#39;z&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-linux-kernel-module&#34;&gt;What is a Linux kernel module?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;uptime
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;w
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;cat /proc/loadavg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;can-you-name-a-lower-case-letter-that-is-not-a-valid-option-for-gnu-ls&#34;&gt;Can you name a lower-case letter that is not a valid option for GNU ls?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;option &amp;#39;y&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;option &amp;#39;z&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-is-a-linux-kernel-module&#34;&gt;What is a Linux kernel module?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Kernel modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="true" class="page">
   <head>
-<title>Docker quick start | Linux, SysOps, QA | Tech Blog</title>
+<title>Docker quick start | Linux, SRE, QA | Tech Blog</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.93.2" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-STMD5SLHHS"></script>
@@ -37,8 +37,8 @@
     
     
     <link rel="preload" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity = "sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" as="script" integrity=
-    "sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous">
+    <link rel="preload" href="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" as="script" integrity=
+    "sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://olegs.dev/css/styles.f447efe4c4b72136d91de28493ae7ef4ecc0c35f80359801224320ede7871c488414b1dfba5913dffd7a1ed5f70440802a87e8795f124086b949e35e6579b5d9.css" integrity="sha512-9Efv5MS3ITbZHeKEk65&#43;9OzAw1&#43;ANZgBIkMg7eeHHEiEFLHfulkT3/16HtX3BECAKofoeV8SQIa5SeNeZXm12Q==" crossorigin="anonymous">
@@ -52,8 +52,8 @@
   <body data-code="30" data-lines="false" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SysOps, QA | Tech Blog">
-  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SysOps, QA | Tech Blog">
+  <nav class="nav"><a href='https://olegs.dev/' class="nav_brand nav_item" title="Linux, SRE, QA | Tech Blog">
+  <img src="https://olegs.dev/logos/logo2.png" class="logo" alt="Linux, SRE, QA | Tech Blog">
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -165,80 +165,80 @@
   </ul>
 </nav>
     <h2 id="useful-docker-commands">Useful docker commands</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>docker run (-d) - Run a command in a new container 
-<span class="ln"> 2</span>docker attach - Attach to a running container
-<span class="ln"> 3</span>docker start - Start one or more stopped containers
-<span class="ln"> 4</span>docker stop - Stop one or more running containers
-<span class="ln"> 5</span>docker ps -a - List containers
-<span class="ln"> 6</span>docker images - List images
-<span class="ln"> 7</span>docker inspect - Return low-level information on Docker objects
-<span class="ln"> 8</span>docker top - Display the running processes of a container
-<span class="ln"> 9</span>docker stats - Display a live stream of container(s) resource usage statistics
-<span class="ln">10</span>docker logs - Fetch the logs of a container
-<span class="ln">11</span>docker pull - Pull an image or a repository from a registry
-</code></pre></div><h2 id="containers-management">Containers Management:</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>docker image ls             
-<span class="ln"> 2</span>docker image pull nginx         
-<span class="ln"> 3</span>docker image inspect 08393e824c3
-<span class="ln"> 4</span>docker container run busybox
-<span class="ln"> 5</span>docker container ls -a
-<span class="ln"> 6</span>docker container run -P -d nginx
-<span class="ln"> 7</span>docker container port 55590ea1f3b4
-<span class="ln"> 8</span>docker container ps
-<span class="ln"> 9</span>docker container inspect 030f0f31e94b
-<span class="ln">10</span>docker container top 030f0f31e94b
-<span class="ln">11</span>docker container attach 030f0f31e94b
-<span class="ln">12</span>docker container exec -it 030f0f31e94b /bin/bash
-<span class="ln">13</span>docker container exec -it 030f0f31e94b ls /usr/share/nginx/
-<span class="ln">14</span>docker container rm -f 030f0f31e94b
-<span class="ln">15</span>
-<span class="ln">16</span>docker container run -d nginx
-<span class="ln">17</span>docker container run -it nginx /bin/bash
-<span class="ln">18</span>docker container exec -it ad8b407b51de ls /usr/share/nginx/
-<span class="ln">19</span>
-<span class="ln">20</span>docker stop $(docker ps -a -q)
-<span class="ln">21</span>docker rm $(docker ps -a -q)
-<span class="ln">22</span>docker container run -d --expose 3000 -p 80:3000 nginx
-<span class="ln">23</span>docker container run -d --expose 3000 -p 8080:80 nginx
-<span class="ln">24</span>docker container port 0b45e49dd5f3
-<span class="ln">25</span>docker container run -d -p 8081:80/tcp -p 8081:80/udp nginx
-</code></pre></div><h2 id="networking-commands">Networking Commands</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>docker network ls
-<span class="ln"> 2</span>docker network inspect bridge
-<span class="ln"> 3</span>docker network create br0
-<span class="ln"> 4</span>docker network rm br0
-<span class="ln"> 5</span>docker container run -d --name network-test -p 8081:80 nginx
-<span class="ln"> 6</span>docker network connect br1 network-test
-<span class="ln"> 7</span>docker network disconnect
-<span class="ln"> 8</span>docker network create -d bridge --internal localhost
-<span class="ln"> 9</span>docker network connect &lt;NETWORK&gt; &lt;CONTAINER&gt; # adding contaner to a network
-<span class="ln">10</span>
-<span class="ln">11</span>docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 br2
-<span class="ln">12</span>docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br4
-<span class="ln">13</span>docker container run -d --name network-test02 --ip 10.1.4.102 --network br4 nginx
-</code></pre></div><h2 id="storage">Storage</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">docker run (-d) - Run a command in a new container 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">docker attach - Attach to a running container
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">docker start - Start one or more stopped containers
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">docker stop - Stop one or more running containers
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">docker ps -a - List containers
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">docker images - List images
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">docker inspect - Return low-level information on Docker objects
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">docker top - Display the running processes of a container
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">docker stats - Display a live stream of container(s) resource usage statistics
+</span></span><span class="line"><span class="ln">10</span><span class="cl">docker logs - Fetch the logs of a container
+</span></span><span class="line"><span class="ln">11</span><span class="cl">docker pull - Pull an image or a repository from a registry
+</span></span></code></pre></div><h2 id="containers-management">Containers Management:</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">docker image ls             
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">docker image pull nginx         
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">docker image inspect 08393e824c3
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">docker container run busybox
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">docker container ls -a
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">docker container run -P -d nginx
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">docker container port 55590ea1f3b4
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">docker container ps
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">docker container inspect 030f0f31e94b
+</span></span><span class="line"><span class="ln">10</span><span class="cl">docker container top 030f0f31e94b
+</span></span><span class="line"><span class="ln">11</span><span class="cl">docker container attach 030f0f31e94b
+</span></span><span class="line"><span class="ln">12</span><span class="cl">docker container exec -it 030f0f31e94b /bin/bash
+</span></span><span class="line"><span class="ln">13</span><span class="cl">docker container exec -it 030f0f31e94b ls /usr/share/nginx/
+</span></span><span class="line"><span class="ln">14</span><span class="cl">docker container rm -f 030f0f31e94b
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">docker container run -d nginx
+</span></span><span class="line"><span class="ln">17</span><span class="cl">docker container run -it nginx /bin/bash
+</span></span><span class="line"><span class="ln">18</span><span class="cl">docker container exec -it ad8b407b51de ls /usr/share/nginx/
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">docker stop $(docker ps -a -q)
+</span></span><span class="line"><span class="ln">21</span><span class="cl">docker rm $(docker ps -a -q)
+</span></span><span class="line"><span class="ln">22</span><span class="cl">docker container run -d --expose 3000 -p 80:3000 nginx
+</span></span><span class="line"><span class="ln">23</span><span class="cl">docker container run -d --expose 3000 -p 8080:80 nginx
+</span></span><span class="line"><span class="ln">24</span><span class="cl">docker container port 0b45e49dd5f3
+</span></span><span class="line"><span class="ln">25</span><span class="cl">docker container run -d -p 8081:80/tcp -p 8081:80/udp nginx
+</span></span></code></pre></div><h2 id="networking-commands">Networking Commands</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">docker network ls
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">docker network inspect bridge
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">docker network create br0
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">docker network rm br0
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">docker container run -d --name network-test -p 8081:80 nginx
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">docker network connect br1 network-test
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">docker network disconnect
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">docker network create -d bridge --internal localhost
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">docker network connect &lt;NETWORK&gt; &lt;CONTAINER&gt; # adding contaner to a network
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 br2
+</span></span><span class="line"><span class="ln">12</span><span class="cl">docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network br4
+</span></span><span class="line"><span class="ln">13</span><span class="cl">docker container run -d --name network-test02 --ip 10.1.4.102 --network br4 nginx
+</span></span></code></pre></div><h2 id="storage">Storage</h2>
 <p><strong>Volume Commands</strong></p>
 <p>/var/lib/docker/volumes</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>docker volume create      Create a volume
-<span class="ln"> 2</span>docker volume inspect     Display detailed information on one or more volumes
-<span class="ln"> 3</span>docker volume ls          List volumes
-<span class="ln"> 4</span>docker volume prune       Remove all unused local volumes
-<span class="ln"> 5</span>docker volume rm          Remove one or more volumes
-<span class="ln"> 6</span>
-<span class="ln"> 7</span>docker volume create test-volume1
-<span class="ln"> 8</span>docker volume inspect test-volume1
-<span class="ln"> 9</span>docker volume rm test-volume1
-<span class="ln">10</span>docker volume prune !!!
-</code></pre></div><p><strong>Bind Mounts:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker container run -d --name nginx-bind-mount1 --mount type=bind,source=/root/dir1,target=/app nginx
-</code></pre></div><p><strong>Volumes for Persistent Storage:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker volume create volume3
-<span class="ln">2</span>docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html/ nginx
-<span class="ln">3</span>docker volume inspect volume3 
-<span class="ln">4</span>sudo ls /var/snap/docker/common/var-lib-docker/volumes/volume3/_data 
-<span class="ln">5</span>
-<span class="ln">6</span>docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html,readonly nginx  #readonly
-</code></pre></div><h2 id="dockerfile--building-images">Dockerfile &amp; Building Images</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">docker volume create      Create a volume
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">docker volume inspect     Display detailed information on one or more volumes
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">docker volume ls          List volumes
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">docker volume prune       Remove all unused local volumes
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">docker volume rm          Remove one or more volumes
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">docker volume create test-volume1
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">docker volume inspect test-volume1
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">docker volume rm test-volume1
+</span></span><span class="line"><span class="ln">10</span><span class="cl">docker volume prune !!!
+</span></span></code></pre></div><p><strong>Bind Mounts:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker container run -d --name nginx-bind-mount1 --mount type=bind,source=/root/dir1,target=/app nginx
+</span></span></code></pre></div><p><strong>Volumes for Persistent Storage:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker volume create volume3
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html/ nginx
+</span></span><span class="line"><span class="ln">3</span><span class="cl">docker volume inspect volume3 
+</span></span><span class="line"><span class="ln">4</span><span class="cl">sudo ls /var/snap/docker/common/var-lib-docker/volumes/volume3/_data 
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">docker container run -d --name nginx-volume3 --mount type=volume,source=volume3,target=/usr/share/nginx/html,readonly nginx  #readonly
+</span></span></code></pre></div><h2 id="dockerfile--building-images">Dockerfile &amp; Building Images</h2>
 <p><strong>Best practices for writing Dockerfiles</strong></p>
 <ul>
 <li>keep containers as ephemeral as possible</li>
@@ -259,47 +259,46 @@
 <li><strong>CMD</strong> specifies what command to run within the container.</li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="c1"># syntax=docker/dockerfile:1</span>
-<span class="ln">2</span>FROM ubuntu:18.04
-<span class="ln">3</span>COPY . /app
-<span class="ln">4</span>RUN make /app
-<span class="ln">5</span>CMD python /app/app.py
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="c1"># syntax=docker/dockerfile:1</span>
-<span class="ln">2</span>FROM node:12-alpine
-<span class="ln">3</span>RUN apk add --no-cache python g++ make
-<span class="ln">4</span>WORKDIR /app
-<span class="ln">5</span>COPY . .
-<span class="ln">6</span>RUN yarn install --production
-<span class="ln">7</span>CMD <span class="o">[</span><span class="s2">&#34;node&#34;</span>, <span class="s2">&#34;src/index.js&#34;</span><span class="o">]</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker image build -t &#39;testapp:v1&#39; .
-</code></pre></div><p><strong>Using Environment Variables:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln"> 1</span> <span class="c1"># Create an image</span>
-<span class="ln"> 2</span> FROM node
-<span class="ln"> 3</span> LABEL org.label-schema.version<span class="o">=</span>v1.1
-<span class="ln"> 4</span> 
-<span class="ln"> 5</span> ENV <span class="nv">NODE_ENV</span><span class="o">=</span><span class="s2">&#34;development&#34;</span>
-<span class="ln"> 6</span> ENV PORT <span class="m">3000</span>
-<span class="ln"> 7</span>
-<span class="ln"> 8</span> RUN mkdir -p /var/node
-<span class="ln"> 9</span> ADD src/ var/node/
-<span class="ln">10</span> WORKDIR /var/note
-<span class="ln">11</span> RUN npm install
-<span class="ln">12</span> EXPOSE <span class="nv">$PORT</span>
-<span class="ln">13</span> CMD .bin/www
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span>docker container run -d --name appName-dev -p 8082:3001 --env <span class="nv">PORT</span><span class="o">=</span><span class="m">3001</span> test/web-app:v2
-<span class="ln">2</span>docker container run -d --name appName-dev -p 8082:3001 --env <span class="nv">PORT</span><span class="o">=</span><span class="m">3001</span> --env <span class="nv">NODE_ENV</span><span class="o">=</span>prod test/web-app:v2
-<span class="ln">3</span>
-</code></pre></div><h2 id="some-others-commands">Some others commands:</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># syntax=docker/dockerfile:1</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">FROM ubuntu:18.04
+</span></span><span class="line"><span class="ln">3</span><span class="cl">COPY . /app
+</span></span><span class="line"><span class="ln">4</span><span class="cl">RUN make /app
+</span></span><span class="line"><span class="ln">5</span><span class="cl">CMD python /app/app.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># syntax=docker/dockerfile:1</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">FROM node:12-alpine
+</span></span><span class="line"><span class="ln">3</span><span class="cl">RUN apk add --no-cache python g++ make
+</span></span><span class="line"><span class="ln">4</span><span class="cl">WORKDIR /app
+</span></span><span class="line"><span class="ln">5</span><span class="cl">COPY . .
+</span></span><span class="line"><span class="ln">6</span><span class="cl">RUN yarn install --production
+</span></span><span class="line"><span class="ln">7</span><span class="cl">CMD <span class="o">[</span><span class="s2">&#34;node&#34;</span>, <span class="s2">&#34;src/index.js&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker image build -t &#39;testapp:v1&#39; .
+</span></span></code></pre></div><p><strong>Using Environment Variables:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"> <span class="c1"># Create an image</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"> FROM node
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"> LABEL org.label-schema.version<span class="o">=</span>v1.1
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"> 
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"> ENV <span class="nv">NODE_ENV</span><span class="o">=</span><span class="s2">&#34;development&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"> ENV PORT <span class="m">3000</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"> RUN mkdir -p /var/node
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"> ADD src/ var/node/
+</span></span><span class="line"><span class="ln">10</span><span class="cl"> WORKDIR /var/note
+</span></span><span class="line"><span class="ln">11</span><span class="cl"> RUN npm install
+</span></span><span class="line"><span class="ln">12</span><span class="cl"> EXPOSE <span class="nv">$PORT</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"> CMD .bin/www
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker container run -d --name appName-dev -p 8082:3001 --env <span class="nv">PORT</span><span class="o">=</span><span class="m">3001</span> test/web-app:v2
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker container run -d --name appName-dev -p 8082:3001 --env <span class="nv">PORT</span><span class="o">=</span><span class="m">3001</span> --env <span class="nv">NODE_ENV</span><span class="o">=</span>prod test/web-app:v2
+</span></span></code></pre></div><h2 id="some-others-commands">Some others commands:</h2>
 <p>History:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker image history node:latest 
-</code></pre></div><p>Having Containers Start Automatically</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker container run -d --name container_10.2 --restart always centos /bin/bash
-</code></pre></div><p>Docker Events</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker system events
-<span class="ln">2</span>docker system events --filter type=container --since &#39;1h&#39; 
-</code></pre></div><p>Managing Stopped Container</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>docker container ls -a -q -f status=exited
-</code></pre></div><h2 id="sources">Sources:</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker image history node:latest 
+</span></span></code></pre></div><p>Having Containers Start Automatically</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker container run -d --name container_10.2 --restart always centos /bin/bash
+</span></span></code></pre></div><p>Docker Events</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker system events
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker system events --filter type=container --since &#39;1h&#39; 
+</span></span></code></pre></div><p>Managing Stopped Container</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">docker container ls -a -q -f status=exited
+</span></span></code></pre></div><h2 id="sources">Sources:</h2>
 <ul>
 <li><a href="https://docs.docker.com/get-started/overview/">Docker documentation</a></li>
 <li><a href="https://www.pluralsight.com/courses/docker-deep-dive-update">Docker Deep Dive - Course</a></li>
@@ -328,7 +327,7 @@
     
       <h2>Oleg S.</h2>
       <div class="sidebar_description">
-        Hi there and welcome! This blog is just a collection of notes related to Linux, Web development, Software testing, Clouds.
+        Hi there and welcome! This blog is just a collection of notes related to Linux, Site reliability, Clouds, Software testing.
       </div>
       <a href='https://olegs.dev/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">Featured Posts</h2>
@@ -352,6 +351,9 @@
         <a href="https://olegs.dev/post/css/" class="nav-link" title="CSS basics">CSS basics</a>
       </li>
       <li>
+        <a href="https://olegs.dev/post/comptia-linux-files-directories-text/" class="nav-link" title="Files, Directories, Text. CompTIA Linux&#43;">Files, Directories, Text. CompTIA Linux&#43;</a>
+      </li>
+      <li>
         <a href="https://olegs.dev/post/elastiflow/" class="nav-link" title="ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT">ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</a>
       </li>
       <li>
@@ -369,16 +371,13 @@
       <li>
         <a href="https://olegs.dev/post/medium-linux-questions/" class="nav-link" title="Medium Linux Questions">Medium Linux Questions</a>
       </li>
-      <li>
-        <a href="https://olegs.dev/post/simple-linux-questions/" class="nav-link" title="Simple Linux Questions">Simple Linux Questions</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://olegs.dev/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">7</span>
+          <span class="button_tally">8</span>
         </a>
         
         <a href='https://olegs.dev/tags/linux-questions/' class="post_tag button button_translucent" title="linux-questions">
@@ -394,6 +393,11 @@
         <a href='https://olegs.dev/tags/lxd/' class="post_tag button button_translucent" title="lxd">
           LXD
           <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://olegs.dev/tags/comptia/' class="post_tag button button_translucent" title="comptia">
+          COMPTIA
+          <span class="button_tally">1</span>
         </a>
         
         <a href='https://olegs.dev/tags/containers/' class="post_tag button button_translucent" title="containers">
@@ -441,16 +445,15 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://olegs.dev/tags/netflow/' class="post_tag button button_translucent" title="netflow">
-          NETFLOW
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
         <div class="post_tags">
           <div class="tags_list">
+            
+            <a href='https://olegs.dev/tags/comptia/' class=" post_tag button button_translucent" data-position=1 title="comptia">COMPTIA<span class="button_tally">1</span>
+            </a>
+            
             
             <a href='https://olegs.dev/tags/containers/' class=" post_tag button button_translucent" data-position=1 title="containers">CONTAINERS<span class="button_tally">1</span>
             </a>
@@ -476,7 +479,7 @@
             </a>
             
             
-            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=7 title="linux">LINUX<span class="button_tally">7</span>
+            <a href='https://olegs.dev/tags/linux/' class=" post_tag button button_translucent" data-position=8 title="linux">LINUX<span class="button_tally">8</span>
             </a>
             
             
@@ -606,8 +609,8 @@
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SysOps, QA | Tech Blog">
-    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SYSOPS, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <img src='https://olegs.dev/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="Linux, SRE, QA | Tech Blog">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;LINUX, SRE, QA | TECH BLOG. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -616,7 +619,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.b27c8892f1de032db70f4b5ef4c5059e5788332317e97c42921f5b5869bd05de1d58b5e7b63abce92622cda9a9225068075d2242a689f12a2d09a867d9993ff6.js" integrity="sha512-snyIkvHeAy23D0te9MUFnleIMyMX6XxCkh9bWGm9Bd4dWLXntjq86SYizampIlBoB10iQqaJ8SotCahn2Zk/9g==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://olegs.dev/js/bundle.min.da65a88213d04f35865e6a917bb39e845731ccc7c5c0c797eb41643bbb75ed5af1d1936adac7c29cd3019ea7a5308c29618e7ed8caf0d0ea1f9a5fc1015ead70.js" integrity="sha512-2mWoghPQTzWGXmqRe7OehFcxzMfFwMeX60FkO7t17Vrx0ZNq2sfCnNMBnqelMIwpYY5&#43;2Mrw0Oofml/BAV6tcA==" crossorigin="anonymous"></script>
     
   </body>
 </html>

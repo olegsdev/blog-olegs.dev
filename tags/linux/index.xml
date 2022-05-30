@@ -309,7 +309,7 @@ If you don’t enter any wildcards into your pattern, the locate command, by def
     </item>
     
     <item>
-      <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT</title>
+      <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT (Deprecated)</title>
       <link>https://olegs.dev/post/elastiflow/</link>
       <pubDate>Mon, 08 Feb 2021 18:28:25 -0800</pubDate>
       

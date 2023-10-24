@@ -6,7 +6,7 @@
     <description>Recent content in ELK Stack on Linux &amp; DevOps | Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2023, Oleg Sarbaev; all rights reserved.</copyright>
+    <copyright>Copyright © 2023, Oleg S.; all rights reserved.</copyright>
     <lastBuildDate>Mon, 08 Feb 2021 18:28:25 -0800</lastBuildDate><atom:link href="https://olegs.dev/tags/elk-stack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ElastiFlow: Monitoring network traffic with Netflow and ELK Stack and OpenWRT (Deprecated)</title>
